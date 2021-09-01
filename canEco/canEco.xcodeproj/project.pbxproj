@@ -13,6 +13,10 @@
 		FADB9AA826DFF08400BE8481 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADB9AA626DFF08400BE8481 /* Main.storyboard */; };
 		FADB9AAA26DFF08500BE8481 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADB9AA926DFF08500BE8481 /* Assets.xcassets */; };
 		FADB9AAD26DFF08500BE8481 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADB9AAB26DFF08500BE8481 /* LaunchScreen.storyboard */; };
+		FADB9AB826DFF53400BE8481 /* TaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AB726DFF53400BE8481 /* TaskButton.swift */; };
+		FADB9ABA26DFF9E200BE8481 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AB926DFF9E200BE8481 /* Category.swift */; };
+		FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9ABB26DFFB9800BE8481 /* HomeViewController.swift */; };
+		FADB9ABE26DFFF1700BE8481 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9ABD26DFFF1700BE8481 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		FADB9AA926DFF08500BE8481 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FADB9AAC26DFF08500BE8481 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FADB9AAE26DFF08500BE8481 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FADB9AB726DFF53400BE8481 /* TaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskButton.swift; sourceTree = "<group>"; };
+		FADB9AB926DFF9E200BE8481 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		FADB9ABB26DFFB9800BE8481 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FADB9ABD26DFFF1700BE8481 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,9 @@
 		FADB9A9F26DFF08400BE8481 /* canEco */ = {
 			isa = PBXGroup;
 			children = (
+				FADB9AB526DFF50A00BE8481 /* View */,
+				FADB9AB426DFF4FE00BE8481 /* Model */,
+				FADB9AB626DFF51700BE8481 /* ViewController */,
 				FADB9AA026DFF08400BE8481 /* AppDelegate.swift */,
 				FADB9AA226DFF08400BE8481 /* SceneDelegate.swift */,
 				FADB9AA426DFF08400BE8481 /* ViewController.swift */,
@@ -65,6 +76,31 @@
 				FADB9AAE26DFF08500BE8481 /* Info.plist */,
 			);
 			path = canEco;
+			sourceTree = "<group>";
+		};
+		FADB9AB426DFF4FE00BE8481 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FADB9AB926DFF9E200BE8481 /* Category.swift */,
+				FADB9ABD26DFFF1700BE8481 /* Task.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FADB9AB526DFF50A00BE8481 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FADB9AB726DFF53400BE8481 /* TaskButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FADB9AB626DFF51700BE8481 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FADB9ABB26DFFB9800BE8481 /* HomeViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +174,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADB9AA526DFF08400BE8481 /* ViewController.swift in Sources */,
+				FADB9ABA26DFF9E200BE8481 /* Category.swift in Sources */,
 				FADB9AA126DFF08400BE8481 /* AppDelegate.swift in Sources */,
+				FADB9AB826DFF53400BE8481 /* TaskButton.swift in Sources */,
 				FADB9AA326DFF08400BE8481 /* SceneDelegate.swift in Sources */,
+				FADB9ABE26DFFF1700BE8481 /* Task.swift in Sources */,
+				FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
