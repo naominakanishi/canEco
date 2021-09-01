@@ -15,7 +15,9 @@ class HomeViewController: UIViewController {
     let userName = UILabel()
     let categoryTitle = UILabel()
     let categoryButtonContainer = UIView()
+    var collectionView: UICollectionView!
     let buttonMargin: CGFloat = 15
+    var data: [(String, String)] = [("placeholder", "1"),("placeholder", "2"),("placeholder", "3"),("placeholder", "4")]
     lazy var tapAction: (TaskButton) -> Void = { button in
         print("Clicou no botão")
     }
@@ -60,8 +62,6 @@ class HomeViewController: UIViewController {
         categoryButtonContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin).isActive = true
         categoryButtonContainer.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: margin).isActive = true
         categoryButtonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
-    
     }
     
     func setupExistentialCrisisButton() {
@@ -89,13 +89,26 @@ class HomeViewController: UIViewController {
         foodieButton.trailingAnchor.constraint(equalTo: categoryButtonContainer.trailingAnchor).isActive = true
     }
     
+    func setupCollectionView() {
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.register(TaskButton.self, forCellWithReuseIdentifier: "cell")
+        let margin: CGFloat = 30
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(collectionView)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -margin).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin).isActive = true
+        collectionView.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: margin).isActive = true
+        collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         displayHomeTitle()
         displayUserName()
         setupContainer()
-        
 //        if tem desafios {
 //            setupDesafios()
 //        } else {
@@ -104,9 +117,33 @@ class HomeViewController: UIViewController {
         setupExistentialCrisisButton()
         setupFoodieButton()
         navigationController?.setNavigationBarHidden(true, animated: false)
-
+        setupCollectionView()
         // Do any additional setup after loading the view.
     }
 
 
+}
+
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.contentView.addSubview(TaskButton(category: .fashion, tapAction: tapAction))
+        return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let columns: CGFloat = 2
+        let collectionViewWidth = collectionView.bounds.width
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        let spaceBetweenCells = flowLayout.minimumInteritemSpacing * (columns - 1)
+        let adjustedWidth = collectionViewWidth - spaceBetweenCells
+        let width: CGFloat = floor(adjustedWidth / columns)
+        let height: CGFloat = 100
+        return CGSize(width: width, height: height)
+    }
 }
