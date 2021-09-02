@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */; };
+		FAB6A16D26E1186200852FA7 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */; };
 		FADB9AA126DFF08400BE8481 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA026DFF08400BE8481 /* AppDelegate.swift */; };
 		FADB9AA326DFF08400BE8481 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA226DFF08400BE8481 /* SceneDelegate.swift */; };
 		FADB9AA526DFF08400BE8481 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA426DFF08400BE8481 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCollectionViewExtension.swift; sourceTree = "<group>"; };
+		FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		FADB9A9D26DFF08400BE8481 /* canEco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = canEco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADB9AA026DFF08400BE8481 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADB9AA226DFF08400BE8481 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				FADB9ABB26DFFB9800BE8481 /* HomeViewController.swift */,
 				FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */,
+				FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				FADB9ABA26DFF9E200BE8481 /* Category.swift in Sources */,
 				FADB9AA126DFF08400BE8481 /* AppDelegate.swift in Sources */,
 				FADB9AB826DFF53400BE8481 /* TaskButton.swift in Sources */,
+				FAB6A16D26E1186200852FA7 /* CustomCollectionViewLayout.swift in Sources */,
 				FADB9AA326DFF08400BE8481 /* SceneDelegate.swift in Sources */,
 				FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */,
 				FADB9ABE26DFFF1700BE8481 /* Task.swift in Sources */,

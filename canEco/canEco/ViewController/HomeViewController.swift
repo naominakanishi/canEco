@@ -74,7 +74,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupCollectionView() {
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: CustomCollectionViewLayout())
         collectionView.register(TaskButton.self, forCellWithReuseIdentifier: "cell")
         let margin: CGFloat = 30
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -89,3 +89,4 @@ class HomeViewController: UIViewController {
     }
 
 }
+
