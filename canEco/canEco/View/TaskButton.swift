@@ -7,92 +7,83 @@
 
 import UIKit
 
-class TaskButton: UIView {
+class TaskButton: UICollectionViewCell {
     
-    let categoryImageView = UIImageView()
-    let categoryTitle = UILabel()
+    var task: Task? {
+        didSet {
+            configureCell(for: task!.name)
+            contentView.updateConstraintsIfNeeded()
+        }
+    }
+    let taskImageView = UIImageView()
+    let taskTitle = UILabel()
     let checkButton = UIButton()
     let progressBar = UIProgressView()
-    let category: Category
-    let tapAction: (TaskButton) -> Void
     
     func setupCategoryImageView(){
-        categoryImageView.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(categoryImageView)
-        categoryImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        categoryImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
-        categoryImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5).isActive = true
-        categoryImageView.heightAnchor.constraint(equalTo: categoryImageView.widthAnchor, multiplier: 1 ).isActive = true
+        taskImageView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(taskImageView)
+        taskImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        taskImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        taskImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5).isActive = true
+        taskImageView.heightAnchor.constraint(equalTo: taskImageView.widthAnchor, multiplier: 1 ).isActive = true
     }
     
     func setupProgressBar(){
         progressBar.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(progressBar)
-        progressBar.topAnchor.constraint(equalTo: categoryImageView.bottomAnchor, constant: 10).isActive = true
-        progressBar.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        progressBar.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8).isActive = true
+        self.contentView.addSubview(progressBar)
+        progressBar.topAnchor.constraint(equalTo: taskImageView.bottomAnchor, constant: 10).isActive = true
+        progressBar.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        progressBar.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8).isActive = true
         progressBar.heightAnchor.constraint(equalToConstant: 10).isActive = true
         progressBar.progress = 0.5
         progressBar.tintColor = UIColor.green
     }
     
     func setupCategoryTitle(){
-        categoryTitle.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(categoryTitle)
-        categoryTitle.font = UIFont.boldSystemFont(ofSize: 18)
-        categoryTitle.tintColor = UIColor(named: "darkGreyColor")
-        categoryTitle.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 10).isActive = true
-        categoryTitle.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        categoryTitle.textAlignment = .center
-        categoryTitle.numberOfLines = 0
+        taskTitle.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.addSubview(taskTitle)
+        taskTitle.font = UIFont.boldSystemFont(ofSize: 18)
+        taskTitle.tintColor = UIColor(named: "darkGreyColor")
+        taskTitle.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 10).isActive = true
+        taskTitle.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+        taskTitle.textAlignment = .center
+        taskTitle.numberOfLines = 0
+        checkButton.setTitleColor(.black, for: .normal)
     }
     
     func setupCheckButton(){
         checkButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(checkButton)
-        checkButton.topAnchor.constraint(equalTo: categoryTitle.bottomAnchor, constant: 10).isActive = true
-        checkButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8).isActive = true
-        checkButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.contentView.addSubview(checkButton)
+        checkButton.topAnchor.constraint(equalTo: taskTitle.bottomAnchor, constant: 10).isActive = true
+        checkButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8).isActive = true
+        checkButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         checkButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
         checkButton.setTitle("Check In", for: .normal)
         checkButton.layer.cornerRadius = 20
         checkButton.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
         checkButton.layer.borderWidth = 1
-    }
-    
-    func setupNextGesture(){
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
-        self.addGestureRecognizer(gesture)
+        checkButton.setTitleColor(.black, for: .normal)
     }
     
     
-    @objc func handleTapGesture(){
-        print("ta clicando fia")
-        tapAction(self)
-    }
-    
-    init(category: Category, tapAction: @escaping (TaskButton) -> Void){
-        self.category = category
-        self.tapAction = tapAction
+    override init(frame: CGRect) {
         super.init(frame: .zero)
-        self.layer.cornerRadius = 20
-        self.backgroundColor = UIColor.lightGray
-    
         setupCategoryImageView()
         setupProgressBar()
         setupCategoryTitle()
         setupCheckButton()
-        setupNextGesture()
-        
+        contentView.backgroundColor = .yellow
+        contentView.layer.cornerRadius = 20
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure (imageName: String, categoryTitle: String){
-        categoryImageView.image = UIImage(named: imageName)
-        self.categoryTitle.text = categoryTitle
+    func configureCell(for taskName: String){
+        taskImageView.image = UIImage(named: taskName)
+        self.taskTitle.text = taskName
     }
     
     /*
