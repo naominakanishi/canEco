@@ -12,7 +12,6 @@ class TaskButton: UICollectionViewCell {
     var task: Task? {
         didSet {
             configureCell(for: task!.name)
-//            contentView.updateConstraintsIfNeeded()
         }
     }
     let taskImageView = UIImageView()
@@ -69,6 +68,13 @@ class TaskButton: UICollectionViewCell {
         checkButton.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
         checkButton.layer.borderWidth = 1
         checkButton.setTitleColor(.black, for: .normal)
+        checkButton.addTarget(self, action: #selector(functionAction), for: .touchUpInside)
+    }
+    
+    @objc
+    func functionAction() {
+        task?.completedSteps += 1
+        progressBar.progress = task!.completedSteps / task!.totalSteps
     }
     
 
@@ -89,14 +95,7 @@ class TaskButton: UICollectionViewCell {
     func configureCell(for taskName: String){
         taskImageView.image = UIImage(named: taskName)
         self.taskTitle.text = taskName
+        progressBar.progress = task!.completedSteps / task!.totalSteps
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
