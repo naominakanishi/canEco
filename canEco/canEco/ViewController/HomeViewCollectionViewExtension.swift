@@ -19,13 +19,27 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let columns: CGFloat = 2
+        let task = data[indexPath.item]
+        var columns: CGFloat
+        var widthMultiplier: CGFloat
+        if task.isExpanded {
+            columns = 1
+            widthMultiplier = 0.8
+        }
+        else {
+            columns = 2
+            widthMultiplier = 1.38
+        }
         let collectionViewWidth = collectionView.bounds.width
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let spaceBetweenCells = flowLayout.minimumInteritemSpacing * (columns - 1)
         let adjustedWidth = collectionViewWidth - spaceBetweenCells
         let width: CGFloat = floor(adjustedWidth / columns)
-        let height: CGFloat = collectionView.bounds.height * 0.3
+        let height: CGFloat = width * widthMultiplier
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        resize(itemAt: indexPath)
     }
 }

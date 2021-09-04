@@ -31,6 +31,13 @@ class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func resize(itemAt indexPath: IndexPath) {
+        self.collectionView.collectionViewLayout.collectionView?.performBatchUpdates({
+            data[indexPath.item].isExpanded.toggle()
+            self.collectionView.reloadData()
+        }, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -76,15 +83,14 @@ class HomeViewController: UIViewController {
     func setupCollectionView() {
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: CustomCollectionViewLayout())
         collectionView.register(TaskButton.self, forCellWithReuseIdentifier: "cell")
-        let margin: CGFloat = 30
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .white
-        collectionView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -margin).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin).isActive = true
-        collectionView.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: margin).isActive = true
+        collectionView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
+        collectionView.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: 30).isActive = true
         collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 
