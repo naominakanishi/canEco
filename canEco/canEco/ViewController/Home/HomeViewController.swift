@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
 //
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "bege")
         displayIsland()
         displayHomeTitle()
         displayUserName()
@@ -51,10 +51,14 @@ class HomeViewController: UIViewController {
 //        }
 //        setupExistentialCrisisButton()
 //        setupFoodieButton()
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        
+//        navigationController?.setNavigationBarHidden(true, animated: false)
+//        navigationController?.navigationBar.isHidden = true
+//        tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
         data = RegularTask.getTasks()
-        // Do any additional setup after loading the view.
+        
+        // Configuração da TabBar
+        let tabBar = UITabBarItem(title: "Meus desafios", image: UIImage(systemName: "bookmark"), tag: 1)
+        tabBarItem = tabBar
     }
     
     func displayHomeTitle(){
@@ -107,7 +111,7 @@ class HomeViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor(named: "bege")
         collectionView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
         collectionView.topAnchor.constraint(equalTo: island.bottomAnchor, constant: 20).isActive = true

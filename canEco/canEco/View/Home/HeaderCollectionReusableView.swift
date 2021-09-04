@@ -27,7 +27,7 @@ class HeaderCollectionReusableView: UICollectionReusableView {
         label.text = text
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         label.textAlignment = .center
-        label.backgroundColor = .white
-        label.layer.borderWidth = 1
+        label.backgroundColor = UIColor(named: "bege")
+//        label.layer.borderWidth = 1
     }
 }

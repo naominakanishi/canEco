@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0AA4CA26E3DB0600892E4C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AA4C926E3DB0600892E4C /* TabBarViewController.swift */; };
 		FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29894726E15D7B0078BE1A /* CheckListItem.swift */; };
 		FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29894926E161DA0078BE1A /* CheckListViewController.swift */; };
 		FA6E43FF26E3B672004DCA5A /* TaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E43FE26E3B672004DCA5A /* TaskProtocol.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA0AA4C926E3DB0600892E4C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		FA29894726E15D7B0078BE1A /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
 		FA29894926E161DA0078BE1A /* CheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListViewController.swift; sourceTree = "<group>"; };
 		FA6E43FE26E3B672004DCA5A /* TaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProtocol.swift; sourceTree = "<group>"; };
@@ -59,6 +61,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA0AA4C726E3DAA900892E4C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */,
+				FADB9ABB26DFFB9800BE8481 /* HomeViewController.swift */,
+				FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FA0AA4C826E3DACF00892E4C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FADB9AB726DFF53400BE8481 /* TaskButton.swift */,
+				FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		FADB9A9426DFF08400BE8481 = {
 			isa = PBXGroup;
 			children = (
@@ -107,8 +128,7 @@
 		FADB9AB526DFF50A00BE8481 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FADB9AB726DFF53400BE8481 /* TaskButton.swift */,
-				FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */,
+				FA0AA4C826E3DACF00892E4C /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,10 +136,9 @@
 		FADB9AB626DFF51700BE8481 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FADB9ABB26DFFB9800BE8481 /* HomeViewController.swift */,
-				FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */,
-				FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */,
+				FA0AA4C726E3DAA900892E4C /* Home */,
 				FA29894926E161DA0078BE1A /* CheckListViewController.swift */,
+				FA0AA4C926E3DB0600892E4C /* TabBarViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -207,6 +226,7 @@
 				FADB9ABE26DFFF1700BE8481 /* Task.swift in Sources */,
 				FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */,
 				FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */,
+				FA0AA4CA26E3DB0600892E4C /* TabBarViewController.swift in Sources */,
 				FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
