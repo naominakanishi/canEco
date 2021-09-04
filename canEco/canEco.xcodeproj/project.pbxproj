@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29894726E15D7B0078BE1A /* CheckListItem.swift */; };
 		FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29894926E161DA0078BE1A /* CheckListViewController.swift */; };
+		FA6E43FF26E3B672004DCA5A /* TaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E43FE26E3B672004DCA5A /* TaskProtocol.swift */; };
+		FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440026E3B71B004DCA5A /* Benefits.swift */; };
+		FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */; };
 		FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */; };
 		FAB6A16D26E1186200852FA7 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */; };
 		FADB9AA126DFF08400BE8481 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA026DFF08400BE8481 /* AppDelegate.swift */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		FA29894726E15D7B0078BE1A /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
 		FA29894926E161DA0078BE1A /* CheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListViewController.swift; sourceTree = "<group>"; };
+		FA6E43FE26E3B672004DCA5A /* TaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProtocol.swift; sourceTree = "<group>"; };
+		FA6E440026E3B71B004DCA5A /* Benefits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benefits.swift; sourceTree = "<group>"; };
+		FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCollectionViewExtension.swift; sourceTree = "<group>"; };
 		FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		FADB9A9D26DFF08400BE8481 /* canEco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = canEco.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +98,8 @@
 				FADB9AB926DFF9E200BE8481 /* Category.swift */,
 				FADB9ABD26DFFF1700BE8481 /* Task.swift */,
 				FA29894726E15D7B0078BE1A /* CheckListItem.swift */,
+				FA6E43FE26E3B672004DCA5A /* TaskProtocol.swift */,
+				FA6E440026E3B71B004DCA5A /* Benefits.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				FADB9AB726DFF53400BE8481 /* TaskButton.swift */,
+				FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,15 +194,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */,
 				FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */,
 				FADB9AA526DFF08400BE8481 /* ViewController.swift in Sources */,
 				FADB9ABA26DFF9E200BE8481 /* Category.swift in Sources */,
 				FADB9AA126DFF08400BE8481 /* AppDelegate.swift in Sources */,
 				FADB9AB826DFF53400BE8481 /* TaskButton.swift in Sources */,
 				FAB6A16D26E1186200852FA7 /* CustomCollectionViewLayout.swift in Sources */,
+				FA6E43FF26E3B672004DCA5A /* TaskProtocol.swift in Sources */,
 				FADB9AA326DFF08400BE8481 /* SceneDelegate.swift in Sources */,
 				FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */,
 				FADB9ABE26DFFF1700BE8481 /* Task.swift in Sources */,
+				FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */,
 				FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */,
 				FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */,
 			);

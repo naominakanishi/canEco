@@ -7,19 +7,20 @@
 
 import Foundation
     
-struct Task {
-    let name: String
-    let category: Category
+struct RegularTask: Task {
+    var name: String
+    var category: Category
+    var benefits: [Benefits]
+    
     let totalSteps: Float = 10
-    var isExpanded: Bool = false
     var completedSteps: Float = 3
     
-    static func getTasks() -> [Task] {
-        return [Task(name: "placeholder", category: .fashion), Task(name: "placeholder", category: .fashion),
-                Task(name: "placeholder", category: .food), Task(name: "placeholder", category: .food),
-                Task(name: "placeholder", category: .shopping), Task(name: "placeholder", category: .shopping),
-                Task(name: "placeholder", category: .transportation), Task(name: "placeholder", category: .transportation),
-                Task(name: "placeholder", category: .waste), Task(name: "placeholder", category: .waste),
-                Task(name: "placeholder", category: .waste), Task(name: "placeholder", category: .fashion)]
+    static func getTasks() -> [RegularTask] {
+        return [RegularTask(name: "placeholder", category: .fashion, benefits: []),
+                RegularTask(name: "placeholder", category: .food, benefits: []),
+                RegularTask(name: "placeholder", category: .shopping, benefits: []),
+                RegularTask(name: "placeholder", category: .transportation, benefits: []),
+                RegularTask(name: "placeholder", category: .waste, benefits: []),
+                RegularTask(name: "placeholder", category: .waste, benefits: [])]
     }
 }

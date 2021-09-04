@@ -13,11 +13,9 @@ class HomeViewController: UIViewController {
 
     let homeTitle = UILabel()
     let userName = UILabel()
-    let categoryTitle = UILabel()
-    let categoryButtonContainer = UIView()
+    let island = UIImageView()
     var collectionView: UICollectionView!
-    let buttonMargin: CGFloat = 15
-    var data = [Task]() {
+    var data = [RegularTask]() {
         didSet {
             collectionView.reloadData()
         }
@@ -31,18 +29,20 @@ class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func resize(itemAt indexPath: IndexPath) {
-        self.collectionView.collectionViewLayout.collectionView?.performBatchUpdates({
-            data[indexPath.item].isExpanded.toggle()
-            self.collectionView.reloadData()
-        }, completion: nil)
-    }
-    
+//    func resize(itemAt indexPath: IndexPath) {
+//        self.collectionView.collectionViewLayout.collectionView?.performBatchUpdates({
+//            data[indexPath.item].isExpanded.toggle()
+//            self.collectionView.reloadData()
+//        }, completion: nil)
+//    }
+//
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        displayIsland()
         displayHomeTitle()
         displayUserName()
+        setupCollectionView()
 //        setupContainer()
 //        if tem desafios {
 //            setupDesafios()
@@ -52,20 +52,24 @@ class HomeViewController: UIViewController {
 //        setupExistentialCrisisButton()
 //        setupFoodieButton()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        setupCollectionView()
         
-        data = Task.getTasks()
+        data = RegularTask.getTasks()
         // Do any additional setup after loading the view.
     }
     
     func displayHomeTitle(){
         homeTitle.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(homeTitle)
-        homeTitle.text = "Ilha do"
-        homeTitle.font = UIFont.boldSystemFont(ofSize: 32)
+        
+        // AttributedString pra poder customizar o espaçamento entre linhas
+        let attributedString = NSMutableAttributedString(string: "ILHA DO")
+        attributedString.addAttribute(.kern, value: 2.6, range: NSRange(location: 0, length: attributedString.length - 1))
+        homeTitle.attributedText = attributedString
+        
+        homeTitle.font = UIFont.systemFont(ofSize: 20, weight: .light)
         homeTitle.numberOfLines = 0
-        homeTitle.textColor = UIColor(named: "violetColor")
-        homeTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
+//        homeTitle.textColor = UIColor(named: "violetColor")
+//        homeTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
         homeTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
@@ -73,16 +77,32 @@ class HomeViewController: UIViewController {
         userName.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(userName)
         userName.text = "Juliano"
-        userName.font = UIFont.boldSystemFont(ofSize: 48)
+        userName.font = UIFont.boldSystemFont(ofSize: 40)
         userName.numberOfLines = 0
-        userName.textColor = UIColor.blue
-        userName.topAnchor.constraint(equalTo: homeTitle.bottomAnchor, constant: 10).isActive = true
+        userName.topAnchor.constraint(equalTo: homeTitle.bottomAnchor).isActive = true
         userName.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        userName.bottomAnchor.constraint(equalTo: island.topAnchor, constant: -20).isActive = true
+    }
+    
+    
+    func displayIsland() {
+        island.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(island)
+        island.image = UIImage(named: "ilhaPlaceholder")
+        island.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150).isActive = true
+        island.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        island.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.33).isActive = true
+        island.widthAnchor.constraint(equalTo: island.heightAnchor, multiplier: 1.05).isActive = true
     }
     
     func setupCollectionView() {
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: CustomCollectionViewLayout())
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionHeadersPinToVisibleBounds = true
+        layout.minimumInteritemSpacing = view.frame.width * 0.0375
+        layout.minimumLineSpacing = layout.minimumInteritemSpacing
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: layout)
         collectionView.register(TaskButton.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
         collectionView.delegate = self
@@ -90,7 +110,7 @@ class HomeViewController: UIViewController {
         collectionView.backgroundColor = .white
         collectionView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
-        collectionView.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: 30).isActive = true
+        collectionView.topAnchor.constraint(equalTo: island.bottomAnchor, constant: 20).isActive = true
         collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 

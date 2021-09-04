@@ -9,7 +9,7 @@ import UIKit
 
 class TaskButton: UICollectionViewCell {
     
-    var task: Task? {
+    var task: RegularTask? {
         didSet {
             configureCell(for: task!.name)
         }
@@ -86,7 +86,7 @@ class TaskButton: UICollectionViewCell {
     @objc
     func functionAction() {
         task?.completedSteps += 1
-        task?.isExpanded.toggle()
+//        task?.isExpanded.toggle()
         progressBar.progress = task!.completedSteps / task!.totalSteps
     }
     
