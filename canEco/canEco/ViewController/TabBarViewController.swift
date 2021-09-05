@@ -20,9 +20,7 @@ class TabBarViewController: UITabBarController {
         
         tabBar.isTranslucent = true
         tabBar.tintColor = UIColor(named: "yellow")
-        viewControllers = [HomeViewController(), ViewController(), ViewController()]
+        viewControllers = [HomeViewController(), NewChallengeViewController(), ViewController()]
         selectedIndex = 0
-
     }
-    
 }

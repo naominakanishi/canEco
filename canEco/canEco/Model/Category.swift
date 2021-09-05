@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-enum Category: CaseIterable {
-    case transportation
-    case food
-    case fashion
-    case waste
-    case shopping
+enum Category: String, CaseIterable {
+    case transportation = "MOBILIDADE"
+    case food = "ALIMENTAÇÃO"
+    case fashion = "MODA"
+    case waste = "LIXO ZERO"
+    case shopping = "CONSUMO"
     
     func getColor() -> UIColor {
         switch self {

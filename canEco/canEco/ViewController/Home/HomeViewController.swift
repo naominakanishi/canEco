@@ -21,8 +21,10 @@ class HomeViewController: UIViewController {
         }
     }
     
-    init () {
+    init() {
         super.init(nibName: nil, bundle: nil)
+        let tabBar = UITabBarItem(title: "Meus desafios", image: UIImage(systemName: "bookmark"), selectedImage: UIImage(systemName: "bookmark.fill"))
+        tabBarItem = tabBar
     }
     
     required init?(coder: NSCoder) {
@@ -57,8 +59,6 @@ class HomeViewController: UIViewController {
         data = RegularTask.getTasks()
         
         // Configuração da TabBar
-        let tabBar = UITabBarItem(title: "Meus desafios", image: UIImage(systemName: "bookmark"), tag: 1)
-        tabBarItem = tabBar
     }
     
     func displayHomeTitle(){
@@ -101,18 +101,20 @@ class HomeViewController: UIViewController {
     
     func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionHeadersPinToVisibleBounds = true
+//        layout.sectionHeadersPinToVisibleBounds = true
+        layout.sectionInset = UIEdgeInsets(top: data.isEmpty ? 30 : 0, left: view.frame.width * 0.075, bottom: 0, right: view.frame.width * 0.075)
         layout.minimumInteritemSpacing = view.frame.width * 0.0375
         layout.minimumLineSpacing = layout.minimumInteritemSpacing
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: layout)
         collectionView.register(TaskButton.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(NewTaskButton.self, forCellWithReuseIdentifier: "cell_new")
         collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor(named: "bege")
-        collectionView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
+        collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
         collectionView.topAnchor.constraint(equalTo: island.bottomAnchor, constant: 20).isActive = true
         collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

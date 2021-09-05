@@ -16,11 +16,11 @@ struct RegularTask: Task {
     var completedSteps: Float = 3
     
     static func getTasks() -> [RegularTask] {
+//        []
         return [RegularTask(name: "placeholder", category: .fashion, benefits: []),
                 RegularTask(name: "placeholder", category: .food, benefits: []),
                 RegularTask(name: "placeholder", category: .shopping, benefits: []),
                 RegularTask(name: "placeholder", category: .transportation, benefits: []),
-                RegularTask(name: "placeholder", category: .waste, benefits: []),
                 RegularTask(name: "placeholder", category: .waste, benefits: [])]
     }
 }
