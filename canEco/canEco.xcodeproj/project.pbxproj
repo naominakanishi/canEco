@@ -13,12 +13,22 @@
 		FA0AA4D626E40FD300892E4C /* CategoryTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AA4D526E40FD300892E4C /* CategoryTagCollectionViewCell.swift */; };
 		FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29894726E15D7B0078BE1A /* CheckListItem.swift */; };
 		FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29894926E161DA0078BE1A /* CheckListViewController.swift */; };
-		FA6E43FF26E3B672004DCA5A /* TaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E43FE26E3B672004DCA5A /* TaskProtocol.swift */; };
 		FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440026E3B71B004DCA5A /* Benefits.swift */; };
 		FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */; };
 		FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72DC7F26E5080A0095CC81 /* StringExtension.swift */; };
+		FA72E0E326E57E3000976C8B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0E226E57E3000976C8B /* User.swift */; };
+		FA72E0E826E58C7B00976C8B /* CompletedChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0E726E58C7B00976C8B /* CompletedChallenge.swift */; };
+		FA72E0EC26E686CE00976C8B /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0EB26E686CE00976C8B /* Achievement.swift */; };
+		FA72E0F026E6920A00976C8B /* AllAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0EF26E6920A00976C8B /* AllAchievements.swift */; };
+		FA72E0F326E6D1A400976C8B /* AllChallenges.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0F226E6D1A400976C8B /* AllChallenges.swift */; };
+		FA72E0F526E6D39400976C8B /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0F426E6D39400976C8B /* Record.swift */; };
+		FA72E0F726E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0F626E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift */; };
 		FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */; };
 		FAB6A16D26E1186200852FA7 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */; };
+		FAD4CC1526E51BAE00818DE9 /* RepeatableChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */; };
+		FAD4CC1726E51CFE00818DE9 /* StepChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1626E51CFE00818DE9 /* StepChallenge.swift */; };
+		FAD4CC1F26E53AD900818DE9 /* NewChallengeCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1E26E53AD900818DE9 /* NewChallengeCardCollectionViewCell.swift */; };
+		FAD4CC2126E53D6700818DE9 /* BenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC2026E53D6700818DE9 /* BenefitCell.swift */; };
 		FADB9AA126DFF08400BE8481 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA026DFF08400BE8481 /* AppDelegate.swift */; };
 		FADB9AA326DFF08400BE8481 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA226DFF08400BE8481 /* SceneDelegate.swift */; };
 		FADB9AA526DFF08400BE8481 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA426DFF08400BE8481 /* ViewController.swift */; };
@@ -28,7 +38,7 @@
 		FADB9AB826DFF53400BE8481 /* TaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AB726DFF53400BE8481 /* TaskButton.swift */; };
 		FADB9ABA26DFF9E200BE8481 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AB926DFF9E200BE8481 /* Category.swift */; };
 		FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9ABB26DFFB9800BE8481 /* HomeViewController.swift */; };
-		FADB9ABE26DFFF1700BE8481 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9ABD26DFFF1700BE8481 /* Task.swift */; };
+		FADB9ABE26DFFF1700BE8481 /* ChallengeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9ABD26DFFF1700BE8481 /* ChallengeProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,12 +48,22 @@
 		FA0AA4D526E40FD300892E4C /* CategoryTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA29894726E15D7B0078BE1A /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
 		FA29894926E161DA0078BE1A /* CheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListViewController.swift; sourceTree = "<group>"; };
-		FA6E43FE26E3B672004DCA5A /* TaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProtocol.swift; sourceTree = "<group>"; };
 		FA6E440026E3B71B004DCA5A /* Benefits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benefits.swift; sourceTree = "<group>"; };
 		FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FA72DC7F26E5080A0095CC81 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		FA72E0E226E57E3000976C8B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA72E0E726E58C7B00976C8B /* CompletedChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedChallenge.swift; sourceTree = "<group>"; };
+		FA72E0EB26E686CE00976C8B /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
+		FA72E0EF26E6920A00976C8B /* AllAchievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAchievements.swift; sourceTree = "<group>"; };
+		FA72E0F226E6D1A400976C8B /* AllChallenges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChallenges.swift; sourceTree = "<group>"; };
+		FA72E0F426E6D39400976C8B /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		FA72E0F626E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayOfChallengesFilterExtension.swift; sourceTree = "<group>"; };
 		FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCollectionViewExtension.swift; sourceTree = "<group>"; };
 		FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
+		FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatableChallenge.swift; sourceTree = "<group>"; };
+		FAD4CC1626E51CFE00818DE9 /* StepChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepChallenge.swift; sourceTree = "<group>"; };
+		FAD4CC1E26E53AD900818DE9 /* NewChallengeCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChallengeCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAD4CC2026E53D6700818DE9 /* BenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCell.swift; sourceTree = "<group>"; };
 		FADB9A9D26DFF08400BE8481 /* canEco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = canEco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADB9AA026DFF08400BE8481 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADB9AA226DFF08400BE8481 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +75,7 @@
 		FADB9AB726DFF53400BE8481 /* TaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskButton.swift; sourceTree = "<group>"; };
 		FADB9AB926DFF9E200BE8481 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FADB9ABB26DFFB9800BE8481 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		FADB9ABD26DFFF1700BE8481 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		FADB9ABD26DFFF1700BE8481 /* ChallengeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +121,31 @@
 			isa = PBXGroup;
 			children = (
 				FA0AA4D526E40FD300892E4C /* CategoryTagCollectionViewCell.swift */,
+				FAD4CC1E26E53AD900818DE9 /* NewChallengeCardCollectionViewCell.swift */,
+				FAD4CC2026E53D6700818DE9 /* BenefitCell.swift */,
 			);
 			path = NewChallenge;
+			sourceTree = "<group>";
+		};
+		FA72E0E626E58C6100976C8B /* Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				FADB9ABD26DFFF1700BE8481 /* ChallengeProtocol.swift */,
+				FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */,
+				FAD4CC1626E51CFE00818DE9 /* StepChallenge.swift */,
+				FA72E0E726E58C7B00976C8B /* CompletedChallenge.swift */,
+				FA72E0F226E6D1A400976C8B /* AllChallenges.swift */,
+			);
+			path = Challenges;
+			sourceTree = "<group>";
+		};
+		FA72E0F126E6939600976C8B /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				FA72E0EB26E686CE00976C8B /* Achievement.swift */,
+				FA72E0EF26E6920A00976C8B /* AllAchievements.swift */,
+			);
+			path = Achievements;
 			sourceTree = "<group>";
 		};
 		FADB9A9426DFF08400BE8481 = {
@@ -141,11 +184,14 @@
 		FADB9AB426DFF4FE00BE8481 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA72E0E626E58C6100976C8B /* Challenges */,
+				FA72E0F126E6939600976C8B /* Achievements */,
 				FADB9AB926DFF9E200BE8481 /* Category.swift */,
-				FADB9ABD26DFFF1700BE8481 /* Task.swift */,
 				FA29894726E15D7B0078BE1A /* CheckListItem.swift */,
-				FA6E43FE26E3B672004DCA5A /* TaskProtocol.swift */,
 				FA6E440026E3B71B004DCA5A /* Benefits.swift */,
+				FA72E0E226E57E3000976C8B /* User.swift */,
+				FA72E0F426E6D39400976C8B /* Record.swift */,
+				FA72E0F626E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift */,
 				FA72DC7F26E5080A0095CC81 /* StringExtension.swift */,
 			);
 			path = Model;
@@ -243,23 +289,33 @@
 			files = (
 				FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */,
 				FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */,
+				FA72E0F726E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift in Sources */,
+				FA72E0F526E6D39400976C8B /* Record.swift in Sources */,
 				FADB9AA526DFF08400BE8481 /* ViewController.swift in Sources */,
 				FADB9ABA26DFF9E200BE8481 /* Category.swift in Sources */,
 				FADB9AA126DFF08400BE8481 /* AppDelegate.swift in Sources */,
+				FAD4CC1726E51CFE00818DE9 /* StepChallenge.swift in Sources */,
 				FADB9AB826DFF53400BE8481 /* TaskButton.swift in Sources */,
+				FA72E0EC26E686CE00976C8B /* Achievement.swift in Sources */,
 				FAB6A16D26E1186200852FA7 /* CustomCollectionViewLayout.swift in Sources */,
 				FA0AA4D026E3FA9100892E4C /* NewTaskButton.swift in Sources */,
-				FA6E43FF26E3B672004DCA5A /* TaskProtocol.swift in Sources */,
+				FA72E0E826E58C7B00976C8B /* CompletedChallenge.swift in Sources */,
 				FADB9AA326DFF08400BE8481 /* SceneDelegate.swift in Sources */,
+				FAD4CC1F26E53AD900818DE9 /* NewChallengeCardCollectionViewCell.swift in Sources */,
 				FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */,
-				FADB9ABE26DFFF1700BE8481 /* Task.swift in Sources */,
+				FAD4CC1526E51BAE00818DE9 /* RepeatableChallenge.swift in Sources */,
+				FADB9ABE26DFFF1700BE8481 /* ChallengeProtocol.swift in Sources */,
 				FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */,
+				FAD4CC2126E53D6700818DE9 /* BenefitCell.swift in Sources */,
 				FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */,
 				FA0AA4CA26E3DB0600892E4C /* TabBarViewController.swift in Sources */,
 				FA0AA4D626E40FD300892E4C /* CategoryTagCollectionViewCell.swift in Sources */,
 				FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */,
+				FA72E0F026E6920A00976C8B /* AllAchievements.swift in Sources */,
 				FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */,
 				FA0AA4D326E40C0E00892E4C /* NewChallengeViewController.swift in Sources */,
+				FA72E0F326E6D1A400976C8B /* AllChallenges.swift in Sources */,
+				FA72E0E326E57E3000976C8B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

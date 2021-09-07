@@ -9,7 +9,7 @@ import UIKit
 
 class TaskButton: UICollectionViewCell {
     
-    var task: RegularTask? {
+    var task: Challenge? {
         didSet {
             configureCell(for: task!.name)
         }
@@ -80,15 +80,15 @@ class TaskButton: UICollectionViewCell {
         checkButton.setTitleColor(.white, for: .normal)
         
         // Action
-        checkButton.addTarget(self, action: #selector(functionAction), for: .touchUpInside)
+//        checkButton.addTarget(self, action: #selector(functionAction), for: .touchUpInside)
     }
     
-    @objc
-    func functionAction() {
-        task?.completedSteps += 1
-//        task?.isExpanded.toggle()
-        progressBar.progress = task!.completedSteps / task!.totalSteps
-    }
+//    @objc
+//    func functionAction() {
+//        task?.completedSteps += 1
+////        task?.isExpanded.toggle()
+//        progressBar.progress = task!.completedSteps / task!.totalSteps
+//    }
     
 
     override init(frame: CGRect) {
@@ -108,7 +108,7 @@ class TaskButton: UICollectionViewCell {
     func configureCell(for taskName: String){
         taskImageView.image = UIImage(named: taskName)
         self.taskTitle.text = taskName
-        progressBar.progress = task!.completedSteps / task!.totalSteps
+//        progressBar.progress = task!.completedSteps / task!.totalSteps
         contentView.backgroundColor = task?.category.getColor()
     }
 

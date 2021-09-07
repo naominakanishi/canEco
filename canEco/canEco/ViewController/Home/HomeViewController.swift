@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     let userName = UILabel()
     let island = UIImageView()
     var collectionView: UICollectionView!
-    var data = [RegularTask]() {
+    var data = [Challenge]() {
         didSet {
             collectionView.reloadData()
         }
@@ -56,7 +56,7 @@ class HomeViewController: UIViewController {
 //        navigationController?.setNavigationBarHidden(true, animated: false)
 //        navigationController?.navigationBar.isHidden = true
 //        tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
-        data = RegularTask.getTasks()
+        data = Challenges.getChallenges()
         
         // Configuração da TabBar
     }

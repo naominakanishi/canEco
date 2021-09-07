@@ -11,6 +11,7 @@ class NewChallengeViewController: UIViewController {
 
     var filter: UICollectionView!
     var data: [Category?] = [nil, Category.fashion, Category.food, Category.shopping, Category.transportation, Category.waste]
+    var benefit: NewChallengeCardCollectionViewCell!
     
     var collectionLayout: UICollectionViewFlowLayout! {
         didSet {
@@ -33,6 +34,15 @@ class NewChallengeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupFilter()
+        
+//        benefit = NewChallengeCardCollectionViewCell()
+//        benefit.challenge = RepeatableChallenge(name: "placeholder", category: .fashion, benefits: [.co2, .diseases, .energy], totalSteps: 10)
+//        benefit.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(benefit)
+//        benefit.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        benefit.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75).isActive = true
+//        benefit.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
+//        benefit.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.6).isActive = true
     }
     
     func setupFilter() {
@@ -40,13 +50,14 @@ class NewChallengeViewController: UIViewController {
         collectionLayout = UICollectionViewFlowLayout()
         collectionLayout.scrollDirection = .horizontal
         collectionLayout.estimatedItemSize = CGSize(width: 100, height: 40)
+        collectionLayout.sectionInset = UIEdgeInsets(top: 0, left: view.frame.width * 0.07, bottom: 0, right: view.frame.width * 0.07)
         
         filter = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: collectionLayout)
         filter.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(filter)
-        filter.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * 0.07).isActive = true
+        filter.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 //        filter.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        filter.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -view.frame.width * 0.07).isActive = true
+        filter.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         filter.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
         filter.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.04).isActive = true
         
@@ -85,6 +96,11 @@ extension NewChallengeViewController: UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryTagCollectionViewCell
-        cell.ativo.toggle()
+        
+        if cell.displayMode == .fill {
+            cell.displayMode = .unfill
+        } else {
+            cell.displayMode = .fill
+        }
     }
 }

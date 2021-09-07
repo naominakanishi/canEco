@@ -9,13 +9,18 @@ import UIKit
 
 class CategoryTagCollectionViewCell: UICollectionViewCell {
     
+    enum DisplayMode {
+        case fill
+        case unfill
+    }
+    
     var label = UILabel()
     var category: Category? {
         didSet {
             configureCell()
         }
     }
-    var ativo: Bool = false {
+    var displayMode: DisplayMode = .unfill {
         didSet {
             configureCell()
         }
@@ -44,7 +49,7 @@ class CategoryTagCollectionViewCell: UICollectionViewCell {
     func configureCell() {
         if category != nil {
             label.text = category!.rawValue
-            if ativo {
+            if displayMode == .fill {
                 label.textColor = .white
                 contentView.layer.backgroundColor = category?.getColor().cgColor
             } else {
@@ -53,7 +58,7 @@ class CategoryTagCollectionViewCell: UICollectionViewCell {
             }
         } else {
             label.text = "TODOS"
-            if ativo {
+            if displayMode == .fill {
                 label.textColor = .white
                 contentView.layer.backgroundColor = UIColor(named: "brown")?.cgColor
             } else {
