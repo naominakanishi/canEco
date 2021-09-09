@@ -13,6 +13,8 @@
 		FA0AA4D626E40FD300892E4C /* CategoryTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AA4D526E40FD300892E4C /* CategoryTagCollectionViewCell.swift */; };
 		FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29894726E15D7B0078BE1A /* CheckListItem.swift */; };
 		FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29894926E161DA0078BE1A /* CheckListViewController.swift */; };
+		FA3FE90E26EA4E790013ABAB /* HomeViewAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE90D26EA4E790013ABAB /* HomeViewAnim.swift */; };
+		FA3FE91026EA4F250013ABAB /* CheckButtonAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE90F26EA4F250013ABAB /* CheckButtonAnim.swift */; };
 		FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440026E3B71B004DCA5A /* Benefits.swift */; };
 		FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */; };
 		FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72DC7F26E5080A0095CC81 /* StringExtension.swift */; };
@@ -23,8 +25,6 @@
 		FA72E0F326E6D1A400976C8B /* AllChallenges.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0F226E6D1A400976C8B /* AllChallenges.swift */; };
 		FA72E0F526E6D39400976C8B /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0F426E6D39400976C8B /* Record.swift */; };
 		FA72E0F726E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0F626E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift */; };
-		FA808C2A26E90C0E00E5BC19 /* CheckButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA808C2926E90C0E00E5BC19 /* CheckButtonAnimation.swift */; };
-		FA808C2C26E921F400E5BC19 /* HomeViewAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA808C2B26E921F400E5BC19 /* HomeViewAnimations.swift */; };
 		FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */; };
 		FAB6A16D26E1186200852FA7 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */; };
 		FAD4CC1526E51BAE00818DE9 /* RepeatableChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */; };
@@ -50,6 +50,8 @@
 		FA0AA4D526E40FD300892E4C /* CategoryTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA29894726E15D7B0078BE1A /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
 		FA29894926E161DA0078BE1A /* CheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListViewController.swift; sourceTree = "<group>"; };
+		FA3FE90D26EA4E790013ABAB /* HomeViewAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewAnim.swift; sourceTree = "<group>"; };
+		FA3FE90F26EA4F250013ABAB /* CheckButtonAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButtonAnim.swift; sourceTree = "<group>"; };
 		FA6E440026E3B71B004DCA5A /* Benefits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benefits.swift; sourceTree = "<group>"; };
 		FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FA72DC7F26E5080A0095CC81 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -60,8 +62,6 @@
 		FA72E0F226E6D1A400976C8B /* AllChallenges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChallenges.swift; sourceTree = "<group>"; };
 		FA72E0F426E6D39400976C8B /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		FA72E0F626E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayOfChallengesFilterExtension.swift; sourceTree = "<group>"; };
-		FA808C2926E90C0E00E5BC19 /* CheckButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckButtonAnimation.swift; path = ../../../../../../Documents/CheckButtonAnimation.swift; sourceTree = "<group>"; };
-		FA808C2B26E921F400E5BC19 /* HomeViewAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewAnimations.swift; path = ../../../../../../Documents/HomeViewAnimations.swift; sourceTree = "<group>"; };
 		FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCollectionViewExtension.swift; sourceTree = "<group>"; };
 		FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatableChallenge.swift; sourceTree = "<group>"; };
@@ -131,6 +131,15 @@
 			path = NewChallenge;
 			sourceTree = "<group>";
 		};
+		FA3FE90A26EA4DA00013ABAB /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				FA3FE90D26EA4E790013ABAB /* HomeViewAnim.swift */,
+				FA3FE90F26EA4F250013ABAB /* CheckButtonAnim.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		FA72E0E626E58C6100976C8B /* Challenges */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,15 +159,6 @@
 				FA72E0EF26E6920A00976C8B /* AllAchievements.swift */,
 			);
 			path = Achievements;
-			sourceTree = "<group>";
-		};
-		FA808C2826E90B2200E5BC19 /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-				FA808C2926E90C0E00E5BC19 /* CheckButtonAnimation.swift */,
-				FA808C2B26E921F400E5BC19 /* HomeViewAnimations.swift */,
-			);
-			path = Animations;
 			sourceTree = "<group>";
 		};
 		FADB9A9426DFF08400BE8481 = {
@@ -215,7 +215,7 @@
 			children = (
 				FA0AA4C826E3DACF00892E4C /* Home */,
 				FA0AA4D426E40F9800892E4C /* NewChallenge */,
-				FA808C2826E90B2200E5BC19 /* Animations */,
+				FA3FE90A26EA4DA00013ABAB /* Animations */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,9 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				FA0AA4C926E3DB0600892E4C /* TabBarViewController.swift */,
+				FA29894926E161DA0078BE1A /* CheckListViewController.swift */,
 				FA0AA4C726E3DAA900892E4C /* Home */,
 				FA0AA4D126E40BE900892E4C /* NewChallenge */,
-				FA29894926E161DA0078BE1A /* CheckListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -304,6 +304,7 @@
 				FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */,
 				FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */,
 				FA72E0F726E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift in Sources */,
+				FA3FE91026EA4F250013ABAB /* CheckButtonAnim.swift in Sources */,
 				FA72E0F526E6D39400976C8B /* Record.swift in Sources */,
 				FADB9AA526DFF08400BE8481 /* ViewController.swift in Sources */,
 				FADB9ABA26DFF9E200BE8481 /* Category.swift in Sources */,
@@ -312,7 +313,6 @@
 				FADB9AB826DFF53400BE8481 /* ChallengeCell.swift in Sources */,
 				FA72E0EC26E686CE00976C8B /* Achievement.swift in Sources */,
 				FAB6A16D26E1186200852FA7 /* CustomCollectionViewLayout.swift in Sources */,
-				FA808C2A26E90C0E00E5BC19 /* CheckButtonAnimation.swift in Sources */,
 				FA0AA4D026E3FA9100892E4C /* NewTaskButton.swift in Sources */,
 				FA72E0E826E58C7B00976C8B /* CompletedChallenge.swift in Sources */,
 				FADB9AA326DFF08400BE8481 /* SceneDelegate.swift in Sources */,
@@ -324,11 +324,11 @@
 				FAD4CC2126E53D6700818DE9 /* BenefitCell.swift in Sources */,
 				FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */,
 				FA0AA4CA26E3DB0600892E4C /* TabBarViewController.swift in Sources */,
-				FA808C2C26E921F400E5BC19 /* HomeViewAnimations.swift in Sources */,
 				FA0AA4D626E40FD300892E4C /* CategoryTagCollectionViewCell.swift in Sources */,
 				FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */,
 				FA72E0F026E6920A00976C8B /* AllAchievements.swift in Sources */,
 				FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */,
+				FA3FE90E26EA4E790013ABAB /* HomeViewAnim.swift in Sources */,
 				FA0AA4D326E40C0E00892E4C /* NewChallengeViewController.swift in Sources */,
 				FA72E0F326E6D1A400976C8B /* AllChallenges.swift in Sources */,
 				FA72E0E326E57E3000976C8B /* User.swift in Sources */,

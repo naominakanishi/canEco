@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
         }
     }
     var isCollectionViewMaximized = false
+    var collectionViewYOrigin: CGFloat!
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -123,6 +124,7 @@ class HomeViewController: UIViewController {
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
         collectionView.topAnchor.constraint(equalTo: island.bottomAnchor, constant: topDistanceToIsland).isActive = true
         collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        collectionViewYOrigin = collectionView.frame.origin.y
     }
     
     //MARK: Constants
