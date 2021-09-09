@@ -15,11 +15,13 @@ class HomeViewController: UIViewController {
     let userName = UILabel()
     let island = UIImageView()
     var collectionView: UICollectionView!
+    var titleLabelSize: CGFloat!
     var data = [Challenge]() {
         didSet {
             collectionView.reloadData()
         }
     }
+    var isCollectionViewMaximized = false
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -31,34 +33,15 @@ class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    func resize(itemAt indexPath: IndexPath) {
-//        self.collectionView.collectionViewLayout.collectionView?.performBatchUpdates({
-//            data[indexPath.item].isExpanded.toggle()
-//            self.collectionView.reloadData()
-//        }, completion: nil)
-//    }
-//
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "bege")
+        titleLabelSize = "Juliano".width(withConstrainedHeight: 1000, font: UIFont.boldSystemFont(ofSize: userNameFontSize))
+        
         displayIsland()
         displayHomeTitle()
-        displayUserName()
         setupCollectionView()
-//        setupContainer()
-//        if tem desafios {
-//            setupDesafios()
-//        } else {
-//            setupSemDesafios()
-//        }
-//        setupExistentialCrisisButton()
-//        setupFoodieButton()
-//        navigationController?.setNavigationBarHidden(true, animated: false)
-//        navigationController?.navigationBar.isHidden = true
-//        tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
         data = Challenges.getChallenges()
-        
-        // Configuração da TabBar
     }
     
     func displayHomeTitle(){
@@ -66,59 +49,100 @@ class HomeViewController: UIViewController {
         view.addSubview(homeTitle)
         
         // AttributedString pra poder customizar o espaçamento entre linhas
-        let attributedString = NSMutableAttributedString(string: "ILHA DO")
-        attributedString.addAttribute(.kern, value: 2.6, range: NSRange(location: 0, length: attributedString.length - 1))
+        let attributedString = NSMutableAttributedString(string: "ILHA DO\nJuliano")
+        attributedString.addAttribute(.kern, value: ilhaDoKerning, range: NSRange(location: 0, length: 7))
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: ilhaDoFontSize, weight: .light), range: NSRange(location: 0, length: 7))
+        attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: userNameFontSize), range: NSRange(location: 7, length: attributedString.length - 7))
         homeTitle.attributedText = attributedString
         
-        homeTitle.font = UIFont.systemFont(ofSize: 20, weight: .light)
         homeTitle.numberOfLines = 0
-//        homeTitle.textColor = UIColor(named: "violetColor")
-//        homeTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
-        homeTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    }
-    
-    func displayUserName(){
-        userName.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(userName)
-        userName.text = "Juliano"
-        userName.font = UIFont.boldSystemFont(ofSize: 40)
-        userName.numberOfLines = 0
-        userName.topAnchor.constraint(equalTo: homeTitle.bottomAnchor).isActive = true
-        userName.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        userName.bottomAnchor.constraint(equalTo: island.topAnchor, constant: -20).isActive = true
+        homeTitle.textAlignment = .center
+        
+        let centerXAnchor = homeTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        centerXAnchor.identifier = "labelCenterX"
+        centerXAnchor.isActive = true
+
+        let centerYAnchor = homeTitle.centerYAnchor.constraint(equalTo: view.topAnchor, constant: distanceToTop)
+        centerYAnchor.identifier = "labelCenterY"
+        centerYAnchor.isActive = true
+        homeTitle.widthAnchor.constraint(equalToConstant: titleLabelSize).isActive = true
+        
+//        homeTitle.layer.borderWidth = 1
+        homeTitle.textColor = UIColor(named: "black")
     }
     
     
     func displayIsland() {
+        island.image = UIImage(named: "ilhaPlaceholder")
+        
+        // Constraints
         island.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(island)
-        island.image = UIImage(named: "ilhaPlaceholder")
-        island.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150).isActive = true
-        island.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        island.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.33).isActive = true
-        island.widthAnchor.constraint(equalTo: island.heightAnchor, multiplier: 1.05).isActive = true
+        let centerYAnchor = island.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: yDistanceToCenter)
+        centerYAnchor.identifier = "IslandCenterY"
+        centerYAnchor.isActive = true
+        
+        let centerXAnchor = island.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        centerXAnchor.identifier = "IslandCenterX"
+        centerXAnchor.isActive = true
+        
+        let heightAnchor = island.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: maxHeightProportion)
+        heightAnchor.identifier = "IslandHeight"
+        heightAnchor.isActive = true
+        island.widthAnchor.constraint(equalTo: island.heightAnchor, multiplier: aspectRatio).isActive = true
+        
+//        island.layer.borderWidth = 1
     }
     
     func setupCollectionView() {
+        // Layout
         let layout = UICollectionViewFlowLayout()
-//        layout.sectionHeadersPinToVisibleBounds = true
-        layout.sectionInset = UIEdgeInsets(top: data.isEmpty ? 30 : 0, left: view.frame.width * 0.075, bottom: 0, right: view.frame.width * 0.075)
-        layout.minimumInteritemSpacing = view.frame.width * 0.0375
+        layout.sectionHeadersPinToVisibleBounds = true
+        layout.sectionInset = UIEdgeInsets(top: data.isEmpty ? 30 : 0, left: view.frame.width * borderSpacingProportion, bottom: 0, right: view.frame.width * borderSpacingProportion)
+        layout.minimumInteritemSpacing = view.frame.width * interitemSpacingProportion
         layout.minimumLineSpacing = layout.minimumInteritemSpacing
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: layout)
-        collectionView.register(TaskButton.self, forCellWithReuseIdentifier: "cell")
+        
+        // Cells
+        collectionView.register(ChallengeCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.register(NewTaskButton.self, forCellWithReuseIdentifier: "cell_new")
         collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(collectionView)
+
+        // Delegate
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        // Appearece
         collectionView.backgroundColor = UIColor(named: "bege")
+        collectionView.showsVerticalScrollIndicator = false
+        
+        // Constraints
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(collectionView)
         collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
-        collectionView.topAnchor.constraint(equalTo: island.bottomAnchor, constant: 20).isActive = true
+        collectionView.topAnchor.constraint(equalTo: island.bottomAnchor, constant: topDistanceToIsland).isActive = true
         collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
+    
+    //MARK: Constants
+    //MARK: Island Constants
+    let maxHeightProportion: CGFloat = 0.33
+    let minHeightProportion: CGFloat = 0.10
+    let aspectRatio: CGFloat = 1.05
+    let yDistanceToCenter: CGFloat = -150
+    
+    //MARK: CollectionView Constants
+    let interitemSpacingProportion: CGFloat = 0.0375
+    let borderSpacingProportion: CGFloat = 0.0375
+    let topDistanceToIsland: CGFloat = 20
+    
+    //MARK: Title
+    let userNameFontSize: CGFloat = 40
+    let ilhaDoFontSize: CGFloat = 20
+    let ilhaDoKerning: CGFloat = 2.6
+    let distanceToTop: CGFloat = 90
+    let centerDistanceToIsland: CGFloat = -65
 
 }
 

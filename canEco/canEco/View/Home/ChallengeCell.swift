@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TaskButton: UICollectionViewCell {
+class ChallengeCell: UICollectionViewCell {
     
     var task: Challenge? {
         didSet {
@@ -56,7 +56,7 @@ class TaskButton: UICollectionViewCell {
         taskTitle.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8).isActive = true
         
         // Appearance
-        taskTitle.tintColor = UIColor(named: "black")
+        taskTitle.textColor = UIColor(named: "black")
         taskTitle.textAlignment = .left
         taskTitle.numberOfLines = 0
         checkButton.setTitleColor(.black, for: .normal)
@@ -66,13 +66,20 @@ class TaskButton: UICollectionViewCell {
         checkButton.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(checkButton)
         // Constraints
-        checkButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15).isActive = true
-        checkButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8).isActive = true
+        let bottomConstraint = checkButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
+        bottomConstraint.identifier = "Bottom"
+        bottomConstraint.isActive = true
+        let widthConstraint = checkButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8)
+        widthConstraint.identifier = "Width"
+        widthConstraint.isActive = true
+        let heightConstraint = checkButton.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.17)
+        heightConstraint.identifier = "Height"
+        heightConstraint.isActive = true
         checkButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        checkButton.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.17).isActive = true
         
         // Appearance
         checkButton.setTitle("C H E C K", for: .normal)
+        checkButton.setTitleColor(UIColor(named: "black"), for: .normal)
         checkButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         checkButton.layer.cornerRadius = 9
         checkButton.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -80,15 +87,17 @@ class TaskButton: UICollectionViewCell {
         checkButton.setTitleColor(.white, for: .normal)
         
         // Action
-//        checkButton.addTarget(self, action: #selector(functionAction), for: .touchUpInside)
+        checkButton.addTarget(self, action: #selector(didClick), for: .touchUpInside)
     }
     
-//    @objc
-//    func functionAction() {
-//        task?.completedSteps += 1
-////        task?.isExpanded.toggle()
-//        progressBar.progress = task!.completedSteps / task!.totalSteps
-//    }
+    @objc func didClick() {
+        let task = task
+        checkButton.performClickAnimation { _ in
+            task?.completeNextStep()
+            self.progressBar.progress = 0.8
+        }
+    }
+    
     
 
     override init(frame: CGRect) {

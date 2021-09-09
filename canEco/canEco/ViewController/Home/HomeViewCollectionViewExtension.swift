@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     // Quantos elementos
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count + 1
@@ -16,7 +16,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     // Como cada elemento deve ser mostrado
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item < data.count {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! TaskButton
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChallengeCell
             cell.task = data[indexPath.item]
             return cell
         } else {
@@ -66,7 +66,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     // Tamanho do header
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         print(collectionView.frame.width)
-        return CGSize(width: collectionView.frame.width, height: 53)
+        return CGSize(width: collectionView.frame.width, height: 30)
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -75,4 +75,32 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let speed = scrollView.panGestureRecognizer.velocity(in: scrollView.superview).y
+        let displacement = speed * 0.016666
+        
+        if speed != 0.0 {
+            print("Pan \(scrollView.panGestureRecognizer.translation(in: scrollView.superview).y) Off \(scrollView.contentOffset.y) Speed \(speed) Displacement \(displacement)")
+        }
+
+//        if scrollView.panGestureRecognizer.translation(in: scrollView.superview).y >= 0 &&
+//            scrollView.contentOffset.y < 0 &&
+//            isCollectionViewMaximized {
+//            isCollectionViewMaximized.toggle()
+//            performCollectionViewRedutionAnimation(withSpeed: speed, andDeceleration: displacement)
+//        }
+//        else
+//        if scrollView.contentOffset.y > 0 &&
+//                scrollView.panGestureRecognizer.translation(in: scrollView.superview).y < 0
+////            &&
+////                !isCollectionViewMaximized
+//        {
+//            isCollectionViewMaximized.toggle()
+            performCollectionViewAnimation(withSpeed: speed, andDeceleration: displacement)
+//        }
+    }
 }

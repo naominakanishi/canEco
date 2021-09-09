@@ -44,6 +44,7 @@ class NewTaskButton: UICollectionViewCell {
     func setupLabel() {
         //TODO: Adicionar fonte Work Sans 16pts ao texto
         label.text = "Adicione novo desafio"
+        label.textColor = UIColor(named: "black")
         label.numberOfLines = 0
         label.textAlignment = .center
         label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
@@ -59,6 +60,6 @@ class NewTaskButton: UICollectionViewCell {
         plusIcon.widthAnchor.constraint(equalToConstant: 22).isActive = true
         plusIcon.heightAnchor.constraint(equalToConstant: 22).isActive = true
         plusIcon.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight: .bold))
-        plusIcon.tintColor = .black
+        plusIcon.tintColor = UIColor(named: "black")
     }
 }

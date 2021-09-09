@@ -11,10 +11,6 @@ class HeaderCollectionReusableView: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-//        label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-//        label.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//        label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {
@@ -26,6 +22,7 @@ class HeaderCollectionReusableView: UICollectionReusableView {
         self.addSubview(label)
         label.text = text
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        label.textColor = UIColor(named: "black")
         label.textAlignment = .center
         label.backgroundColor = UIColor(named: "bege")
 //        label.layer.borderWidth = 1
