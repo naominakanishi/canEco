@@ -34,7 +34,7 @@ class BenefitCell: UIView {
     func setupNameLabel() {
         name.translatesAutoresizingMaskIntoConstraints = false
         addSubview(name)
-        name.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        name.leadingAnchor.constraint(equalTo: centerXAnchor).isActive = true
         name.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         name.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.375).isActive = true
         name.widthAnchor.constraint(equalToConstant: 78).isActive = true
@@ -46,7 +46,7 @@ class BenefitCell: UIView {
     func setupImageLabel() {
         image.translatesAutoresizingMaskIntoConstraints = false
         addSubview(image)
-        image.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        image.leadingAnchor.constraint(equalTo: centerXAnchor).isActive = true
         image.bottomAnchor.constraint(equalTo: name.topAnchor).isActive = true
         image.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.54).isActive = true
     }

@@ -29,6 +29,12 @@
 		FA72E0F326E6D1A400976C8B /* AllChallenges.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0F226E6D1A400976C8B /* AllChallenges.swift */; };
 		FA72E0F526E6D39400976C8B /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0F426E6D39400976C8B /* Record.swift */; };
 		FA72E0F726E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0F626E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift */; };
+		FA74ED9826ECFA9800AE9639 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74ED9726ECFA9800AE9639 /* ProfileViewController.swift */; };
+		FA74ED9B26ECFACC00AE9639 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74ED9A26ECFACC00AE9639 /* ProfileHeaderView.swift */; };
+		FA74ED9D26ED0BF900AE9639 /* ImpactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74ED9C26ED0BF900AE9639 /* ImpactCollectionViewCell.swift */; };
+		FA74EDA126EE298B00AE9639 /* CompletedChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74EDA026EE298B00AE9639 /* CompletedChallengeTableViewCell.swift */; };
+		FA74EDA326EE38BF00AE9639 /* CompletedChallengeTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74EDA226EE38BF00AE9639 /* CompletedChallengeTableViewHeader.swift */; };
+		FA74EDA526EE46A800AE9639 /* ImpactHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74EDA426EE46A800AE9639 /* ImpactHeaderCollectionReusableView.swift */; };
 		FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */; };
 		FAB6A16D26E1186200852FA7 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */; };
 		FAD4CC1526E51BAE00818DE9 /* RepeatableChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */; };
@@ -70,6 +76,12 @@
 		FA72E0F226E6D1A400976C8B /* AllChallenges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChallenges.swift; sourceTree = "<group>"; };
 		FA72E0F426E6D39400976C8B /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		FA72E0F626E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayOfChallengesFilterExtension.swift; sourceTree = "<group>"; };
+		FA74ED9726ECFA9800AE9639 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FA74ED9A26ECFACC00AE9639 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		FA74ED9C26ED0BF900AE9639 /* ImpactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA74EDA026EE298B00AE9639 /* CompletedChallengeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedChallengeTableViewCell.swift; sourceTree = "<group>"; };
+		FA74EDA226EE38BF00AE9639 /* CompletedChallengeTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedChallengeTableViewHeader.swift; sourceTree = "<group>"; };
+		FA74EDA426EE46A800AE9639 /* ImpactHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCollectionViewExtension.swift; sourceTree = "<group>"; };
 		FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatableChallenge.swift; sourceTree = "<group>"; };
@@ -112,8 +124,8 @@
 		FA0AA4C726E3DAA900892E4C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */,
 				FADB9ABB26DFFB9800BE8481 /* HomeViewController.swift */,
+				FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */,
 				FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */,
 			);
 			path = Home;
@@ -179,6 +191,33 @@
 			path = Achievements;
 			sourceTree = "<group>";
 		};
+		FA74ED9626ECF01000AE9639 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FA74ED9726ECFA9800AE9639 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		FA74ED9926ECFAA400AE9639 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FA74ED9A26ECFACC00AE9639 /* ProfileHeaderView.swift */,
+				FA74ED9C26ED0BF900AE9639 /* ImpactCollectionViewCell.swift */,
+				FA74EDA426EE46A800AE9639 /* ImpactHeaderCollectionReusableView.swift */,
+				FA74EDA026EE298B00AE9639 /* CompletedChallengeTableViewCell.swift */,
+				FA74EDA226EE38BF00AE9639 /* CompletedChallengeTableViewHeader.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		FA74EDA626EE5D3400AE9639 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
 		FADB9A9426DFF08400BE8481 = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +273,8 @@
 				D749BC7526EEB5EA004E7B99 /* ProgressBar */,
 				FA0AA4C826E3DACF00892E4C /* Home */,
 				FA0AA4D426E40F9800892E4C /* NewChallenge */,
+				FA74ED9926ECFAA400AE9639 /* Profile */,
+				FA74EDA626EE5D3400AE9639 /* Record */,
 				FA3FE90A26EA4DA00013ABAB /* Animations */,
 			);
 			path = View;
@@ -247,6 +288,7 @@
 				FA0AA4C726E3DAA900892E4C /* Home */,
 				FA0AA4D126E40BE900892E4C /* NewChallenge */,
 				D749BC7126EEB15B004E7B99 /* OpenCardViewController.swift */,
+				FA74ED9626ECF01000AE9639 /* Profile */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -324,11 +366,14 @@
 				FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */,
 				FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */,
 				FA72E0F726E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift in Sources */,
+				FA74EDA126EE298B00AE9639 /* CompletedChallengeTableViewCell.swift in Sources */,
 				FA3FE91026EA4F250013ABAB /* CheckButtonAnim.swift in Sources */,
 				FA72E0F526E6D39400976C8B /* Record.swift in Sources */,
 				FADB9AA526DFF08400BE8481 /* ViewController.swift in Sources */,
+				FA74ED9826ECFA9800AE9639 /* ProfileViewController.swift in Sources */,
 				FADB9ABA26DFF9E200BE8481 /* Category.swift in Sources */,
 				FADB9AA126DFF08400BE8481 /* AppDelegate.swift in Sources */,
+				FA74ED9D26ED0BF900AE9639 /* ImpactCollectionViewCell.swift in Sources */,
 				FAD4CC1726E51CFE00818DE9 /* StepChallenge.swift in Sources */,
 				FADB9AB826DFF53400BE8481 /* ChallengeCell.swift in Sources */,
 				FA72E0EC26E686CE00976C8B /* Achievement.swift in Sources */,
@@ -336,13 +381,16 @@
 				D749BC7226EEB15B004E7B99 /* OpenCardViewController.swift in Sources */,
 				D749BC7426EEB5E3004E7B99 /* ProgressBar.swift in Sources */,
 				FA0AA4D026E3FA9100892E4C /* NewTaskButton.swift in Sources */,
+				FA74EDA526EE46A800AE9639 /* ImpactHeaderCollectionReusableView.swift in Sources */,
 				FA72E0E826E58C7B00976C8B /* CompletedChallenge.swift in Sources */,
 				FADB9AA326DFF08400BE8481 /* SceneDelegate.swift in Sources */,
 				FAD4CC1F26E53AD900818DE9 /* NewChallengeCardCollectionViewCell.swift in Sources */,
 				FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */,
 				FAD4CC1526E51BAE00818DE9 /* RepeatableChallenge.swift in Sources */,
+				FA74EDA326EE38BF00AE9639 /* CompletedChallengeTableViewHeader.swift in Sources */,
 				FADB9ABE26DFFF1700BE8481 /* ChallengeProtocol.swift in Sources */,
 				FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */,
+				FA74ED9B26ECFACC00AE9639 /* ProfileHeaderView.swift in Sources */,
 				FAD4CC2126E53D6700818DE9 /* BenefitCell.swift in Sources */,
 				FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */,
 				FA0AA4CA26E3DB0600892E4C /* TabBarViewController.swift in Sources */,
