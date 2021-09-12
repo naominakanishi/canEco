@@ -36,7 +36,7 @@ class NewChallengeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-//        setupFilter()
+        setupFilter()
         displayChallengesCv()
 //        benefit = NewChallengeCardCollectionViewCell()
 //        benefit.challenge = RepeatableChallenge(name: "placeholder", category: .fashion, benefits: [.co2, .diseases, .energy], totalSteps: 10)
@@ -88,7 +88,7 @@ class NewChallengeViewController: UIViewController {
         challengesCollectionView.dataSource = self
         challengesCollectionView.delegate = self
         challengesCollectionView.backgroundColor = UIColor(named: "bege")
-//        challengesCollectionView.isPagingEnabled = true
+        challengesCollectionView.isPagingEnabled = true
         challengesCollectionView.tag = 1
     }
 

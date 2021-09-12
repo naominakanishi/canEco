@@ -16,6 +16,8 @@ enum Benefits: String, CaseIterable {
     case polution = "Redução de poluentes"
     
     func getSymbolName() -> String {
+        return "placeholder"
+        
         switch self {
             case .water:
                 return "drop"
@@ -31,4 +33,5 @@ enum Benefits: String, CaseIterable {
                 return "smoke"
         }
     }
+    
 }

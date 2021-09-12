@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D749BC6E26EA811B004E7B99 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */; };
+		D749BC7026EA9A66004E7B99 /* ImpactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D749BC6F26EA9A66004E7B99 /* ImpactsView.swift */; };
 		FA0AA4CA26E3DB0600892E4C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AA4C926E3DB0600892E4C /* TabBarViewController.swift */; };
 		FA0AA4D026E3FA9100892E4C /* NewTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AA4CF26E3FA9100892E4C /* NewTaskButton.swift */; };
 		FA0AA4D326E40C0E00892E4C /* NewChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AA4D226E40C0E00892E4C /* NewChallengeViewController.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		D749BC6F26EA9A66004E7B99 /* ImpactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactsView.swift; sourceTree = "<group>"; };
 		FA0AA4C926E3DB0600892E4C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		FA0AA4CF26E3FA9100892E4C /* NewTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskButton.swift; sourceTree = "<group>"; };
 		FA0AA4D226E40C0E00892E4C /* NewChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChallengeViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				FA0AA4D226E40C0E00892E4C /* NewChallengeViewController.swift */,
 				D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */,
+				D749BC6F26EA9A66004E7B99 /* ImpactsView.swift */,
 			);
 			path = NewChallenge;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				FA3FE90E26EA4E790013ABAB /* HomeViewAnim.swift in Sources */,
 				FA0AA4D326E40C0E00892E4C /* NewChallengeViewController.swift in Sources */,
 				FA72E0F326E6D1A400976C8B /* AllChallenges.swift in Sources */,
+				D749BC7026EA9A66004E7B99 /* ImpactsView.swift in Sources */,
 				FA72E0E326E57E3000976C8B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
