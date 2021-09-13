@@ -23,12 +23,9 @@ class TabBarViewController: UITabBarController {
         viewControllers = [
             HomeViewController(),
             UINavigationController(rootViewController: NewChallengeViewController()),
-            ViewController()
+            ProfileViewController()
         ]
-        
-        viewControllers = [HomeViewController(),
-                           NewChallengeViewController(),
-                           ProfileViewController()]
+    
         selectedIndex = 0
     }
 }
