@@ -129,7 +129,7 @@ final class OpenCardViewController: UIViewController {
 
         challengeTitle.textAlignment = .center
         challengeTitle.numberOfLines = 0
-        challengeTitle.font = UIFont.boldSystemFont(ofSize: 36)
+        challengeTitle.font = UIFont.boldSystemFont(ofSize: 30)
         challengeTitle.textColor = challenge.category.getColor()
     }
     
@@ -191,7 +191,7 @@ final class OpenCardViewController: UIViewController {
          
         ])
         challengeDescription.numberOfLines = 0
-        challengeDescription.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        challengeDescription.font = UIFont.systemFont(ofSize: 14, weight: .light)
         
     }
     
@@ -261,7 +261,7 @@ final class OpenCardViewController: UIViewController {
          
         ])
         tipsText.numberOfLines = 0
-        tipsText.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        tipsText.font = UIFont.systemFont(ofSize: 14, weight: .light)
         
     }
     
