@@ -2,7 +2,6 @@ import UIKit
 
 final class OpenCardViewController: UIViewController {
     
-    
     private let challenge: Challenge
     
     init(challenge: Challenge) {
@@ -14,7 +13,8 @@ final class OpenCardViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let challengeImage = UIImageView()
+    var header: OpenCardHeaderView!
+    
     let challengeTitle = UILabel()
     
     let placeholderInformation = UILabel()
@@ -37,63 +37,75 @@ final class OpenCardViewController: UIViewController {
         progressBar.highlightColor = UIColor(white: 1, alpha: 0.4)
         return progressBar
     }()
-    
-    
+  
     
     override func viewDidLoad() {
         view.backgroundColor = .white
    //     displayProgressBar()
         setupLabels()
-        displayChallengeImage()
-        displayChallengeTitle()
+        setupBenefits()
+        displayHeader()
+       // displayChallengeTitle()
         displayPlaceholderInformation()
         displayAcceptChallengeButton()
         displayChallengeDescription()
+        displayImpactTitle()
+        displayImpactsStackView()
+    }
+    
+    private func setupBenefits() {
+        impactsStackView.arrangedSubviews.forEach {
+            $0.removeFromSuperview()
+            impactsStackView.removeArrangedSubview($0)}
+        challenge.benefits.forEach {
+            let impactsView = ImpactsView(benefit: $0)
+            impactsStackView.addArrangedSubview(impactsView)
+        }
     }
     
     private func setupLabels() {
         challengeTitle.text = challenge.name
-        challengeImage.image = UIImage(named: "placeholder")
+        
         challengeDescription.text = "Um texto de no máximo 3 linhas explicando para o usuário o que ele deve fazer para concluir esse desafio incrível."
     }
     
-    private func displayChallengeImage() {
-        challengeImage.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(challengeImage)
+    private func displayHeader() {
+        header = OpenCardHeaderView (challenge: challenge)
+        header.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(header)
         
         NSLayoutConstraint.activate([
-            challengeImage.topAnchor.constraint(equalTo: view.topAnchor),
-            challengeImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            challengeImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            challengeImage.heightAnchor.constraint(equalToConstant: 300)
+            header.topAnchor.constraint(equalTo: view.topAnchor),
+            header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            header.heightAnchor
+                .constraint(equalToConstant: 300)
         ])
-        
-        challengeImage.backgroundColor = challenge.category.getColor()
-        
+        header.backgroundColor = challenge.category.getColor()
     }
     
-    private func displayChallengeTitle() {
-        challengeTitle.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(challengeTitle)
-        
-        challengeTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
-        challengeTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        challengeTitle.topAnchor.constraint(equalTo: challengeImage.bottomAnchor, constant: 15).isActive = true
-        
-        challengeTitle.textAlignment = .center
-        challengeTitle.numberOfLines = 0
-        challengeTitle.font = UIFont.boldSystemFont(ofSize: 36)
-        challengeTitle.textColor = challenge.category.getColor()
-    }
     
+//    private func displayChallengeTitle() {
+//        challengeTitle.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(challengeTitle)
+//
+//        challengeTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
+//        challengeTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        challengeTitle.topAnchor.constraint(equalTo: challengeImage.bottomAnchor, constant: 15).isActive = true
+//
+//        challengeTitle.textAlignment = .center
+//        challengeTitle.numberOfLines = 0
+//        challengeTitle.font = UIFont.boldSystemFont(ofSize: 36)
+//        challengeTitle.textColor = challenge.category.getColor()
+//    }
     
     private func displayPlaceholderInformation() {
         placeholderInformation.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(placeholderInformation)
         
-        placeholderInformation.leadingAnchor.constraint(equalTo: challengeTitle.leadingAnchor).isActive = true
+        placeholderInformation.leadingAnchor.constraint(equalTo: header.leadingAnchor).isActive = true
         placeholderInformation.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        placeholderInformation.topAnchor.constraint(equalTo: challengeTitle.bottomAnchor, constant: 10).isActive = true
+        placeholderInformation.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 10).isActive = true
         
         placeholderInformation.numberOfLines = 0
         placeholderInformation.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
@@ -122,8 +134,8 @@ final class OpenCardViewController: UIViewController {
         view.addSubview(acceptChallengeButton)
         
         NSLayoutConstraint.activate([
-            acceptChallengeButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.76),
-            acceptChallengeButton.heightAnchor.constraint(equalTo: acceptChallengeButton.widthAnchor, multiplier: 63/228),
+            acceptChallengeButton.widthAnchor.constraint(equalToConstant: 228),
+            acceptChallengeButton.heightAnchor.constraint(equalToConstant: 63),
             acceptChallengeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             acceptChallengeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
         ])
@@ -148,7 +160,62 @@ final class OpenCardViewController: UIViewController {
         
     }
     
+    private func displayImpactTitle() {
+        impactTitle.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(impactTitle)
+        
+        impactTitle.topAnchor.constraint(equalTo: challengeDescription.bottomAnchor, constant: 25).isActive = true
+        impactTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
+        impactTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        impactTitle.numberOfLines = 0
+        impactTitle.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        impactTitle.textAlignment = .center
+        impactTitle.text = "Impactos positivos"
+        impactTitle.textColor = challenge.category.getColor()
+    }
+    
+    func displayImpactsStackView(){
+        impactsStackView.distribution = .fillEqually
+        impactsStackView.alignment = .center
+        
+        view.addSubview(impactsStackView)
+        impactsStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            impactsStackView.topAnchor.constraint(
+                equalTo: impactTitle.bottomAnchor,
+                constant: 10
+            ),
+            impactsStackView.bottomAnchor.constraint(
+                equalTo: acceptChallengeButton.topAnchor,
+                constant: -20
+            ),
+            
+            impactsStackView.widthAnchor.constraint(
+                lessThanOrEqualTo: view.widthAnchor,
+                multiplier: 0.8
+            ),
+            impactsStackView.centerXAnchor.constraint(
+                equalTo: view.centerXAnchor
+            )
+        ])
+    }
    
+    private func displayTipsTitle() {
+        tipsTitle.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tipsTitle)
+        
+        tipsTitle.topAnchor.constraint(equalTo: impactsStackView.bottomAnchor, constant: 25).isActive = true
+        tipsTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
+        tipsTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        tipsTitle.numberOfLines = 0
+        tipsTitle.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        tipsTitle.textAlignment = .center
+        tipsTitle.text = "Dicas"
+        tipsTitle.textColor = challenge.category.getColor()
+    }
     
     @objc
     func handleAcceptButton() {

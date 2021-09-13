@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1C0177826EFD27200389714 /* OpenCardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0177726EFD27200389714 /* OpenCardHeaderView.swift */; };
 		D749BC6E26EA811B004E7B99 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */; };
 		D749BC7026EA9A66004E7B99 /* ImpactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D749BC6F26EA9A66004E7B99 /* ImpactsView.swift */; };
 		D749BC7226EEB15B004E7B99 /* OpenCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D749BC7126EEB15B004E7B99 /* OpenCardViewController.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B1C0177726EFD27200389714 /* OpenCardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCardHeaderView.swift; sourceTree = "<group>"; };
 		D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		D749BC6F26EA9A66004E7B99 /* ImpactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactsView.swift; sourceTree = "<group>"; };
 		D749BC7126EEB15B004E7B99 /* OpenCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCardViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1C0177626EFD25900389714 /* OpenCard */ = {
+			isa = PBXGroup;
+			children = (
+				B1C0177726EFD27200389714 /* OpenCardHeaderView.swift */,
+			);
+			path = OpenCard;
+			sourceTree = "<group>";
+		};
 		D749BC7526EEB5EA004E7B99 /* ProgressBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +318,7 @@
 		FADB9AB526DFF50A00BE8481 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B1C0177626EFD25900389714 /* OpenCard */,
 				D749BC7526EEB5EA004E7B99 /* ProgressBar */,
 				FA0AA4C826E3DACF00892E4C /* Home */,
 				FA0AA4D426E40F9800892E4C /* NewChallenge */,
@@ -440,6 +451,7 @@
 				FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */,
 				FA0AA4CA26E3DB0600892E4C /* TabBarViewController.swift in Sources */,
 				FA0AA4D626E40FD300892E4C /* CategoryTagCollectionViewCell.swift in Sources */,
+				B1C0177826EFD27200389714 /* OpenCardHeaderView.swift in Sources */,
 				D749BC6E26EA811B004E7B99 /* CardCollectionViewCell.swift in Sources */,
 				FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */,
 				FA72E0F026E6920A00976C8B /* AllAchievements.swift in Sources */,
