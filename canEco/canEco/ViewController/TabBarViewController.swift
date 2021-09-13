@@ -26,10 +26,9 @@ class TabBarViewController: UITabBarController {
             ViewController()
         ]
         
-        let thirdItem = UINavigationController(rootViewController: ProfileViewController())
-        thirdItem.isNavigationBarHidden = true
-        
-        viewControllers = [HomeViewController(), NewChallengeViewController(), thirdItem]
+        viewControllers = [HomeViewController(),
+                           NewChallengeViewController(),
+                           ProfileViewController()]
         selectedIndex = 0
     }
 }

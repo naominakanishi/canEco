@@ -10,11 +10,13 @@ import Foundation
 class Achievement: Hashable {
     
     let name: String
+    let descricao: String
     var isComplete: ((Record) -> Bool)
     
     
-    init(name: String, isComplete: @escaping (Record) -> Bool) {
+    init(name: String, descricao: String, isComplete: @escaping (Record) -> Bool) {
         self.name = name
+        self.descricao = descricao
         self.isComplete = isComplete
     }
     

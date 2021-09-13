@@ -7,15 +7,10 @@
 
 import UIKit
 
-class CompletedChallengeTableViewCell: UITableViewCell {
+class ImageTitleSubtitleTableViewCell: UITableViewCell {
 
     let image = UIImageView()
     let title = UILabel()
-    var challenge: CompletedChallenge! {
-        didSet {
-            configureCellInfo()
-        }
-    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -50,13 +45,13 @@ class CompletedChallengeTableViewCell: UITableViewCell {
         title.textAlignment = .left
     }
     
-    func configureCellInfo() {
-        image.image = UIImage(named: "placeholder")
-        image.layer.backgroundColor = challenge!.challenge.category.getColor().cgColor
+    func configureCellInfo(withImage image: UIImage, title: String, andSubtitle subtitle: String?) {
+        self.image.image = image
+        self.image.layer.backgroundColor = UIColor(named: "blue")?.cgColor
         
-        let attributedText = NSMutableAttributedString(string: "\(challenge!.challenge.name)\n\(challenge.completionDate)")
-        attributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSRange(location: 0, length: challenge!.challenge.name.count))
-        attributedText.addAttribute(.font, value: UIFont.systemFont(ofSize: 18), range: NSRange(location: challenge!.challenge.name.count, length: "\(challenge.completionDate)".count))
-        title.attributedText = attributedText
+        let attributedText = NSMutableAttributedString(string: "\(title)\n\(subtitle ?? "")")
+        attributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSRange(location: 0, length: title.count))
+        attributedText.addAttribute(.font, value: UIFont.systemFont(ofSize: 18), range: NSRange(location: title.count, length: (subtitle ?? "").count))
+        self.title.attributedText = attributedText
     }
 }

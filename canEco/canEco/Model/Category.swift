@@ -30,5 +30,13 @@ enum Category: String, CaseIterable {
         }
     }
     
+    func getExplication() -> String {
+        return "Aqui é a explicação daquele impacto ali, em até umas 5 linhas, porque 5 linhas é bastante, talvez mais que isso seja mutcho texto e sei lá, mutcho texto??? Talvez. O que pode ser feito é colocar mais coisas em dicas. Dicas são legais pô."
+    }
+    
+    func getTips() -> String {
+        return "Lorem ipsum dolor sit lorem ipsum dolor sit orem ipsum dolor sit lorem ipsum dolor sit orem ipsum dolor sit lorem ipsum dolor sit "
+    }
+    
 }
 

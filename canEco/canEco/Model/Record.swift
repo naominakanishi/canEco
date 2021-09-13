@@ -34,13 +34,13 @@ class Record {
             benefitRecord[benefit]! += 1
         }
         
-        checkAchievements()
+//        checkAchievements()
     }
     
-    func checkAchievements() {
-        for (achievement, completed) in Achievements.achievements {
-            if completed { continue }
-            Achievements.achievements[achievement] = achievement.isComplete(self)
-        }
-    }
+//    func checkAchievements() {
+//        for (achievement, completed) in Achievements.achievements {
+//            if completed { continue }
+//            Achievements.achievements[achievement] = achievement.isComplete(self)
+//        }
+//    }
 }

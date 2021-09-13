@@ -8,14 +8,14 @@
 import Foundation
 
 final class Achievements {
-    static var achievements: [Achievement: Bool] =
-        [Achievement(name: "Coxas Malhadas") { record in
+    static var achievements: [(Achievement, Bool)] =
+        [(Achievement(name: "Coxas Malhadas", descricao: "Foi de bike pro trabalho 3 vezes") { record in
             record.challengeRecord.filter { $0.challenge.name == "Ir de bike pro trabalho" }.count >= 3
-        } : false,
+        }, false),
          
-        Achievement(name: "Salvador de Tartarugas") { record in
+        (Achievement(name: "Salvador de Tartarugas", descricao: "Deixou de poluir 10 vezes") { record in
             record.benefitRecord[.polution]! >= 10
-        } : false,
+        }, false),
         
         ]
 }

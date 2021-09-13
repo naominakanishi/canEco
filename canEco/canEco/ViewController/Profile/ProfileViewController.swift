@@ -106,84 +106,10 @@ class ProfileViewController: UIViewController {
         completedChallenges.isScrollEnabled = false
         completedChallenges.allowsSelection = false
         
-        completedChallenges.register(CompletedChallengeTableViewCell.self, forCellReuseIdentifier: "Cell")
+        completedChallenges.register(ImageTitleSubtitleTableViewCell.self, forCellReuseIdentifier: "Cell")
         completedChallenges.register(CompletedChallengeTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "Header")
         completedChallenges.dataSource = self
         completedChallenges.delegate = self
         completedChallenges.backgroundColor = UIColor(named: "bege")
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-}
-
-extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = completedChallenges.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CompletedChallengeTableViewCell
-        cell.challenge = data[indexPath.row]
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return max(85, UITableView.automaticDimension)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return max(48, UITableView.automaticDimension)
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = completedChallenges.dequeueReusableHeaderFooterView(withIdentifier: "Header") as! CompletedChallengeTableViewHeader
-        return header
-    }
-    
-}
-
-extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
- 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = impactCount.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ImpactCollectionViewCell
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let cell = impactCount.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! ImpactHeaderCollectionReusableView
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let columns: CGFloat = 3
-        let widthMultiplier: CGFloat = 1
-        
-        let collectionViewWidth = collectionView.bounds.width
-        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-        let spaceBetweenCells = flowLayout.minimumInteritemSpacing * (columns - 1)
-        let insets = flowLayout.sectionInset.left + flowLayout.sectionInset.right
-        let adjustedWidth = collectionViewWidth - spaceBetweenCells - insets
-        let width: CGFloat = floor(adjustedWidth / columns)
-        let height: CGFloat = width * widthMultiplier
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        print(collectionView.frame.width)
-        return CGSize(width: collectionView.frame.width, height: 48)
-    }
-    
 }

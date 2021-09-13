@@ -14,4 +14,10 @@ extension String {
 
         return ceil(boundingBox.width)
     }
+    
+    func height(withWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let maxSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+        let actualSize = self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [.font : font], context: nil)
+        return actualSize.height
+    }
 }
