@@ -36,7 +36,7 @@ class NewChallengeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-//        setupFilter()
+        setupFilter()
         displayChallengesCv()
 //        benefit = NewChallengeCardCollectionViewCell()
 //        benefit.challenge = RepeatableChallenge(name: "placeholder", category: .fashion, benefits: [.co2, .diseases, .energy], totalSteps: 10)
@@ -88,7 +88,7 @@ class NewChallengeViewController: UIViewController {
         challengesCollectionView.dataSource = self
         challengesCollectionView.delegate = self
         challengesCollectionView.backgroundColor = UIColor(named: "bege")
-//        challengesCollectionView.isPagingEnabled = true
+        challengesCollectionView.isPagingEnabled = true
         challengesCollectionView.tag = 1
     }
 
@@ -106,6 +106,7 @@ extension NewChallengeViewController: UICollectionViewDataSource, UICollectionVi
         if collectionView.tag == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "challengeCard", for: indexPath) as! CardCollectionViewCell
             cell.challenge = data2[indexPath.item]
+            cell.navigateToOpenCard = navigateToOpenCard
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterTag", for: indexPath) as! CategoryTagCollectionViewCell
@@ -131,7 +132,9 @@ extension NewChallengeViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView.tag == 1 {
+        if collectionView == challengesCollectionView {
+            let challenge = data2[indexPath.item]
+            navigateToOpenCard(challenge: challenge)
             return
         }
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryTagCollectionViewCell
@@ -141,5 +144,10 @@ extension NewChallengeViewController: UICollectionViewDataSource, UICollectionVi
         } else {
             cell.displayMode = .fill
         }
+    }
+    
+    private func navigateToOpenCard(challenge: Challenge) {
+        let controller = OpenCardViewController(challenge: challenge)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }

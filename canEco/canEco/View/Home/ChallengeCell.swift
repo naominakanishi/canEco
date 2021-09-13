@@ -9,15 +9,15 @@ import UIKit
 
 class ChallengeCell: UICollectionViewCell {
     
-    var task: Challenge? {
+    var challenge: Challenge? {
         didSet {
-            configureCell(for: task!.name)
+            configureCell()
         }
     }
     let taskImageView = UIImageView()
     let taskTitle = UILabel()
     let checkButton = UIButton()
-    let progressBar = UIProgressView()
+    let progressBar = ProgressBar()
     
     func setupCategoryImageView(){
         taskImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +38,6 @@ class ChallengeCell: UICollectionViewCell {
         progressBar.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         progressBar.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8).isActive = true
         progressBar.heightAnchor.constraint(equalToConstant: 6).isActive = true
-        progressBar.progress = 0.5
         progressBar.tintColor = UIColor.black
     }
     
@@ -91,15 +90,13 @@ class ChallengeCell: UICollectionViewCell {
     }
     
     @objc func didClick() {
-        let task = task
+        let task = challenge
         checkButton.performClickAnimation { _ in
             task?.completeNextStep()
-            self.progressBar.progress = 0.8
+            self.progressBar.completedStepCount += 1
         }
     }
     
-    
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupProgressBar()
@@ -114,11 +111,21 @@ class ChallengeCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureCell(for taskName: String){
+    func configureCell(){
+        guard let taskName = challenge?.name,
+              let color = challenge?.category.getColor()
+        else { return }
         taskImageView.image = UIImage(named: taskName)
         self.taskTitle.text = taskName
-//        progressBar.progress = task!.completedSteps / task!.totalSteps
-        contentView.backgroundColor = task?.category.getColor()
+        contentView.backgroundColor = .white
+        progressBar.highlightColor = color
+        checkButton.backgroundColor = color
+        
+        
+        if let stepper = challenge as? StepCounter {
+            progressBar.stepCount = stepper.totalSteps
+            progressBar.completedStepCount = stepper.completedSteps
+        }
     }
 
 }

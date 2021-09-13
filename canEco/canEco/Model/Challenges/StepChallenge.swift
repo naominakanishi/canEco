@@ -7,6 +7,11 @@
 
 import Foundation
 
+protocol StepCounter {
+    var totalSteps: Int { get }
+    var completedSteps: Int { get }
+}
+
 class StepChallenge: Challenge {
     let name: String
     let category: Category
@@ -28,5 +33,15 @@ class StepChallenge: Challenge {
     func completeNextStep() {
         var step = steps.first { !$0.isComplete }
         step?.isComplete = true
+    }
+}
+
+extension StepChallenge: StepCounter {
+    var totalSteps: Int {
+        steps.count
+    }
+    
+    var completedSteps: Int {
+        steps.filter { $0.isComplete }.count
     }
 }

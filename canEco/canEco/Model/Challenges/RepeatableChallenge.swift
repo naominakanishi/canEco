@@ -27,5 +27,6 @@ class RepeatableChallenge: Challenge {
     func completeNextStep() {
         completedSteps = min(completedSteps + 1, totalSteps)
     }
-    
 }
+
+extension RepeatableChallenge: StepCounter {}
