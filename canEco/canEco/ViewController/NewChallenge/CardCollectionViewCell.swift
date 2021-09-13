@@ -21,7 +21,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var navigateToOpenCard: (() -> Void)?
+    var navigateToOpenCard: ((Challenge) -> Void)?
     
     let impactsStackView = UIStackView()
     
@@ -187,6 +187,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     @objc
     func handleInfoButtonTap() {
-        navigateToOpenCard?()
+        guard let challenge = challenge else { return }
+        navigateToOpenCard?(challenge)
     }
 }

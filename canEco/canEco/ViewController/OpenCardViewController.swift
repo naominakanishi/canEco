@@ -1,6 +1,19 @@
 import UIKit
 
 final class OpenCardViewController: UIViewController {
+    
+    
+    private let challenge: Challenge
+    
+    init(challenge: Challenge) {
+        self.challenge = challenge
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     let challengeImage = UIImage()
     let challengeTitle = UILabel()
     
@@ -17,13 +30,16 @@ final class OpenCardViewController: UIViewController {
     let acceptChallengeButton = UIButton()
     
     let stepsTitle = UILabel()
-    
-    
-    let progressBar = ProgressBar()
-    
+
+    let progressBar: ProgressBar = {
+        let progressBar = ProgressBar()
+        progressBar.emptyColor = UIColor(white: 0x33/0xff, alpha: 0.2)
+        progressBar.highlightColor = UIColor(white: 1, alpha: 0.4)
+        return progressBar
+    }()
     
     override func viewDidLoad() {
-        view.backgroundColor = .white
+        view.backgroundColor = challenge.category.getColor()
         displayProgressBar()
         displayAcceptChallengeButton()
     }
@@ -60,4 +76,3 @@ final class OpenCardViewController: UIViewController {
         progressBar.completedStepCount += 1
     }
 }
-

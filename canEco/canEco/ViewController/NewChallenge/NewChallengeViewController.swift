@@ -132,7 +132,9 @@ extension NewChallengeViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView.tag == 1 {
+        if collectionView == challengesCollectionView {
+            let challenge = data2[indexPath.item]
+            navigateToOpenCard(challenge: challenge)
             return
         }
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryTagCollectionViewCell
@@ -144,8 +146,8 @@ extension NewChallengeViewController: UICollectionViewDataSource, UICollectionVi
         }
     }
     
-    private func navigateToOpenCard() {
-        let controller = OpenCardViewController()
+    private func navigateToOpenCard(challenge: Challenge) {
+        let controller = OpenCardViewController(challenge: challenge)
         navigationController?.pushViewController(controller, animated: true)
     }
 }

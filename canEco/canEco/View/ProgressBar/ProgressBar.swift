@@ -14,6 +14,11 @@ final class ProgressBar: UIView {
         return stackView
     }()
     
+    var emptyColor: UIColor = .lightGray {
+        didSet {
+            drawProgressBar()
+        }
+    }
     var highlightColor: UIColor {
         didSet {
             drawProgressBar()
@@ -68,7 +73,7 @@ private extension ProgressBar {
         stackView.arrangedSubviews.forEach { stackView.removeArrangedSubview($0) }
         
         for i in 0..<stepCount {
-            let backgroundColor = i < completedStepCount ? highlightColor : .lightGray
+            let backgroundColor = i < completedStepCount ? highlightColor : emptyColor
             createStep(with: backgroundColor)
         }
         
