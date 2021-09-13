@@ -52,11 +52,13 @@ final class OpenCardViewController: UIViewController {
         displayContentsScrollView()
         
         displayHeader()
-       // displayChallengeTitle()
+        displayChallengeTitle()
         displayPlaceholderInformation()
         displayChallengeDescription()
         displayImpactTitle()
         displayImpactsStackView()
+        displayTipsTitle()
+        displayTipsText()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,6 +81,8 @@ final class OpenCardViewController: UIViewController {
         challengeTitle.text = challenge.name
         
         challengeDescription.text = "Um texto de no máximo 3 linhas explicando para o usuário o que ele deve fazer para concluir esse desafio incrível."
+        
+        tipsText.text = "Este é o momento de pirar, mostrando com até 4 linhas o que ele pode fazer para ser bem sucedido (ou sussedido? Gente eu não sei português) o que ele consegue fazer."
     }
     
     private func displayContentsScrollView() {
@@ -112,19 +116,22 @@ final class OpenCardViewController: UIViewController {
     }
     
     
-//    private func displayChallengeTitle() {
-//        challengeTitle.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(challengeTitle)
-//
-//        challengeTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
-//        challengeTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        challengeTitle.topAnchor.constraint(equalTo: challengeImage.bottomAnchor, constant: 15).isActive = true
-//
-//        challengeTitle.textAlignment = .center
-//        challengeTitle.numberOfLines = 0
-//        challengeTitle.font = UIFont.boldSystemFont(ofSize: 36)
-//        challengeTitle.textColor = challenge.category.getColor()
-//    }
+    private func displayChallengeTitle() {
+        challengeTitle.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(challengeTitle)
+
+        
+        NSLayoutConstraint.activate([
+            challengeTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7),
+            challengeTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
+            challengeTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 15)
+        ])
+
+        challengeTitle.textAlignment = .center
+        challengeTitle.numberOfLines = 0
+        challengeTitle.font = UIFont.boldSystemFont(ofSize: 36)
+        challengeTitle.textColor = challenge.category.getColor()
+    }
     
     private func displayPlaceholderInformation() {
         placeholderInformation.translatesAutoresizingMaskIntoConstraints = false
@@ -132,7 +139,7 @@ final class OpenCardViewController: UIViewController {
         
         placeholderInformation.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor).isActive = true
         placeholderInformation.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.9).isActive = true
-        placeholderInformation.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 10).isActive = true
+        placeholderInformation.topAnchor.constraint(equalTo: challengeTitle.bottomAnchor, constant: 10).isActive = true
         
         placeholderInformation.numberOfLines = 0
         placeholderInformation.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
@@ -215,11 +222,6 @@ final class OpenCardViewController: UIViewController {
                 equalTo: impactTitle.bottomAnchor,
                 constant: 10
             ),
-            impactsStackView.bottomAnchor.constraint(
-                equalTo: contentsScrollView.bottomAnchor,
-                constant: -20
-            ),
-            
             impactsStackView.widthAnchor.constraint(
                 lessThanOrEqualTo: contentsScrollView.widthAnchor,
                 multiplier: 0.8
@@ -233,16 +235,34 @@ final class OpenCardViewController: UIViewController {
     private func displayTipsTitle() {
         tipsTitle.translatesAutoresizingMaskIntoConstraints = false
         contentsScrollView.addSubview(tipsTitle)
+
         
         tipsTitle.topAnchor.constraint(equalTo: impactsStackView.bottomAnchor, constant: 25).isActive = true
-        tipsTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
-        tipsTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
+        tipsTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7).isActive = true
+        tipsTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor).isActive = true
+
         tipsTitle.numberOfLines = 0
         tipsTitle.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         tipsTitle.textAlignment = .center
         tipsTitle.text = "Dicas"
         tipsTitle.textColor = challenge.category.getColor()
+    }
+    
+    private func displayTipsText() {
+        tipsText.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(tipsText)
+        
+        NSLayoutConstraint.activate([
+
+            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor),
+            tipsText.topAnchor.constraint(equalTo: tipsTitle.bottomAnchor, constant: 15),
+            tipsText.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
+            tipsText.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
+         
+        ])
+        tipsText.numberOfLines = 0
+        tipsText.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        
     }
     
     @objc
