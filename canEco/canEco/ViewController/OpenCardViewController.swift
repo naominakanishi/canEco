@@ -13,7 +13,10 @@ final class OpenCardViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     var header: OpenCardHeaderView!
+    
+    let contentsScrollView = UIScrollView()
     
     let challengeTitle = UILabel()
     
@@ -41,16 +44,25 @@ final class OpenCardViewController: UIViewController {
     
     override func viewDidLoad() {
         view.backgroundColor = .white
-   //     displayProgressBar()
+        
         setupLabels()
         setupBenefits()
+        
+        displayAcceptChallengeButton()
+        displayContentsScrollView()
+        
         displayHeader()
        // displayChallengeTitle()
         displayPlaceholderInformation()
-        displayAcceptChallengeButton()
         displayChallengeDescription()
         displayImpactTitle()
         displayImpactsStackView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
     }
     
     private func setupBenefits() {
@@ -69,15 +81,30 @@ final class OpenCardViewController: UIViewController {
         challengeDescription.text = "Um texto de no máximo 3 linhas explicando para o usuário o que ele deve fazer para concluir esse desafio incrível."
     }
     
+    private func displayContentsScrollView() {
+        contentsScrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(contentsScrollView)
+        
+        NSLayoutConstraint.activate([
+            contentsScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            contentsScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentsScrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            contentsScrollView.bottomAnchor.constraint(equalTo: acceptChallengeButton.topAnchor, constant: -15)
+        ])
+        
+    }
+    
     private func displayHeader() {
         header = OpenCardHeaderView (challenge: challenge)
         header.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(header)
+        contentsScrollView.addSubview(header)
         
         NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: view.topAnchor),
-            header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            header.topAnchor.constraint(equalTo: contentsScrollView.topAnchor),
+            header.leadingAnchor.constraint(equalTo: contentsScrollView.leadingAnchor),
+//            header.trailingAnchor.constraint(equalTo: contentsScrollView.trailingAnchor),
+//            header.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
+            header.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor),
             header.heightAnchor
                 .constraint(equalToConstant: 300)
         ])
@@ -101,15 +128,16 @@ final class OpenCardViewController: UIViewController {
     
     private func displayPlaceholderInformation() {
         placeholderInformation.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(placeholderInformation)
+        contentsScrollView.addSubview(placeholderInformation)
         
-        placeholderInformation.leadingAnchor.constraint(equalTo: header.leadingAnchor).isActive = true
-        placeholderInformation.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        placeholderInformation.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor).isActive = true
+        placeholderInformation.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.9).isActive = true
         placeholderInformation.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 10).isActive = true
         
         placeholderInformation.numberOfLines = 0
         placeholderInformation.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         placeholderInformation.text = " 87 participantes       4 semanas"
+        placeholderInformation.textAlignment = .center
     }
     
     private func displayProgressBar() {
@@ -146,13 +174,13 @@ final class OpenCardViewController: UIViewController {
     
     private func displayChallengeDescription() {
         challengeDescription.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(challengeDescription)
+        contentsScrollView.addSubview(challengeDescription)
         
         NSLayoutConstraint.activate([
 
             challengeDescription.topAnchor.constraint(equalTo: placeholderInformation.bottomAnchor, constant: 15),
-            challengeDescription.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            challengeDescription.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            challengeDescription.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
+            challengeDescription.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
          
         ])
         challengeDescription.numberOfLines = 0
@@ -162,11 +190,11 @@ final class OpenCardViewController: UIViewController {
     
     private func displayImpactTitle() {
         impactTitle.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(impactTitle)
+        contentsScrollView.addSubview(impactTitle)
         
         impactTitle.topAnchor.constraint(equalTo: challengeDescription.bottomAnchor, constant: 25).isActive = true
-        impactTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
-        impactTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        impactTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7).isActive = true
+        impactTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor).isActive = true
         
         impactTitle.numberOfLines = 0
         impactTitle.font = UIFont.systemFont(ofSize: 22, weight: .bold)
@@ -179,7 +207,7 @@ final class OpenCardViewController: UIViewController {
         impactsStackView.distribution = .fillEqually
         impactsStackView.alignment = .center
         
-        view.addSubview(impactsStackView)
+        contentsScrollView.addSubview(impactsStackView)
         impactsStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -188,23 +216,23 @@ final class OpenCardViewController: UIViewController {
                 constant: 10
             ),
             impactsStackView.bottomAnchor.constraint(
-                equalTo: acceptChallengeButton.topAnchor,
+                equalTo: contentsScrollView.bottomAnchor,
                 constant: -20
             ),
             
             impactsStackView.widthAnchor.constraint(
-                lessThanOrEqualTo: view.widthAnchor,
+                lessThanOrEqualTo: contentsScrollView.widthAnchor,
                 multiplier: 0.8
             ),
             impactsStackView.centerXAnchor.constraint(
-                equalTo: view.centerXAnchor
+                equalTo: contentsScrollView.centerXAnchor
             )
         ])
     }
    
     private func displayTipsTitle() {
         tipsTitle.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(tipsTitle)
+        contentsScrollView.addSubview(tipsTitle)
         
         tipsTitle.topAnchor.constraint(equalTo: impactsStackView.bottomAnchor, constant: 25).isActive = true
         tipsTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true

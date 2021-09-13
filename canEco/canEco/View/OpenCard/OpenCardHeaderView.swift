@@ -20,6 +20,7 @@ class OpenCardHeaderView: UIView {
     }
     
     func displayChallengeImage() {
+        self.translatesAutoresizingMaskIntoConstraints = false
         challengeImage.translatesAutoresizingMaskIntoConstraints = false
         addSubview(challengeImage)
         
