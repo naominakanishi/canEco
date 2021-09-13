@@ -21,6 +21,8 @@ class CardCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var navigateToOpenCard: (() -> Void)?
+    
     let impactsStackView = UIStackView()
     
     override init(frame: CGRect) {
@@ -52,7 +54,6 @@ class CardCollectionViewCell: UICollectionViewCell {
         challengeImage.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 129/232).isActive = true
         
         challengeImage.backgroundColor = .lightGray
-//        challengeImage.clipsToBounds = false
     }
     
     func displayChallengeTitle() {
@@ -69,6 +70,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
     
     func displayInfoButton() {
+        infoButton.addTarget(self, action: #selector(handleInfoButtonTap), for: .touchUpInside)
         infoButton.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(infoButton)
         
@@ -181,5 +183,10 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     func setupAcceptButton() {
         acceptChallengeButton.backgroundColor = challenge?.category.getColor()
+    }
+    
+    @objc
+    func handleInfoButtonTap() {
+        navigateToOpenCard?()
     }
 }

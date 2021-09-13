@@ -106,6 +106,7 @@ extension NewChallengeViewController: UICollectionViewDataSource, UICollectionVi
         if collectionView.tag == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "challengeCard", for: indexPath) as! CardCollectionViewCell
             cell.challenge = data2[indexPath.item]
+            cell.navigateToOpenCard = navigateToOpenCard
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterTag", for: indexPath) as! CategoryTagCollectionViewCell
@@ -141,5 +142,10 @@ extension NewChallengeViewController: UICollectionViewDataSource, UICollectionVi
         } else {
             cell.displayMode = .fill
         }
+    }
+    
+    private func navigateToOpenCard() {
+        let controller = OpenCardViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
