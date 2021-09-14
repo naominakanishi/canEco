@@ -9,38 +9,40 @@ import Foundation
 
 class Record {
     var challengeRecord: [CompletedChallenge]
-    var categoryRecord: [Category: Int] = [.fashion: 0, .food: 0, .shopping: 0,
-                                           .transportation: 0, .waste: 0]
-    var benefitRecord: [Benefits: Int] = [.co2: 0, .diseases: 0, .energy: 0,
-                                          .polution: 0, .waste: 0, .water: 0]
+    var categoryRecord: [(category: Category, count: Int)] = [(.fashion, 0), (.food, 0), (.shopping, 0),
+                                           (.transportation, 0), (.waste, 0)]
+    var benefitRecord: [(benefit: Benefits, count: Int)] = [(.co2, 0), (.diseases, 0), (.energy, 0),
+                                          (.polution, 0), (.waste, 0), (.water, 0)]
     
-    init(record: [CompletedChallenge]) {
+    init(record: [CompletedChallenge] = []) {
         self.challengeRecord = record
     }
     
-    init(record: [CompletedChallenge], categoryRecord: [Category: Int], benefitRecord: [Benefits: Int]) {
+    init(record: [CompletedChallenge], categoryRecord: [(Category, Int)], benefitRecord: [(Benefits, Int)]) {
         self.challengeRecord = record
         self.categoryRecord = categoryRecord
         self.benefitRecord = benefitRecord
     }
     
     
-    func add(completedChallenge challenge: Challenge) {
-        challengeRecord.append(CompletedChallenge(challenge: challenge))
+    func add(completedChallenge challenge: CompletedChallenge) {
+        challengeRecord.append(challenge)
         
-        categoryRecord[challenge.category]! += 1
+        let index = categoryRecord.firstIndex { $0.category == challenge.challenge.category }!
+        categoryRecord[index].count += 1
         
-        for benefit in challenge.benefits {
-            benefitRecord[benefit]! += 1
+        for benefit in challenge.challenge.benefits {
+            let index = benefitRecord.firstIndex { $0.benefit == benefit }!
+            benefitRecord[index].count += 1
         }
         
-//        checkAchievements()
+        checkAchievements()
     }
     
-//    func checkAchievements() {
-//        for (achievement, completed) in Achievements.achievements {
-//            if completed { continue }
-//            Achievements.achievements[achievement] = achievement.isComplete(self)
-//        }
-//    }
+    func checkAchievements() {
+        for (i, (achievement, completed)) in Achievements.achievements.enumerated() {
+            if completed { continue }
+            Achievements.achievements[i] = (achievement, achievement.isComplete(self))
+        }
+    }
 }

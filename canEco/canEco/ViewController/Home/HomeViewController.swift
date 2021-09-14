@@ -16,9 +16,13 @@ class HomeViewController: UIViewController {
     let island = UIImageView()
     var collectionView: UICollectionView!
     var titleLabelSize: CGFloat!
-    var data = [Challenge]() {
-        didSet {
+    var data: [Challenge] {
+        get {
+            User.shared.ongoingChallenges
+        }
+        set {
             collectionView.reloadData()
+            setupCollectionView()
         }
     }
     var isCollectionViewMaximized = false
@@ -42,7 +46,12 @@ class HomeViewController: UIViewController {
         displayIsland()
         displayHomeTitle()
         setupCollectionView()
-        data = Challenges.getChallenges()
+        data = User.shared.ongoingChallenges
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        data = User.shared.ongoingChallenges
     }
     
     func displayHomeTitle(){
@@ -99,7 +108,7 @@ class HomeViewController: UIViewController {
         // Layout
         let layout = UICollectionViewFlowLayout()
         layout.sectionHeadersPinToVisibleBounds = true
-        layout.sectionInset = UIEdgeInsets(top: data.isEmpty ? 30 : 0, left: view.frame.width * borderSpacingProportion, bottom: 0, right: view.frame.width * borderSpacingProportion)
+        layout.sectionInset = UIEdgeInsets(top: 30, left: view.frame.width * borderSpacingProportion, bottom: 0, right: view.frame.width * borderSpacingProportion)
         layout.minimumInteritemSpacing = view.frame.width * interitemSpacingProportion
         layout.minimumLineSpacing = layout.minimumInteritemSpacing
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: layout)
@@ -137,7 +146,7 @@ class HomeViewController: UIViewController {
     //MARK: CollectionView Constants
     let interitemSpacingProportion: CGFloat = 0.0375
     let borderSpacingProportion: CGFloat = 0.0375
-    let topDistanceToIsland: CGFloat = 20
+    let topDistanceToIsland: CGFloat = 30
     
     //MARK: Title
     let userNameFontSize: CGFloat = 40

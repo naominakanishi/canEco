@@ -15,6 +15,8 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = impactCount.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ImpactCollectionViewCell
+        let benefitData = benefitCountData[indexPath.item]
+        cell.setupLabels(forBenefit: benefitData.benefit, withCount: benefitData.count)
         return cell
     }
     

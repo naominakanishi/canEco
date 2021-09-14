@@ -11,8 +11,9 @@ class ProfileViewController: UIViewController {
 
     let header = ProfileHeaderView()
     var impactCount: UICollectionView!
-    let completedChallenges = UITableView()
+    var completedChallenges: UITableView!
     var data: [CompletedChallenge]! = []
+    var benefitCountData: [(benefit: Benefits, count: Int)]!
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -26,6 +27,12 @@ class ProfileViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
+        setupImpactCount()
+        setupCompletedChallenges()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,23 +44,8 @@ class ProfileViewController: UIViewController {
     }
     
     func fetchData() {
-        data = [CompletedChallenge(
-                    challenge: RepeatableChallenge(
-                        name: "Ir de bike para o trabalho",
-                        category: .transportation,
-                        benefits: [.co2, .diseases, .polution],
-                        totalSteps: 4
-                    )
-                ),
-                CompletedChallenge(
-                    challenge: StepChallenge(
-                        name: "Construir uma composteira",
-                        category: .waste,
-                        benefits: [.waste, .waste],
-                        steps: [("Construir uma composteira", true)]
-                    )
-                )
-        ]
+        benefitCountData = User.shared.record.benefitRecord
+        data = User.shared.record.challengeRecord
     }
     
     func setupHeaderView() {
@@ -96,6 +88,7 @@ class ProfileViewController: UIViewController {
     }
     
     func setupCompletedChallenges() {
+        completedChallenges = UITableView()
         completedChallenges.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(completedChallenges)
         

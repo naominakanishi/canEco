@@ -48,7 +48,7 @@ class CompletedChallengeTableViewHeader: UITableViewHeaderFooterView {
         headerButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         headerButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -superview!.frame.width * 0.035).isActive = true
         
-        headerButton.setImage(UIImage(systemName: "info.circle"), for: .normal)
+        headerButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         headerButton.tintColor = UIColor(named: "lightGreen")
     }
 }

@@ -16,6 +16,7 @@ class RecordViewController: UIViewController {
     var challengeData: [CompletedChallenge]!
 
     override func viewWillAppear(_ animated: Bool) {
+        fetchData()
         hidesBottomBarWhenPushed = true
     }
     override func viewDidLoad() {
@@ -37,23 +38,10 @@ class RecordViewController: UIViewController {
     }
     
     func fetchData() {
-        achievementData = Achievements.achievements
-        challengeData = [CompletedChallenge(
-            challenge: RepeatableChallenge(
-                name: "Ir de bike para o trabalho",
-                category: .transportation,
-                benefits: [.co2, .diseases, .polution],
-                totalSteps: 4
-            )
-        ),
-        CompletedChallenge(
-            challenge: StepChallenge(
-                name: "Construir uma composteira",
-                category: .waste,
-                benefits: [.waste, .waste],
-                steps: [("Construir uma composteira", true)]
-            )
-        )]
+        
+        achievementData = Achievements.achievements.filter { $0.1 }
+        challengeData = User.shared.record.challengeRecord
+        
     }
     
     func setupSegmentedControl() {

@@ -12,7 +12,8 @@ protocol StepCounter {
     var completedSteps: Int { get }
 }
 
-class StepChallenge: Challenge {
+final class StepChallenge: Challenge {
+
     let name: String
     let category: Category
     let benefits: [Benefits]
@@ -33,6 +34,10 @@ class StepChallenge: Challenge {
     func completeNextStep() {
         var step = steps.first { !$0.isComplete }
         step?.isComplete = true
+    }
+    
+    func copy() -> StepChallenge {
+        return StepChallenge(name: name, category: category, benefits: benefits, steps: steps)
     }
 }
 

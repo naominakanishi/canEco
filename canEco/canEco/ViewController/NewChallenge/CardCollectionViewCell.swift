@@ -12,6 +12,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     let impactTitle = UILabel()
     
     let acceptChallengeButton = UIButton()
+    var delegate: NewChallengeViewController?
     
     var challenge: Challenge? {
         didSet {
@@ -164,6 +165,16 @@ class CardCollectionViewCell: UICollectionViewCell {
         
         acceptChallengeButton.setTitle("ACEITAR DESAFIO", for: .normal)
         acceptChallengeButton.layer.cornerRadius = 16
+        
+        acceptChallengeButton.addTarget(self, action: #selector(acceptChallenge), for: .touchUpInside)
+    }
+    
+    @objc func acceptChallenge() {
+        let ch = challenge!.copy()
+        User.shared.begin(challenge: ch)
+        if let del = delegate {
+            del.tabBarController?.selectedIndex = 0
+        }
     }
     
     func setupLabels() {

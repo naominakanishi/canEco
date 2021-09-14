@@ -18,6 +18,7 @@ class ChallengeCell: UICollectionViewCell {
     let taskTitle = UILabel()
     let checkButton = UIButton()
     let progressBar = ProgressBar()
+    weak var delegate: MyCollectionViewCellDelegate?
     
     func setupCategoryImageView(){
         taskImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -90,10 +91,15 @@ class ChallengeCell: UICollectionViewCell {
     }
     
     @objc func didClick() {
-        let task = challenge
+        User.shared.progress(in: self.challenge!)
         checkButton.performClickAnimation { _ in
-            task?.completeNextStep()
             self.progressBar.completedStepCount += 1
+        }
+        print(User.shared.record.challengeRecord)
+        if challenge!.isComplete {
+            if let del = (self.delegate as? HomeViewController) {
+                del.data = User.shared.ongoingChallenges
+            }
         }
     }
     
@@ -128,4 +134,7 @@ class ChallengeCell: UICollectionViewCell {
         }
     }
 
+}
+
+protocol MyCollectionViewCellDelegate: AnyObject {
 }

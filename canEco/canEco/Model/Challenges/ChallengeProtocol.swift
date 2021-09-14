@@ -15,5 +15,6 @@ protocol Challenge {
     var isComplete: Bool { get }
     
     func completeNextStep()
+    func copy() -> Self
 }
 

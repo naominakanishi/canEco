@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, MyCollectionViewCellDelegate {
     // Quantos elementos
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count + 1
@@ -18,12 +18,14 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if indexPath.item < data.count {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChallengeCell
             cell.challenge = data[indexPath.item]
+            cell.delegate = self
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell_new", for: indexPath) as! NewTaskButton
             return cell
         }
     }
+    
     
     // Tamanho de cada elemento
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

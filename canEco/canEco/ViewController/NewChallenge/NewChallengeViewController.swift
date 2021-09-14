@@ -107,6 +107,7 @@ extension NewChallengeViewController: UICollectionViewDataSource, UICollectionVi
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "challengeCard", for: indexPath) as! CardCollectionViewCell
             cell.challenge = data2[indexPath.item]
             cell.navigateToOpenCard = navigateToOpenCard
+            cell.delegate = self
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterTag", for: indexPath) as! CategoryTagCollectionViewCell

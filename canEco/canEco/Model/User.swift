@@ -9,12 +9,12 @@ import Foundation
 
 
 class User {
+    static var shared = User()
     var name: String
-    var ongoingChallenges: [Challenge] = [RepeatableChallenge(name: "placeholder", category: .fashion, benefits: [.co2], totalSteps: 10),
-                                          StepChallenge(name: "placeholder", category: .food, benefits: [.energy, .polution], steps: [("Step1", false), ("Step2", false)])]
-    var completedChallenges: [CompletedChallenge] = []
-    
-    init(name: String) {
+    var ongoingChallenges: [Challenge] = []
+    var record: Record = Record()
+
+    init(name: String = "") {
         self.name = name
     }
     
@@ -26,11 +26,10 @@ class User {
         challenge.completeNextStep()
         
         if challenge.isComplete {
-            let index = ongoingChallenges.firstIndex { $0.name == challenge.name }!
+            let index = ongoingChallenges.firstIndex { $0.name == challenge.name && $0.isComplete }!
             ongoingChallenges.remove(at: index)
             let completedChallenge = CompletedChallenge(challenge: challenge)
-            completedChallenges.append(completedChallenge)
+            record.add(completedChallenge: completedChallenge)
         }
     }
-    
 }

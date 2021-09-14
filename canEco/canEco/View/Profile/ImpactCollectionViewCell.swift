@@ -49,7 +49,6 @@ class ImpactCollectionViewCell: UICollectionViewCell {
         countLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(countLabel)
         
-        countLabel.text = "\(Int.random(in: 0...30))"
         countLabel.font = UIFont.boldSystemFont(ofSize: 25)
         countLabel.textColor = .white
         countLabel.numberOfLines = 1
@@ -63,7 +62,6 @@ class ImpactCollectionViewCell: UICollectionViewCell {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(nameLabel)
 
-        nameLabel.text = "Emissão de poluentes"
         nameLabel.font = UIFont.systemFont(ofSize: 16)
         nameLabel.textColor = .white
         nameLabel.numberOfLines = 2
@@ -72,6 +70,11 @@ class ImpactCollectionViewCell: UICollectionViewCell {
         nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0.05 * bounds.width).isActive = true
         nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bounds.height * 0.05).isActive = true
+    }
+    
+    func setupLabels(forBenefit benefit: Benefits, withCount count: Int) {
+        countLabel.text = "\(count)"
+        nameLabel.text = benefit.rawValue
     }
     
     /*

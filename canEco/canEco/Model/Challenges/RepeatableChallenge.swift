@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RepeatableChallenge: Challenge {
+final class RepeatableChallenge: Challenge {
     let name: String
     let category: Category
     let benefits: [Benefits]
@@ -26,6 +26,10 @@ class RepeatableChallenge: Challenge {
     
     func completeNextStep() {
         completedSteps = min(completedSteps + 1, totalSteps)
+    }
+    
+    func copy() -> RepeatableChallenge {
+        return RepeatableChallenge(name: name, category: category, benefits: benefits, totalSteps: totalSteps)
     }
 }
 
