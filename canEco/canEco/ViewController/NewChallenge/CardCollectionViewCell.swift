@@ -66,6 +66,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         challengeTitle.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.7).isActive = true
         challengeTitle.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         challengeTitle.topAnchor.constraint(equalTo: challengeImage.bottomAnchor, constant: 15).isActive = true
+        challengeTitle.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
         challengeTitle.textAlignment = .center
         challengeTitle.numberOfLines = 0
@@ -118,7 +119,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     func displayImpactsStackView(){
 //        impactsStackView.distribution = .fillEqually
 //        impactsStackView.distribution = .equalSpacing
-        impactsStackView.layer.borderWidth = 1
+//        impactsStackView.layer.borderWidth = 1
         
         contentView.addSubview(impactsStackView)
         impactsStackView.translatesAutoresizingMaskIntoConstraints = false
