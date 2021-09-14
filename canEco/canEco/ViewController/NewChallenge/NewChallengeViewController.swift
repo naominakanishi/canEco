@@ -35,7 +35,11 @@ class NewChallengeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "bege")
+//        navigationController?.setNavigationBarHidden(true, animated: false)
+        title = "Desafios"
+//        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
         setupFilter()
         displayChallengesCv()
 //        benefit = NewChallengeCardCollectionViewCell()
@@ -48,6 +52,10 @@ class NewChallengeViewController: UIViewController {
 //        benefit.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.6).isActive = true
     }
     
+    @objc func searchTapped() {
+        
+    }
+    
     func setupFilter() {
         
         collectionLayout = UICollectionViewFlowLayout()
@@ -58,14 +66,15 @@ class NewChallengeViewController: UIViewController {
         filter = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: collectionLayout)
         filter.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(filter)
-        filter.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        filter.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
 //        filter.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        filter.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        filter.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
+        filter.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        filter.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
         filter.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.04).isActive = true
         
         filter.register(CategoryTagCollectionViewCell.self, forCellWithReuseIdentifier: "filterTag")
-        filter.backgroundColor = .white
+        filter.backgroundColor = UIColor(named: "bege")
+        filter.showsHorizontalScrollIndicator = false
         filter.dataSource = self
         filter.delegate = self
         
@@ -75,26 +84,30 @@ class NewChallengeViewController: UIViewController {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: view.frame.width * 0.5 - 311 / 2, bottom: 0, right: view.frame.width * 0.07)
+        layout.minimumLineSpacing = 25
+        
         challengesCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: layout)
         
         challengesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(challengesCollectionView)
-        challengesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        challengesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        challengesCollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        challengesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        challengesCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        challengesCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        challengesCollectionView.topAnchor.constraint(equalTo: filter.bottomAnchor, constant: 30).isActive = true
+        challengesCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
         challengesCollectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "challengeCard")
         challengesCollectionView.dataSource = self
         challengesCollectionView.delegate = self
         challengesCollectionView.backgroundColor = UIColor(named: "bege")
-        challengesCollectionView.isPagingEnabled = true
+        challengesCollectionView.isPagingEnabled = false
+        challengesCollectionView.showsHorizontalScrollIndicator = false
         challengesCollectionView.tag = 1
     }
 
 }
 
-extension NewChallengeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension NewChallengeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 1 {
             return data2.count

@@ -20,6 +20,8 @@
 		FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29894926E161DA0078BE1A /* CheckListViewController.swift */; };
 		FA3FE90E26EA4E790013ABAB /* HomeViewAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE90D26EA4E790013ABAB /* HomeViewAnim.swift */; };
 		FA3FE91026EA4F250013ABAB /* CheckButtonAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE90F26EA4F250013ABAB /* CheckButtonAnim.swift */; };
+		FA683A3A26F119C00094BBAB /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA683A3926F119C00094BBAB /* Ubuntu-Regular.ttf */; };
+		FA683A3C26F119CF0094BBAB /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA683A3B26F119CF0094BBAB /* Ubuntu-Bold.ttf */; };
 		FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440026E3B71B004DCA5A /* Benefits.swift */; };
 		FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */; };
 		FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72DC7F26E5080A0095CC81 /* StringExtension.swift */; };
@@ -46,7 +48,6 @@
 		FAB6A16D26E1186200852FA7 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */; };
 		FAD4CC1526E51BAE00818DE9 /* RepeatableChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */; };
 		FAD4CC1726E51CFE00818DE9 /* StepChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1626E51CFE00818DE9 /* StepChallenge.swift */; };
-		FAD4CC1F26E53AD900818DE9 /* NewChallengeCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1E26E53AD900818DE9 /* NewChallengeCardCollectionViewCell.swift */; };
 		FAD4CC2126E53D6700818DE9 /* BenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC2026E53D6700818DE9 /* BenefitCell.swift */; };
 		FADB9AA126DFF08400BE8481 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA026DFF08400BE8481 /* AppDelegate.swift */; };
 		FADB9AA326DFF08400BE8481 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA226DFF08400BE8481 /* SceneDelegate.swift */; };
@@ -74,6 +75,8 @@
 		FA29894926E161DA0078BE1A /* CheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListViewController.swift; sourceTree = "<group>"; };
 		FA3FE90D26EA4E790013ABAB /* HomeViewAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewAnim.swift; sourceTree = "<group>"; };
 		FA3FE90F26EA4F250013ABAB /* CheckButtonAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButtonAnim.swift; sourceTree = "<group>"; };
+		FA683A3926F119C00094BBAB /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
+		FA683A3B26F119CF0094BBAB /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
 		FA6E440026E3B71B004DCA5A /* Benefits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benefits.swift; sourceTree = "<group>"; };
 		FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FA72DC7F26E5080A0095CC81 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -100,7 +103,6 @@
 		FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatableChallenge.swift; sourceTree = "<group>"; };
 		FAD4CC1626E51CFE00818DE9 /* StepChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepChallenge.swift; sourceTree = "<group>"; };
-		FAD4CC1E26E53AD900818DE9 /* NewChallengeCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChallengeCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAD4CC2026E53D6700818DE9 /* BenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCell.swift; sourceTree = "<group>"; };
 		FADB9A9D26DFF08400BE8481 /* canEco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = canEco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADB9AA026DFF08400BE8481 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -177,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				FA0AA4D526E40FD300892E4C /* CategoryTagCollectionViewCell.swift */,
-				FAD4CC1E26E53AD900818DE9 /* NewChallengeCardCollectionViewCell.swift */,
 				FAD4CC2026E53D6700818DE9 /* BenefitCell.swift */,
 			);
 			path = NewChallenge;
@@ -190,6 +191,15 @@
 				FA3FE90F26EA4F250013ABAB /* CheckButtonAnim.swift */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		FA683A3826F119950094BBAB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FA683A3926F119C00094BBAB /* Ubuntu-Regular.ttf */,
+				FA683A3B26F119CF0094BBAB /* Ubuntu-Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		FA72E0E626E58C6100976C8B /* Challenges */ = {
@@ -288,6 +298,7 @@
 				FADB9AB526DFF50A00BE8481 /* View */,
 				FADB9AB426DFF4FE00BE8481 /* Model */,
 				FADB9AB626DFF51700BE8481 /* ViewController */,
+				FA683A3826F119950094BBAB /* Fonts */,
 				FADB9AA026DFF08400BE8481 /* AppDelegate.swift */,
 				FADB9AA226DFF08400BE8481 /* SceneDelegate.swift */,
 				FADB9AA426DFF08400BE8481 /* ViewController.swift */,
@@ -336,9 +347,9 @@
 			children = (
 				FA0AA4C926E3DB0600892E4C /* TabBarViewController.swift */,
 				FA29894926E161DA0078BE1A /* CheckListViewController.swift */,
+				D749BC7126EEB15B004E7B99 /* OpenCardViewController.swift */,
 				FA0AA4C726E3DAA900892E4C /* Home */,
 				FA0AA4D126E40BE900892E4C /* NewChallenge */,
-				D749BC7126EEB15B004E7B99 /* OpenCardViewController.swift */,
 				FA74ED9626ECF01000AE9639 /* Profile */,
 				FA74EDA926EE5E2A00AE9639 /* Record */,
 				FA74EDB226EECCF900AE9639 /* Info */,
@@ -403,6 +414,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA683A3C26F119CF0094BBAB /* Ubuntu-Bold.ttf in Resources */,
+				FA683A3A26F119C00094BBAB /* Ubuntu-Regular.ttf in Resources */,
 				FADB9AAD26DFF08500BE8481 /* LaunchScreen.storyboard in Resources */,
 				FADB9AAA26DFF08500BE8481 /* Assets.xcassets in Resources */,
 				FADB9AA826DFF08400BE8481 /* Main.storyboard in Resources */,
@@ -440,7 +453,6 @@
 				FA74EDA526EE46A800AE9639 /* ImpactHeaderCollectionReusableView.swift in Sources */,
 				FA72E0E826E58C7B00976C8B /* CompletedChallenge.swift in Sources */,
 				FADB9AA326DFF08400BE8481 /* SceneDelegate.swift in Sources */,
-				FAD4CC1F26E53AD900818DE9 /* NewChallengeCardCollectionViewCell.swift in Sources */,
 				FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */,
 				FAD4CC1526E51BAE00818DE9 /* RepeatableChallenge.swift in Sources */,
 				FA74EDA326EE38BF00AE9639 /* CompletedChallengeTableViewHeader.swift in Sources */,

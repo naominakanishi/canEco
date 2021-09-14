@@ -16,8 +16,10 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     var challenge: Challenge? {
         didSet {
+            if oldValue == nil {
+                setupBenefits()
+            }
             setupLabels()
-            setupBenefits()
             setupAcceptButton()
         }
     }
@@ -51,8 +53,8 @@ class CardCollectionViewCell: UICollectionViewCell {
         
         challengeImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         challengeImage.centerYAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        challengeImage.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.7).isActive = true
-        challengeImage.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 129/232).isActive = true
+        challengeImage.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.6).isActive = true
+        challengeImage.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 113/205).isActive = true
         
         challengeImage.backgroundColor = .lightGray
     }
@@ -67,7 +69,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         
         challengeTitle.textAlignment = .center
         challengeTitle.numberOfLines = 0
-        challengeTitle.font = UIFont.boldSystemFont(ofSize: 36)
+        challengeTitle.font = UIFont(name: "Ubuntu-Bold", size: 30)
     }
     
     func displayInfoButton() {
@@ -75,7 +77,6 @@ class CardCollectionViewCell: UICollectionViewCell {
         infoButton.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(infoButton)
         
-        infoButton.leadingAnchor.constraint(equalTo: challengeImage.trailingAnchor, constant: 10).isActive = true
         infoButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
         infoButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
         infoButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
@@ -95,7 +96,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         placeholderInformation.topAnchor.constraint(equalTo: challengeTitle.bottomAnchor, constant: 10).isActive = true
         
         placeholderInformation.numberOfLines = 0
-        placeholderInformation.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        placeholderInformation.font = UIFont(name: "Ubuntu-Regular", size: 14)
         placeholderInformation.text = " 87 participantes       4 semanas"
     }
     
@@ -115,30 +116,34 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
     
     func displayImpactsStackView(){
-        impactsStackView.distribution = .fillEqually
-        impactsStackView.alignment = .center
+//        impactsStackView.distribution = .fillEqually
+//        impactsStackView.distribution = .equalSpacing
+        impactsStackView.layer.borderWidth = 1
         
         contentView.addSubview(impactsStackView)
         impactsStackView.translatesAutoresizingMaskIntoConstraints = false
         
         impactsStackView.topAnchor.constraint(
             equalTo: impactTitle.bottomAnchor,
-            constant: 10
+            constant: 50
         ).isActive = true
         
-        impactsStackView.bottomAnchor.constraint(
-            equalTo: acceptChallengeButton.topAnchor,
-            constant: -20
-        ).isActive = true
-        
+//        impactsStackView.bottomAnchor.constraint(
+//            equalTo: acceptChallengeButton.topAnchor,
+//            constant: -20
+//        ).isActive = true
+//
         impactsStackView.widthAnchor.constraint(
-            lessThanOrEqualTo: contentView.widthAnchor,
+            equalTo: contentView.widthAnchor,
             multiplier: 0.8
         ).isActive = true
         
         impactsStackView.centerXAnchor.constraint(
             equalTo: contentView.centerXAnchor
         ).isActive = true
+        
+        impactsStackView.spacing = frame.width * 0.8 * 0.35
+        impactsStackView.alignment = .leading
     }
     
     func displayAcceptChallengeButton() {
@@ -188,6 +193,7 @@ class CardCollectionViewCell: UICollectionViewCell {
             impactsStackView.removeArrangedSubview($0)}
         challenge?.benefits.forEach {
             let impactsView = ImpactsView(benefit: $0)
+            impactsView.associetedStackView = impactsStackView
             impactsStackView.addArrangedSubview(impactsView)
         }
     }

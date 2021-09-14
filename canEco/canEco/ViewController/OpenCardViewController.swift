@@ -45,9 +45,6 @@ final class OpenCardViewController: UIViewController {
     override func viewDidLoad() {
         view.backgroundColor = .white
         
-        setupLabels()
-        setupBenefits()
-        
         displayAcceptChallengeButton()
         displayContentsScrollView()
         
@@ -57,6 +54,8 @@ final class OpenCardViewController: UIViewController {
         displayChallengeDescription()
         displayImpactTitle()
         displayImpactsStackView()
+        setupBenefits()
+        setupLabels()
         displayTipsTitle()
         displayTipsText()
     }
@@ -73,6 +72,7 @@ final class OpenCardViewController: UIViewController {
             impactsStackView.removeArrangedSubview($0)}
         challenge.benefits.forEach {
             let impactsView = ImpactsView(benefit: $0)
+            impactsView.associetedStackView = impactsStackView
             impactsStackView.addArrangedSubview(impactsView)
         }
     }
@@ -88,6 +88,7 @@ final class OpenCardViewController: UIViewController {
     private func displayContentsScrollView() {
         contentsScrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(contentsScrollView)
+        contentsScrollView.showsVerticalScrollIndicator = false
         
         NSLayoutConstraint.activate([
             contentsScrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -211,11 +212,9 @@ final class OpenCardViewController: UIViewController {
     }
     
     func displayImpactsStackView(){
-        impactsStackView.distribution = .fillEqually
-        impactsStackView.alignment = .center
-        
         contentsScrollView.addSubview(impactsStackView)
         impactsStackView.translatesAutoresizingMaskIntoConstraints = false
+        impactsStackView.layer.borderWidth = 2
         
         NSLayoutConstraint.activate([
             impactsStackView.topAnchor.constraint(
@@ -223,13 +222,19 @@ final class OpenCardViewController: UIViewController {
                 constant: 10
             ),
             impactsStackView.widthAnchor.constraint(
-                lessThanOrEqualTo: contentsScrollView.widthAnchor,
+                equalTo: contentsScrollView.widthAnchor,
                 multiplier: 0.8
             ),
             impactsStackView.centerXAnchor.constraint(
                 equalTo: contentsScrollView.centerXAnchor
-            )
+            ),
+            impactsStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.13)
         ])
+        
+//        impactsStackView.distribution = .fillEqually
+//        impactsStackView.alignment = .center
+        impactsStackView.spacing = view.frame.width * 0.8 * 0.35
+        impactsStackView.alignment = .leading
     }
    
     private func displayTipsTitle() {
