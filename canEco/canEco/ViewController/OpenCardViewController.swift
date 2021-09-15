@@ -146,7 +146,7 @@ final class OpenCardViewController: UIViewController {
 
         challengeTitle.textAlignment = .center
         challengeTitle.numberOfLines = 0
-        challengeTitle.font = UIFont.boldSystemFont(ofSize: 30)
+        challengeTitle.font = UIFont(name: "Ubuntu-Bold", size: 30)
         challengeTitle.textColor = challenge.category.getColor()
     }
     
@@ -159,7 +159,8 @@ final class OpenCardViewController: UIViewController {
         placeholderInformation.topAnchor.constraint(equalTo: challengeTitle.bottomAnchor, constant: 10).isActive = true
         
         placeholderInformation.numberOfLines = 0
-        placeholderInformation.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        placeholderInformation.font = UIFont(name: "Ubuntu-Regular", size: 14)
+        placeholderInformation.textColor = .lightGray
         placeholderInformation.text = " 87 participantes       4 semanas"
         placeholderInformation.textAlignment = .center
     }
@@ -186,13 +187,14 @@ final class OpenCardViewController: UIViewController {
         view.addSubview(acceptChallengeButton)
         
         NSLayoutConstraint.activate([
-            acceptChallengeButton.widthAnchor.constraint(equalToConstant: 228),
-            acceptChallengeButton.heightAnchor.constraint(equalToConstant: 63),
+            acceptChallengeButton.widthAnchor.constraint(equalToConstant: 333),
+            acceptChallengeButton.heightAnchor.constraint(equalTo: acceptChallengeButton.widthAnchor, multiplier: 63/333),
             acceptChallengeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             acceptChallengeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
         ])
         
         acceptChallengeButton.setTitle("ACEITAR DESAFIO", for: .normal)
+        acceptChallengeButton.titleLabel?.font = UIFont(name: "Ubuntu", size: 20)
         acceptChallengeButton.layer.cornerRadius = 16
     }
     
@@ -208,7 +210,7 @@ final class OpenCardViewController: UIViewController {
          
         ])
         challengeDescription.numberOfLines = 0
-        challengeDescription.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        challengeDescription.font = UIFont(name: "Ubuntu", size: 16)
         
     }
     
@@ -221,7 +223,7 @@ final class OpenCardViewController: UIViewController {
         impactTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor).isActive = true
         
         impactTitle.numberOfLines = 0
-        impactTitle.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        impactTitle.font = UIFont(name: "Ubuntu-Bold", size: 22)
         impactTitle.textAlignment = .center
         impactTitle.text = "Impactos positivos"
         impactTitle.textColor = challenge.category.getColor()
@@ -263,7 +265,7 @@ final class OpenCardViewController: UIViewController {
         
 
         tipsTitle.numberOfLines = 0
-        tipsTitle.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        tipsTitle.font = UIFont(name: "Ubuntu-bold", size: 20)
         tipsTitle.textAlignment = .center
         tipsTitle.text = "Dicas"
         tipsTitle.textColor = challenge.category.getColor()
@@ -282,7 +284,7 @@ final class OpenCardViewController: UIViewController {
         ])
         
         tipsText.numberOfLines = 0
-        tipsText.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        tipsText.font = UIFont(name: "Ubuntu", size: 16)
         
     }
     
