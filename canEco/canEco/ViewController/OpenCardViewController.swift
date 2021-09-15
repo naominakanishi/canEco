@@ -34,6 +34,8 @@ final class OpenCardViewController: UIViewController {
     
     let stepsTitle = UILabel()
     
+    let verticalSpacing: CGFloat = 15
+    
     var checklistStackView: ChecklistView?
 
     let progressBar: ProgressBar = {
@@ -133,7 +135,6 @@ final class OpenCardViewController: UIViewController {
         header.backgroundColor = challenge.category.getColor()
     }
     
-    
     private func displayChallengeTitle() {
         challengeTitle.translatesAutoresizingMaskIntoConstraints = false
         contentsScrollView.addSubview(challengeTitle)
@@ -142,7 +143,7 @@ final class OpenCardViewController: UIViewController {
         NSLayoutConstraint.activate([
             challengeTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7),
             challengeTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
-            challengeTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 15)
+            challengeTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: verticalSpacing)
         ])
 
         challengeTitle.textAlignment = .center
@@ -191,7 +192,7 @@ final class OpenCardViewController: UIViewController {
             acceptChallengeButton.widthAnchor.constraint(equalToConstant: 333),
             acceptChallengeButton.heightAnchor.constraint(equalTo: acceptChallengeButton.widthAnchor, multiplier: 63/333),
             acceptChallengeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            acceptChallengeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            acceptChallengeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -verticalSpacing),
         ])
         
         acceptChallengeButton.setTitle("ACEITAR DESAFIO", for: .normal)
@@ -205,7 +206,7 @@ final class OpenCardViewController: UIViewController {
         
         NSLayoutConstraint.activate([
 
-            challengeDescription.topAnchor.constraint(equalTo: placeholderInformation.bottomAnchor, constant: 15),
+            challengeDescription.topAnchor.constraint(equalTo: placeholderInformation.bottomAnchor, constant: verticalSpacing),
             challengeDescription.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
             challengeDescription.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
          
@@ -220,7 +221,7 @@ final class OpenCardViewController: UIViewController {
         contentsScrollView.addSubview(checklistStackView!)
         
         NSLayoutConstraint.activate([
-            checklistStackView!.topAnchor.constraint(equalTo: challengeDescription.bottomAnchor, constant: 20),
+            checklistStackView!.topAnchor.constraint(equalTo: challengeDescription.bottomAnchor, constant: verticalSpacing),
             checklistStackView!.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
             checklistStackView!.bottomAnchor.constraint(equalTo: impactTitle.topAnchor),
             checklistStackView!.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
@@ -233,25 +234,26 @@ final class OpenCardViewController: UIViewController {
         impactTitle.translatesAutoresizingMaskIntoConstraints = false
         contentsScrollView.addSubview(impactTitle)
         
-        
+
         impactTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7).isActive = true
         impactTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor).isActive = true
         
         impactTitle.numberOfLines = 0
-        impactTitle.font = UIFont(name: "Ubuntu-Bold", size: 22)
+        impactTitle.font = UIFont(name: "Ubuntu-Bold", size: 20)
         impactTitle.textAlignment = .center
         impactTitle.text = "Impactos positivos"
         impactTitle.textColor = challenge.category.getColor()
     }
     
     func displayImpactsStackView(){
+        
         contentsScrollView.addSubview(impactsStackView)
         impactsStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             impactsStackView.topAnchor.constraint(
                 equalTo: impactTitle.bottomAnchor,
-                constant: 10
+                constant: verticalSpacing
             ),
             impactsStackView.widthAnchor.constraint(
                 equalTo: contentsScrollView.widthAnchor,
@@ -274,7 +276,7 @@ final class OpenCardViewController: UIViewController {
         contentsScrollView.addSubview(tipsTitle)
 
         
-        tipsTitle.topAnchor.constraint(equalTo: impactsStackView.bottomAnchor, constant: 25).isActive = true
+        tipsTitle.topAnchor.constraint(equalTo: impactsStackView.bottomAnchor, constant: verticalSpacing).isActive = true
         tipsTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7).isActive = true
         tipsTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor).isActive = true
         
@@ -293,7 +295,7 @@ final class OpenCardViewController: UIViewController {
         contentsScrollView.addSubview(tipsText)
         
         NSLayoutConstraint.activate([
-            tipsText.topAnchor.constraint(equalTo: tipsTitle.bottomAnchor, constant: 15),
+            tipsText.topAnchor.constraint(equalTo: tipsTitle.bottomAnchor, constant: verticalSpacing),
             tipsText.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
             tipsText.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
             tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor)

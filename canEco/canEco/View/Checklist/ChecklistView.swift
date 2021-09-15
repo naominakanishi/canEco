@@ -25,7 +25,7 @@ class ChecklistView: UIView {
         
         NSLayoutConstraint.activate([
             checklistTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
-            checklistTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            checklistTitle.topAnchor.constraint(equalTo: topAnchor),
             checklistTitle.widthAnchor.constraint(equalTo: widthAnchor)
         ])
         
@@ -45,7 +45,7 @@ class ChecklistView: UIView {
         setupChecklistStackView()
         
         NSLayoutConstraint.activate([
-            checklistStackView.topAnchor.constraint(equalTo: checklistTitle.bottomAnchor, constant: 10),
+            checklistStackView.topAnchor.constraint(equalTo: checklistTitle.bottomAnchor, constant: 15),
             checklistStackView.widthAnchor.constraint(equalTo: widthAnchor),
             checklistStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             checklistStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
