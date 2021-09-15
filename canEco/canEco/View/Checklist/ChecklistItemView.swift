@@ -23,6 +23,12 @@ class ChecklistItemView: UIView {
         layer.cornerRadius = 16
         layer.backgroundColor = UIColor(named: "bege")?.cgColor
         
+        displayCheckImage()
+        displayItemTitle()
+        displayItemDescription()
+        setupView()
+        setupLayout()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -55,7 +61,7 @@ class ChecklistItemView: UIView {
         addSubview(itemTitle)
         
         NSLayoutConstraint.activate([
-            itemTitle.topAnchor.constraint(equalTo: topAnchor, constant: frame.height / 6),
+            itemTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             itemTitle.leadingAnchor.constraint(equalTo: checkImage.trailingAnchor, constant: checkboxPadding),
             itemTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -checkboxPadding),
         ])
@@ -71,7 +77,8 @@ class ChecklistItemView: UIView {
         NSLayoutConstraint.activate([
             itemDescription.topAnchor.constraint(equalTo: itemTitle.bottomAnchor, constant: 10),
             itemDescription.leadingAnchor.constraint(equalTo: checkImage.trailingAnchor, constant: checkboxPadding),
-            itemTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -checkboxPadding)
+            itemDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -checkboxPadding),
+            itemDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
         ])
         
         itemDescription.font = UIFont(name: "Ubuntu-Regular", size: 12)
@@ -81,6 +88,5 @@ class ChecklistItemView: UIView {
     func setupLayout() {
         itemTitle.text = info.Title
         itemDescription.text = info.Description
-        
     }
 }

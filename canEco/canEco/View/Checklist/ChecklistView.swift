@@ -54,7 +54,6 @@ class ChecklistView: UIView {
         checklistStackView.distribution = .fillEqually
         checklistStackView.spacing = 5
         checklistStackView.axis = .vertical
-        print("mas que cois2a")
         
     }
     
@@ -62,7 +61,6 @@ class ChecklistView: UIView {
         for step in stepChallenge.steps {
             let checklistItem = ChecklistItemView(info: step)
             checklistStackView.addArrangedSubview(checklistItem)
-            print("adicionou")
         }
     }
 }
