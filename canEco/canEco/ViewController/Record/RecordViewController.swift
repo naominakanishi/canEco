@@ -40,7 +40,7 @@ class RecordViewController: UIViewController {
     func fetchData() {
         
         achievementData = Achievements.achievements.filter { $0.1 }
-        challengeData = User.shared.record.challengeRecord
+        challengeData = User.shared.record.challengeRecord.reversed()
         
     }
     

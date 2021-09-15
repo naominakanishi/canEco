@@ -41,11 +41,17 @@ final class OpenCardViewController: UIViewController {
         return progressBar
     }()
   
+    var isChallengeActive: Bool!
     
     override func viewDidLoad() {
         view.backgroundColor = .white
         
-        displayAcceptChallengeButton()
+        isChallengeActive = (User.shared.ongoingChallenges.first { $0.name == challenge.name } != nil )
+        
+        if !isChallengeActive {
+            displayAcceptChallengeButton()
+        }
+        
         displayContentsScrollView()
         
         displayHeader()
@@ -58,12 +64,6 @@ final class OpenCardViewController: UIViewController {
         setupLabels()
         displayTipsTitle()
         displayTipsText()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.view.setNeedsLayout()
-        self.view.layoutIfNeeded()
     }
     
     private func setupBenefits() {
@@ -90,12 +90,17 @@ final class OpenCardViewController: UIViewController {
         view.addSubview(contentsScrollView)
         contentsScrollView.showsVerticalScrollIndicator = false
         
+        let bottomConstraint = isChallengeActive ? contentsScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor) : contentsScrollView.bottomAnchor.constraint(equalTo: acceptChallengeButton.topAnchor, constant: -15)
+        
+        
         NSLayoutConstraint.activate([
             contentsScrollView.topAnchor.constraint(equalTo: view.topAnchor),
             contentsScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             contentsScrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            contentsScrollView.bottomAnchor.constraint(equalTo: acceptChallengeButton.topAnchor, constant: -15)
+            bottomConstraint
         ])
+        
+        print(bottomConstraint)
         
     }
     
@@ -214,7 +219,6 @@ final class OpenCardViewController: UIViewController {
     func displayImpactsStackView(){
         contentsScrollView.addSubview(impactsStackView)
         impactsStackView.translatesAutoresizingMaskIntoConstraints = false
-        impactsStackView.layer.borderWidth = 2
         
         NSLayoutConstraint.activate([
             impactsStackView.topAnchor.constraint(
@@ -228,7 +232,7 @@ final class OpenCardViewController: UIViewController {
             impactsStackView.centerXAnchor.constraint(
                 equalTo: contentsScrollView.centerXAnchor
             ),
-            impactsStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.13)
+            impactsStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1)
         ])
         
 //        impactsStackView.distribution = .fillEqually

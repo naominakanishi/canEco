@@ -47,26 +47,35 @@ class CategoryTagCollectionViewCell: UICollectionViewCell {
     }
 
     func configureCell() {
-        if category != nil {
-            label.text = category!.rawValue
-            if displayMode == .fill {
-                label.textColor = .white
-                contentView.layer.backgroundColor = category?.getColor().cgColor
-            } else {
-                label.textColor = category?.getColor()
-                contentView.layer.backgroundColor = UIColor.white.cgColor
-            }
+        label.text = category == nil ? "TODOS" : category!.rawValue
+        
+        if displayMode == .fill {
+            label.textColor = .white
+            contentView.layer.backgroundColor = UIColor(named: "black")?.cgColor
         } else {
-            label.text = "TODOS"
-            if displayMode == .fill {
-                label.textColor = .white
-                contentView.layer.backgroundColor = UIColor(named: "brown")?.cgColor
-            } else {
-                label.textColor = UIColor(named: "brown")
-                contentView.layer.backgroundColor = UIColor.white.cgColor
-            }
+            label.textColor = UIColor(named: "black")
+            contentView.layer.backgroundColor = UIColor(named: "bege")?.cgColor
         }
-        contentView.layer.borderColor = category?.getColor().cgColor
+//        if category != nil {
+//            label.text = category!.rawValue
+//            if displayMode == .fill {
+//                label.textColor = .white
+//                contentView.layer.backgroundColor = category?.getColor().cgColor
+//            } else {
+//                label.textColor = category?.getColor()
+//                contentView.layer.backgroundColor = UIColor.white.cgColor
+//            }
+//        } else {
+//            label.text = "TODOS"
+//            if displayMode == .fill {
+//                label.textColor = .white
+//                contentView.layer.backgroundColor = UIColor(named: "brown")?.cgColor
+//            } else {
+//                label.textColor = UIColor(named: "brown")
+//                contentView.layer.backgroundColor = UIColor.white.cgColor
+//            }
+//        }
+        contentView.layer.borderColor = UIColor(named: "black")?.cgColor
     }
     
 }

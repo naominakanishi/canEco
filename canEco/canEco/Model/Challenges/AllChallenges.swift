@@ -21,6 +21,13 @@ final class Challenges {
          RepeatableChallenge(name: "Ir de bike pro trabalho", category: .transportation, benefits: [.polution, .co2, .diseases], totalSteps: 7, imageName: "mobility-bike")]
     
     static func getChallenges() -> [Challenge] {
-        return challenges
+        return challenges.filter {
+            for ch in User.shared.ongoingChallenges {
+                if ch.name == $0.name {
+                    return false
+                }
+            }
+            return true
+        }
     }
 }

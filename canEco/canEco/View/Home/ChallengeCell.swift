@@ -22,8 +22,6 @@ class ChallengeCell: UICollectionViewCell {
     
     func setupCategoryImageView(){
         taskImageView.translatesAutoresizingMaskIntoConstraints = false
-        taskImageView.layer.borderWidth = 1
-        taskImageView.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
         contentView.addSubview(taskImageView)
         taskImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         taskImageView.bottomAnchor.constraint(equalTo: progressBar.topAnchor, constant: -20).isActive = true
@@ -46,11 +44,8 @@ class ChallengeCell: UICollectionViewCell {
         taskTitle.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(taskTitle)
         taskTitle.font = UIFont.boldSystemFont(ofSize: 18)
-        taskTitle.layer.borderWidth = 1
-        taskTitle.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-        
-        // Constraints
 
+        // Constraints
         taskTitle.centerYAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 30).isActive = true
         taskTitle.leadingAnchor.constraint(equalTo: progressBar.leadingAnchor).isActive = true
         taskTitle.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8).isActive = true
@@ -82,8 +77,6 @@ class ChallengeCell: UICollectionViewCell {
         checkButton.setTitleColor(UIColor(named: "black"), for: .normal)
         checkButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         checkButton.layer.cornerRadius = 9
-        checkButton.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
-        checkButton.layer.borderWidth = 2
         checkButton.setTitleColor(.white, for: .normal)
         
         // Action

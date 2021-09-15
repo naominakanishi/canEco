@@ -74,6 +74,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == data.count {
             tabBarController?.selectedIndex = 1
+        } else {
+            present(OpenCardViewController(challenge: data[indexPath.item]), animated: true, completion: nil)
         }
     }
     

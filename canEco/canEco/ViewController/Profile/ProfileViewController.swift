@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController {
     
     func fetchData() {
         benefitCountData = User.shared.record.benefitRecord
-        data = User.shared.record.challengeRecord
+        data = User.shared.record.challengeRecord.reversed()
     }
     
     func setupHeaderView() {

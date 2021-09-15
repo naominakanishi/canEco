@@ -11,6 +11,7 @@ class NewChallengeViewController: UIViewController {
 
     var filter: UICollectionView!
     var data2: [Challenge]!
+    var selectedCategories: [Category] = []
     var challengesCollectionView: UICollectionView!
     
     var collectionLayout: UICollectionViewFlowLayout! {
@@ -26,8 +27,7 @@ class NewChallengeViewController: UIViewController {
         
         let tabBar = UITabBarItem(title: "Novo Desafio", image: UIImage(systemName: "magnifyingglass"), selectedImage: UIImage(systemName: "magnifyingglass", withConfiguration: UIImage.SymbolConfiguration(weight: .bold)))
         tabBarItem = tabBar
-        
-        data2 = Challenges.getChallenges()
+        filterDelegate.associetedVC = self
     }
     
     required init?(coder: NSCoder) {
@@ -42,6 +42,22 @@ class NewChallengeViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
         setupFilter()
         displayChallengesCv()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        filterData()
+        challengesCollectionView.reloadData()
+    }
+    
+    func filterData() {
+        let allChallenges = Challenges.getChallenges()
+        data2 = allChallenges
+        if !selectedCategories.isEmpty {
+            let filteredChallenges = allChallenges.filter { selectedCategories.contains($0.category)
+            }
+            data2 = filteredChallenges
+        }
+        challengesCollectionView.reloadData()
     }
     
     @objc func searchTapped() {

@@ -10,6 +10,7 @@ import UIKit
 class FilterCollectionViewDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
     var data: [Category?] = [nil, Category.fashion, Category.food, Category.shopping, Category.transportation, Category.waste]
+    var associetedVC: NewChallengeViewController?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
@@ -35,13 +36,28 @@ class FilterCollectionViewDataSource: NSObject, UICollectionViewDataSource, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryTagCollectionViewCell
         
         if cell.displayMode == .fill {
             cell.displayMode = .unfill
+//            let index = (associetedVC?.selectedCategories.firstIndex { $0 == cell.category })!
+//            associetedVC?.selectedCategories.remove(at: index)
+            
+//            if associetedVC!.selectedCategories.isEmpty {
+//                let todos = collectionView.cellForItem(at: IndexPath(index: 0)) as! CategoryTagCollectionViewCell
+//                todos.displayMode = .fill
+//            }
         } else {
+//            if associetedVC!.selectedCategories.isEmpty {
+//                let todos = collectionView.cellForItem(at: IndexPath(index: 0)) as! CategoryTagCollectionViewCell
+//                todos.displayMode = .unfill
+//            }
+//            associetedVC?.selectedCategories.append(cell.category!)
             cell.displayMode = .fill
         }
+        
+        associetedVC?.filterData()
+        
     }
 }
