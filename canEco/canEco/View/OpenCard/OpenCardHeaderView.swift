@@ -24,7 +24,7 @@ class OpenCardHeaderView: UIView {
         challengeImage.translatesAutoresizingMaskIntoConstraints = false
         addSubview(challengeImage)
         
-        challengeImage.image = UIImage(named: challenge.imageName)
+        challengeImage.image = UIImage(named: challenge.imageName + "-white")
         
         NSLayoutConstraint.activate([
             challengeImage.topAnchor.constraint(equalTo: topAnchor, constant: margin),
