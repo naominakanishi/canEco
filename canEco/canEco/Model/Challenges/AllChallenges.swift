@@ -18,7 +18,17 @@ final class Challenges {
          RepeatableChallenge(name: "Composteira", category: .waste, benefits: [.waste, .water, .co2], totalSteps: 5, imageName: "waste-composter"),
          RepeatableChallenge(name: "Reutilizar algo que iria para o lixo", category: .waste, benefits: [.waste, .water, .co2], totalSteps: 1, imageName: "waste-reuse"),
          RepeatableChallenge(name: "Separe o lixo", category: .waste, benefits: [.waste, .polution, .co2], totalSteps: 1, imageName: "waste-sorting"),
-         RepeatableChallenge(name: "Ir de bike pro trabalho", category: .transportation, benefits: [.polution, .co2, .diseases], totalSteps: 7, imageName: "mobility-bike")]
+         RepeatableChallenge(name: "Ir de bike pro trabalho", category: .transportation, benefits: [.polution, .co2, .diseases], totalSteps: 7, imageName: "mobility-bike"),
+        StepChallenge(
+            name: <#T##String#>,
+            category: <#T##Category#>,
+            benefits: <#T##[Benefits]#>,
+            steps: [("Qualquer coisa", "Qualquercoisai", false),
+                    ("Qualquer coisa 2", "Qualquercoisai", false),
+            ],
+            imageName:"waste-sorting")
+    
+        ]
     
     static func getChallenges() -> [Challenge] {
         return challenges.filter {

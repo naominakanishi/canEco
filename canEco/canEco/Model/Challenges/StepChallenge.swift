@@ -20,12 +20,12 @@ final class StepChallenge: Challenge {
     let shortDescription: String = ""
     let imageName: String
     
-    var steps: [(description: String, isComplete: Bool)]
+    var steps: [(description: String, subtitle: String, isComplete: Bool)]
     var isComplete: Bool {
         steps.allSatisfy{ $0.isComplete }
     }
     
-    init(name: String, category: Category, benefits: [Benefits], steps: [(String, Bool)], imageName: String = "waste-composter") {
+    init(name: String, category: Category, benefits: [Benefits], steps: [(String, String, Bool)], imageName: String = "waste-composter") {
         self.name = name
         self.category = category
         self.benefits = benefits
