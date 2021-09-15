@@ -71,8 +71,9 @@ final class OpenCardViewController: UIViewController {
             print("Entrou")
             checklistStackView = ChecklistView(stepChallenge: stepChallenge)
             displayChecklist()
+            
         } else {
-            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor, constant: -10).isActive = true
+            impactTitle.topAnchor.constraint(equalTo: challengeDescription.bottomAnchor, constant: 25).isActive = true
         }
         
     }
@@ -214,11 +215,25 @@ final class OpenCardViewController: UIViewController {
         
     }
     
+    private func displayChecklist() {
+        checklistStackView?.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(checklistStackView!)
+        
+        NSLayoutConstraint.activate([
+            checklistStackView!.topAnchor.constraint(equalTo: challengeDescription.bottomAnchor, constant: 20),
+            checklistStackView!.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
+            checklistStackView!.bottomAnchor.constraint(equalTo: impactTitle.topAnchor),
+            checklistStackView!.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
+            
+        ])
+        
+    }
+    
     private func displayImpactTitle() {
         impactTitle.translatesAutoresizingMaskIntoConstraints = false
         contentsScrollView.addSubview(impactTitle)
         
-        impactTitle.topAnchor.constraint(equalTo: challengeDescription.bottomAnchor, constant: 25).isActive = true
+        
         impactTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7).isActive = true
         impactTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor).isActive = true
         
@@ -271,6 +286,8 @@ final class OpenCardViewController: UIViewController {
         tipsTitle.textColor = challenge.category.getColor()
     }
     
+    
+    
     private func displayTipsText() {
         tipsText.translatesAutoresizingMaskIntoConstraints = false
         contentsScrollView.addSubview(tipsText)
@@ -279,7 +296,7 @@ final class OpenCardViewController: UIViewController {
             tipsText.topAnchor.constraint(equalTo: tipsTitle.bottomAnchor, constant: 15),
             tipsText.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
             tipsText.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
-//            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor)
+            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor)
          
         ])
         
@@ -288,19 +305,7 @@ final class OpenCardViewController: UIViewController {
         
     }
     
-    private func displayChecklist() {
-        checklistStackView?.translatesAutoresizingMaskIntoConstraints = false
-        contentsScrollView.addSubview(checklistStackView!)
-        
-        NSLayoutConstraint.activate([
-            checklistStackView!.topAnchor.constraint(equalTo: tipsText.bottomAnchor, constant: 20),
-            checklistStackView!.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
-            checklistStackView!.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor),
-            checklistStackView!.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
-            
-        ])
-        
-    }
+    
     
     @objc
     func handleAcceptButton() {
