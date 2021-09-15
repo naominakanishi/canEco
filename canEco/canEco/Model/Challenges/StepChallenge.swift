@@ -39,7 +39,7 @@ final class StepChallenge: Challenge {
     }
     
     func copy() -> StepChallenge {
-        return StepChallenge(name: name, category: category, benefits: benefits, steps: steps)
+        return StepChallenge(name: name, category: category, benefits: benefits, steps: steps, imageName: imageName)
     }
 }
 

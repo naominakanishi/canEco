@@ -31,7 +31,7 @@ final class RepeatableChallenge: Challenge {
     }
     
     func copy() -> RepeatableChallenge {
-        return RepeatableChallenge(name: name, category: category, benefits: benefits, totalSteps: totalSteps)
+        return RepeatableChallenge(name: name, category: category, benefits: benefits, totalSteps: totalSteps, imageName: imageName)
     }
 }
 
