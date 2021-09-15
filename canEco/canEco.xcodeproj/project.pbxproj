@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		119338F726F266BC00FB1A2D /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119338F626F266BC00FB1A2D /* ChecklistView.swift */; };
+		110081EA26F27BA1007E33A1 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110081E826F27BA1007E33A1 /* ChecklistView.swift */; };
+		110081EB26F27BA1007E33A1 /* ChecklistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110081E926F27BA1007E33A1 /* ChecklistItemView.swift */; };
 		B1C0177826EFD27200389714 /* OpenCardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0177726EFD27200389714 /* OpenCardHeaderView.swift */; };
 		D749BC6E26EA811B004E7B99 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */; };
 		D749BC7026EA9A66004E7B99 /* ImpactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D749BC6F26EA9A66004E7B99 /* ImpactsView.swift */; };
@@ -29,7 +30,6 @@
 		FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440026E3B71B004DCA5A /* Benefits.swift */; };
 		FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */; };
 		FA6F20A426F2491500803535 /* ImpactsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F20A326F2491500803535 /* ImpactsStackView.swift */; };
-		FA6F20A626F274FD00803535 /* CheckListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F20A526F274FD00803535 /* CheckListItemView.swift */; };
 		FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72DC7F26E5080A0095CC81 /* StringExtension.swift */; };
 		FA72E0E326E57E3000976C8B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0E226E57E3000976C8B /* User.swift */; };
 		FA72E0E826E58C7B00976C8B /* CompletedChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0E726E58C7B00976C8B /* CompletedChallenge.swift */; };
@@ -66,7 +66,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		119338F626F266BC00FB1A2D /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
+		110081E826F27BA1007E33A1 /* ChecklistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
+		110081E926F27BA1007E33A1 /* ChecklistItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItemView.swift; sourceTree = "<group>"; };
 		B1C0177726EFD27200389714 /* OpenCardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCardHeaderView.swift; sourceTree = "<group>"; };
 		D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		D749BC6F26EA9A66004E7B99 /* ImpactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactsView.swift; sourceTree = "<group>"; };
@@ -88,7 +89,6 @@
 		FA6E440026E3B71B004DCA5A /* Benefits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benefits.swift; sourceTree = "<group>"; };
 		FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FA6F20A326F2491500803535 /* ImpactsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactsStackView.swift; sourceTree = "<group>"; };
-		FA6F20A526F274FD00803535 /* CheckListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItemView.swift; sourceTree = "<group>"; };
 		FA72DC7F26E5080A0095CC81 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		FA72E0E226E57E3000976C8B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA72E0E726E58C7B00976C8B /* CompletedChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedChallenge.swift; sourceTree = "<group>"; };
@@ -137,21 +137,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1167586A26F22B750008557E /* New Group */ = {
+		110081E726F27BA1007E33A1 /* Checklist */ = {
 			isa = PBXGroup;
 			children = (
+				110081E826F27BA1007E33A1 /* ChecklistView.swift */,
+				110081E926F27BA1007E33A1 /* ChecklistItemView.swift */,
 			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		1167586B26F22B7F0008557E /* Checklist */ = {
-			isa = PBXGroup;
-			children = (
-				119338F626F266BC00FB1A2D /* ChecklistView.swift */,
-				FA6F20A526F274FD00803535 /* CheckListItemView.swift */,
-			);
-			name = Checklist;
-			path = "New Group/Checklist";
+			path = Checklist;
 			sourceTree = "<group>";
 		};
 		B1C0177626EFD25900389714 /* OpenCard */ = {
@@ -356,8 +348,7 @@
 		FADB9AB526DFF50A00BE8481 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1167586B26F22B7F0008557E /* Checklist */,
-				1167586A26F22B750008557E /* New Group */,
+				110081E726F27BA1007E33A1 /* Checklist */,
 				B1C0177626EFD25900389714 /* OpenCard */,
 				D749BC7526EEB5EA004E7B99 /* ProgressBar */,
 				FA0AA4C826E3DACF00892E4C /* Home */,
@@ -459,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				110081EB26F27BA1007E33A1 /* ChecklistItemView.swift in Sources */,
 				FA683A4226F15EAF0094BBAB /* NewChallengeVCExtension.swift in Sources */,
 				FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */,
 				FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */,
@@ -477,7 +469,6 @@
 				FADB9AB826DFF53400BE8481 /* ChallengeCell.swift in Sources */,
 				FA74EDAF26EECBEE00AE9639 /* ProfileTableViewExtension.swift in Sources */,
 				FA74EDB726EECE5100AE9639 /* CategoryInfo.swift in Sources */,
-				119338F726F266BC00FB1A2D /* ChecklistView.swift in Sources */,
 				FA72E0EC26E686CE00976C8B /* Achievement.swift in Sources */,
 				D749BC7226EEB15B004E7B99 /* OpenCardViewController.swift in Sources */,
 				D749BC7426EEB5E3004E7B99 /* ProgressBar.swift in Sources */,
@@ -497,11 +488,11 @@
 				B1C0177826EFD27200389714 /* OpenCardHeaderView.swift in Sources */,
 				D749BC6E26EA811B004E7B99 /* CardCollectionViewCell.swift in Sources */,
 				FA683A4026F15AAB0094BBAB /* FilterCollectionViewDelegate.swift in Sources */,
-				FA6F20A626F274FD00803535 /* CheckListItemView.swift in Sources */,
 				FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */,
 				FA72E0F026E6920A00976C8B /* AllAchievements.swift in Sources */,
 				FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */,
 				FA3FE90E26EA4E790013ABAB /* HomeViewAnim.swift in Sources */,
+				110081EA26F27BA1007E33A1 /* ChecklistView.swift in Sources */,
 				FA0AA4D326E40C0E00892E4C /* NewChallengeViewController.swift in Sources */,
 				FA74EDB426EECD2C00AE9639 /* InfoViewController.swift in Sources */,
 				FA74EDA826EE5E1E00AE9639 /* RecordViewController.swift in Sources */,
