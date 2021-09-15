@@ -33,6 +33,8 @@ final class OpenCardViewController: UIViewController {
     let acceptChallengeButton = UIButton()
     
     let stepsTitle = UILabel()
+    
+    var checklistStackView: ChecklistView?
 
     let progressBar: ProgressBar = {
         let progressBar = ProgressBar()
@@ -64,6 +66,14 @@ final class OpenCardViewController: UIViewController {
         setupLabels()
         displayTipsTitle()
         displayTipsText()
+        
+       
+        
+        if let stepChallenge = challenge as? StepChallenge {
+            checklistStackView = ChecklistView(stepChallenge: stepChallenge)
+            displayChecklist()
+        }
+        
     }
     
     private func setupBenefits() {
@@ -263,15 +273,30 @@ final class OpenCardViewController: UIViewController {
         
         NSLayoutConstraint.activate([
 
-            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor),
             tipsText.topAnchor.constraint(equalTo: tipsTitle.bottomAnchor, constant: 15),
             tipsText.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
-            tipsText.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
+            tipsText.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
+            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor)
          
         ])
         tipsText.numberOfLines = 0
         tipsText.font = UIFont.systemFont(ofSize: 14, weight: .light)
         
+    }
+    
+    private func displayChecklist() {
+        checklistStackView?.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(checklistStackView!)
+        
+        NSLayoutConstraint.activate([
+            contentsScrollView.topAnchor.constraint(equalTo: tipsText.bottomAnchor, constant: 20),
+            contentsScrollView.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
+            contentsScrollView.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor),
+            contentsScrollView.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
+            
+        ])
+        
+        print("mamou")
     }
     
     @objc
