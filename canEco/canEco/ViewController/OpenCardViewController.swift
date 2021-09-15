@@ -66,9 +66,7 @@ final class OpenCardViewController: UIViewController {
         setupLabels()
         displayTipsTitle()
         displayTipsText()
-        
-       
-        
+    
         if let stepChallenge = challenge as? StepChallenge {
             print("Entrou")
             checklistStackView = ChecklistView(stepChallenge: stepChallenge)
@@ -273,13 +271,13 @@ final class OpenCardViewController: UIViewController {
         contentsScrollView.addSubview(tipsText)
         
         NSLayoutConstraint.activate([
-
             tipsText.topAnchor.constraint(equalTo: tipsTitle.bottomAnchor, constant: 15),
             tipsText.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
             tipsText.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
 //            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor)
          
         ])
+        
         tipsText.numberOfLines = 0
         tipsText.font = UIFont.systemFont(ofSize: 14, weight: .light)
         
@@ -297,7 +295,6 @@ final class OpenCardViewController: UIViewController {
             
         ])
         
-        print("mamou")
     }
     
     @objc

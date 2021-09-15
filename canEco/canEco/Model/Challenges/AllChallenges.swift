@@ -19,7 +19,7 @@ final class Challenges {
          RepeatableChallenge(name: "Reutilizar algo que iria para o lixo", category: .waste, benefits: [.waste, .water, .co2], totalSteps: 1, imageName: "waste-reuse"),
          RepeatableChallenge(name: "Separe o lixo", category: .waste, benefits: [.waste, .polution, .co2], totalSteps: 1, imageName: "waste-sorting"),
          RepeatableChallenge(name: "Ir de bike pro trabalho", category: .transportation, benefits: [.polution, .co2, .diseases], totalSteps: 7, imageName: "mobility-bike"),
-        StepChallenge(
+         StepChallenge(
             name: "aaa",
             category: .waste,
             benefits: [.waste, .water, .co2],

@@ -25,13 +25,15 @@ class ChecklistView: UIView {
         
         NSLayoutConstraint.activate([
             checklistTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
-            checklistTitle.topAnchor.constraint(equalTo: topAnchor),
+            checklistTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             checklistTitle.widthAnchor.constraint(equalTo: widthAnchor)
         ])
         
         checklistTitle.text = "Seu progresso"
         checklistTitle.font = UIFont(name: "Ubuntu-Bold", size: 20)
         checklistTitle.textColor = stepChallenge.category.getColor()
+        checklistTitle.textAlignment = .center
+        
         
     }
     
@@ -43,7 +45,7 @@ class ChecklistView: UIView {
         setupChecklistStackView()
         
         NSLayoutConstraint.activate([
-            checklistStackView.topAnchor.constraint(equalTo: checklistTitle.bottomAnchor, constant: 20),
+            checklistStackView.topAnchor.constraint(equalTo: checklistTitle.topAnchor, constant: 20),
             checklistStackView.widthAnchor.constraint(equalTo: widthAnchor),
             checklistStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             checklistStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
@@ -52,6 +54,7 @@ class ChecklistView: UIView {
         checklistStackView.distribution = .fillEqually
         checklistStackView.spacing = 5
         checklistStackView.axis = .vertical
+        print("mas que cois2a")
         
     }
     

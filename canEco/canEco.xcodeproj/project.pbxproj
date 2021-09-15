@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1167586D26F22B8E0008557E /* ChecklistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167586C26F22B8E0008557E /* ChecklistItemView.swift */; };
 		119338F726F266BC00FB1A2D /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119338F626F266BC00FB1A2D /* ChecklistView.swift */; };
 		B1C0177826EFD27200389714 /* OpenCardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0177726EFD27200389714 /* OpenCardHeaderView.swift */; };
 		D749BC6E26EA811B004E7B99 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1167586C26F22B8E0008557E /* ChecklistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItemView.swift; sourceTree = "<group>"; };
 		119338F626F266BC00FB1A2D /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		B1C0177726EFD27200389714 /* OpenCardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCardHeaderView.swift; sourceTree = "<group>"; };
 		D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		1167586B26F22B7F0008557E /* Checklist */ = {
 			isa = PBXGroup;
 			children = (
+				1167586C26F22B8E0008557E /* ChecklistItemView.swift */,
 				119338F626F266BC00FB1A2D /* ChecklistView.swift */,
 				FA6F20A526F274FD00803535 /* CheckListItemView.swift */,
 			);
@@ -500,6 +503,7 @@
 				FA6F20A626F274FD00803535 /* CheckListItemView.swift in Sources */,
 				FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */,
 				FA72E0F026E6920A00976C8B /* AllAchievements.swift in Sources */,
+				1167586D26F22B8E0008557E /* ChecklistItemView.swift in Sources */,
 				FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */,
 				FA3FE90E26EA4E790013ABAB /* HomeViewAnim.swift in Sources */,
 				FA0AA4D326E40C0E00892E4C /* NewChallengeViewController.swift in Sources */,
