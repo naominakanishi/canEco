@@ -71,6 +71,8 @@ final class OpenCardViewController: UIViewController {
             print("Entrou")
             checklistStackView = ChecklistView(stepChallenge: stepChallenge)
             displayChecklist()
+        } else {
+            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor, constant: -10).isActive = true
         }
         
     }
@@ -258,6 +260,7 @@ final class OpenCardViewController: UIViewController {
         tipsTitle.topAnchor.constraint(equalTo: impactsStackView.bottomAnchor, constant: 25).isActive = true
         tipsTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7).isActive = true
         tipsTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor).isActive = true
+        
 
         tipsTitle.numberOfLines = 0
         tipsTitle.font = UIFont.systemFont(ofSize: 22, weight: .bold)
