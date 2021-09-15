@@ -70,6 +70,7 @@ final class OpenCardViewController: UIViewController {
        
         
         if let stepChallenge = challenge as? StepChallenge {
+            print("Entrou")
             checklistStackView = ChecklistView(stepChallenge: stepChallenge)
             displayChecklist()
         }
@@ -276,7 +277,7 @@ final class OpenCardViewController: UIViewController {
             tipsText.topAnchor.constraint(equalTo: tipsTitle.bottomAnchor, constant: 15),
             tipsText.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
             tipsText.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
-            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor)
+//            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor)
          
         ])
         tipsText.numberOfLines = 0
@@ -289,10 +290,10 @@ final class OpenCardViewController: UIViewController {
         contentsScrollView.addSubview(checklistStackView!)
         
         NSLayoutConstraint.activate([
-            contentsScrollView.topAnchor.constraint(equalTo: tipsText.bottomAnchor, constant: 20),
-            contentsScrollView.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
-            contentsScrollView.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor),
-            contentsScrollView.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
+            checklistStackView!.topAnchor.constraint(equalTo: tipsText.bottomAnchor, constant: 20),
+            checklistStackView!.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
+            checklistStackView!.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor),
+            checklistStackView!.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
             
         ])
         

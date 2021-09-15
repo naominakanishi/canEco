@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1167586D26F22B8E0008557E /* ChecklistViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167586C26F22B8E0008557E /* ChecklistViewItem.swift */; };
 		119338F726F266BC00FB1A2D /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119338F626F266BC00FB1A2D /* ChecklistView.swift */; };
 		B1C0177826EFD27200389714 /* OpenCardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0177726EFD27200389714 /* OpenCardHeaderView.swift */; };
 		D749BC6E26EA811B004E7B99 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */; };
@@ -30,6 +29,7 @@
 		FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440026E3B71B004DCA5A /* Benefits.swift */; };
 		FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */; };
 		FA6F20A426F2491500803535 /* ImpactsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F20A326F2491500803535 /* ImpactsStackView.swift */; };
+		FA6F20A626F274FD00803535 /* CheckListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F20A526F274FD00803535 /* CheckListItemView.swift */; };
 		FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72DC7F26E5080A0095CC81 /* StringExtension.swift */; };
 		FA72E0E326E57E3000976C8B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0E226E57E3000976C8B /* User.swift */; };
 		FA72E0E826E58C7B00976C8B /* CompletedChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72E0E726E58C7B00976C8B /* CompletedChallenge.swift */; };
@@ -66,7 +66,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1167586C26F22B8E0008557E /* ChecklistViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewItem.swift; sourceTree = "<group>"; };
 		119338F626F266BC00FB1A2D /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		B1C0177726EFD27200389714 /* OpenCardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCardHeaderView.swift; sourceTree = "<group>"; };
 		D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		FA6E440026E3B71B004DCA5A /* Benefits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benefits.swift; sourceTree = "<group>"; };
 		FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FA6F20A326F2491500803535 /* ImpactsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactsStackView.swift; sourceTree = "<group>"; };
+		FA6F20A526F274FD00803535 /* CheckListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItemView.swift; sourceTree = "<group>"; };
 		FA72DC7F26E5080A0095CC81 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		FA72E0E226E57E3000976C8B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA72E0E726E58C7B00976C8B /* CompletedChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedChallenge.swift; sourceTree = "<group>"; };
@@ -147,8 +147,8 @@
 		1167586B26F22B7F0008557E /* Checklist */ = {
 			isa = PBXGroup;
 			children = (
-				1167586C26F22B8E0008557E /* ChecklistViewItem.swift */,
 				119338F626F266BC00FB1A2D /* ChecklistView.swift */,
+				FA6F20A526F274FD00803535 /* CheckListItemView.swift */,
 			);
 			name = Checklist;
 			path = "New Group/Checklist";
@@ -497,9 +497,9 @@
 				B1C0177826EFD27200389714 /* OpenCardHeaderView.swift in Sources */,
 				D749BC6E26EA811B004E7B99 /* CardCollectionViewCell.swift in Sources */,
 				FA683A4026F15AAB0094BBAB /* FilterCollectionViewDelegate.swift in Sources */,
+				FA6F20A626F274FD00803535 /* CheckListItemView.swift in Sources */,
 				FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */,
 				FA72E0F026E6920A00976C8B /* AllAchievements.swift in Sources */,
-				1167586D26F22B8E0008557E /* ChecklistViewItem.swift in Sources */,
 				FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */,
 				FA3FE90E26EA4E790013ABAB /* HomeViewAnim.swift in Sources */,
 				FA0AA4D326E40C0E00892E4C /* NewChallengeViewController.swift in Sources */,

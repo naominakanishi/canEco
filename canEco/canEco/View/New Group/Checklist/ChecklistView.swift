@@ -12,6 +12,7 @@ class ChecklistView: UIView {
         self.stepChallenge = stepChallenge
         super.init(frame: .zero)
         displayChecklistTitle()
+        displayChecklistStackView()
     }
     
     required init?(coder: NSCoder) {
@@ -39,6 +40,8 @@ class ChecklistView: UIView {
         checklistStackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(checklistStackView)
         
+        setupChecklistStackView()
+        
         NSLayoutConstraint.activate([
             checklistStackView.topAnchor.constraint(equalTo: checklistTitle.bottomAnchor, constant: 20),
             checklistStackView.widthAnchor.constraint(equalTo: widthAnchor),
@@ -50,13 +53,13 @@ class ChecklistView: UIView {
         checklistStackView.spacing = 5
         checklistStackView.axis = .vertical
         
-        setupChecklistStackView()
     }
     
     private func setupChecklistStackView() {
         for step in stepChallenge.steps {
             let checklistItem = ChecklistItemView(info: step)
             checklistStackView.addArrangedSubview(checklistItem)
+            print("adicionou")
         }
     }
 }
