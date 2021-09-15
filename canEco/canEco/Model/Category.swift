@@ -18,13 +18,13 @@ enum Category: String, CaseIterable {
     func getColor() -> UIColor {
         switch self {
             case .transportation:
-                return UIColor(named: "blue")!
+                return UIColor(named: "lightGreen")!
             case .food:
                 return UIColor(named: "darkOrange")!
             case .fashion:
-                return UIColor(named: "darkBlue")!
+                return UIColor(named: "blue")!
             case .waste:
-                return UIColor(named: "mediumGreen")!
+                return UIColor(named: "brown")!
             case .shopping:
                 return UIColor(named: "yellow")!
         }

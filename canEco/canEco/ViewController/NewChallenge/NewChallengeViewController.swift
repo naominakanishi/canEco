@@ -10,7 +10,6 @@ import UIKit
 class NewChallengeViewController: UIViewController {
 
     var filter: UICollectionView!
-    var data: [Category?] = [nil, Category.fashion, Category.food, Category.shopping, Category.transportation, Category.waste]
     var data2: [Challenge]!
     var challengesCollectionView: UICollectionView!
     
@@ -19,6 +18,8 @@ class NewChallengeViewController: UIViewController {
             collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
     }
+    
+    let filterDelegate = FilterCollectionViewDataSource()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -36,20 +37,11 @@ class NewChallengeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "bege")
-//        navigationController?.setNavigationBarHidden(true, animated: false)
         title = "Desafios"
 //        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
         setupFilter()
         displayChallengesCv()
-//        benefit = NewChallengeCardCollectionViewCell()
-//        benefit.challenge = RepeatableChallenge(name: "placeholder", category: .fashion, benefits: [.co2, .diseases, .energy], totalSteps: 10)
-//        benefit.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(benefit)
-//        benefit.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        benefit.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75).isActive = true
-//        benefit.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
-//        benefit.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.6).isActive = true
     }
     
     @objc func searchTapped() {
@@ -75,8 +67,8 @@ class NewChallengeViewController: UIViewController {
         filter.register(CategoryTagCollectionViewCell.self, forCellWithReuseIdentifier: "filterTag")
         filter.backgroundColor = UIColor(named: "bege")
         filter.showsHorizontalScrollIndicator = false
-        filter.dataSource = self
-        filter.delegate = self
+        filter.dataSource = filterDelegate
+        filter.delegate = filterDelegate
         
     }
     
@@ -105,63 +97,4 @@ class NewChallengeViewController: UIViewController {
         challengesCollectionView.tag = 1
     }
 
-}
-
-extension NewChallengeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView.tag == 1 {
-            return data2.count
-        }
-        return data.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView.tag == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "challengeCard", for: indexPath) as! CardCollectionViewCell
-            cell.challenge = data2[indexPath.item]
-            cell.navigateToOpenCard = navigateToOpenCard
-            cell.delegate = self
-            return cell
-        }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterTag", for: indexPath) as! CategoryTagCollectionViewCell
-        cell.category = data[indexPath.item]
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        if collectionView.tag == 1 {
-            return CGSize(width: 311, height: 475)
-        }
-        
-        let height = filter.frame.height
-        let width: CGFloat!
-        
-        if data[indexPath.item] != nil {
-            width = data[indexPath.item]!.rawValue.width(withConstrainedHeight: height, font: UIFont.systemFont(ofSize: 16, weight: .regular))
-        } else {
-            width = "TODOS".width(withConstrainedHeight: height, font: UIFont.systemFont(ofSize: 16, weight: .regular))
-        }
-        return CGSize(width: width + 30, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == challengesCollectionView {
-            let challenge = data2[indexPath.item]
-            navigateToOpenCard(challenge: challenge)
-            return
-        }
-        let cell = collectionView.cellForItem(at: indexPath) as! CategoryTagCollectionViewCell
-        
-        if cell.displayMode == .fill {
-            cell.displayMode = .unfill
-        } else {
-            cell.displayMode = .fill
-        }
-    }
-    
-    private func navigateToOpenCard(challenge: Challenge) {
-        let controller = OpenCardViewController(challenge: challenge)
-        navigationController?.present(controller, animated: true)
-    }
 }

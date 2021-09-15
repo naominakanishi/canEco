@@ -12,16 +12,18 @@ final class RepeatableChallenge: Challenge {
     let category: Category
     let benefits: [Benefits]
     let shortDescription: String = ""
+    let imageName: String
     
     var totalSteps: Int
     var completedSteps: Int = 0
     var isComplete: Bool { completedSteps == totalSteps }
 
-    init(name: String, category: Category, benefits: [Benefits], totalSteps: Int) {
+    init(name: String, category: Category, benefits: [Benefits], totalSteps: Int, imageName: String = "waste-composter") {
         self.name = name
         self.category = category
         self.benefits = benefits
         self.totalSteps = totalSteps
+        self.imageName = imageName
     }
     
     func completeNextStep() {

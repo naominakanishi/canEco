@@ -22,6 +22,9 @@
 		FA3FE91026EA4F250013ABAB /* CheckButtonAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE90F26EA4F250013ABAB /* CheckButtonAnim.swift */; };
 		FA683A3A26F119C00094BBAB /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA683A3926F119C00094BBAB /* Ubuntu-Regular.ttf */; };
 		FA683A3C26F119CF0094BBAB /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA683A3B26F119CF0094BBAB /* Ubuntu-Bold.ttf */; };
+		FA683A3E26F13B4E0094BBAB /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA683A3D26F13B4E0094BBAB /* Ubuntu-Medium.ttf */; };
+		FA683A4026F15AAB0094BBAB /* FilterCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA683A3F26F15AAB0094BBAB /* FilterCollectionViewDelegate.swift */; };
+		FA683A4226F15EAF0094BBAB /* NewChallengeVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA683A4126F15EAF0094BBAB /* NewChallengeVCExtension.swift */; };
 		FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440026E3B71B004DCA5A /* Benefits.swift */; };
 		FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */; };
 		FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72DC7F26E5080A0095CC81 /* StringExtension.swift */; };
@@ -45,10 +48,8 @@
 		FA74EDB426EECD2C00AE9639 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74EDB326EECD2C00AE9639 /* InfoViewController.swift */; };
 		FA74EDB726EECE5100AE9639 /* CategoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74EDB626EECE5100AE9639 /* CategoryInfo.swift */; };
 		FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */; };
-		FAB6A16D26E1186200852FA7 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */; };
 		FAD4CC1526E51BAE00818DE9 /* RepeatableChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */; };
 		FAD4CC1726E51CFE00818DE9 /* StepChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1626E51CFE00818DE9 /* StepChallenge.swift */; };
-		FAD4CC2126E53D6700818DE9 /* BenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC2026E53D6700818DE9 /* BenefitCell.swift */; };
 		FADB9AA126DFF08400BE8481 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA026DFF08400BE8481 /* AppDelegate.swift */; };
 		FADB9AA326DFF08400BE8481 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA226DFF08400BE8481 /* SceneDelegate.swift */; };
 		FADB9AA526DFF08400BE8481 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA426DFF08400BE8481 /* ViewController.swift */; };
@@ -77,6 +78,9 @@
 		FA3FE90F26EA4F250013ABAB /* CheckButtonAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButtonAnim.swift; sourceTree = "<group>"; };
 		FA683A3926F119C00094BBAB /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
 		FA683A3B26F119CF0094BBAB /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
+		FA683A3D26F13B4E0094BBAB /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
+		FA683A3F26F15AAB0094BBAB /* FilterCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		FA683A4126F15EAF0094BBAB /* NewChallengeVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChallengeVCExtension.swift; sourceTree = "<group>"; };
 		FA6E440026E3B71B004DCA5A /* Benefits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benefits.swift; sourceTree = "<group>"; };
 		FA6E440226E3BBD0004DCA5A /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FA72DC7F26E5080A0095CC81 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -100,10 +104,8 @@
 		FA74EDB326EECD2C00AE9639 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		FA74EDB626EECE5100AE9639 /* CategoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInfo.swift; sourceTree = "<group>"; };
 		FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCollectionViewExtension.swift; sourceTree = "<group>"; };
-		FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatableChallenge.swift; sourceTree = "<group>"; };
 		FAD4CC1626E51CFE00818DE9 /* StepChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepChallenge.swift; sourceTree = "<group>"; };
-		FAD4CC2026E53D6700818DE9 /* BenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCell.swift; sourceTree = "<group>"; };
 		FADB9A9D26DFF08400BE8481 /* canEco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = canEco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADB9AA026DFF08400BE8481 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADB9AA226DFF08400BE8481 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,7 +152,6 @@
 			children = (
 				FADB9ABB26DFFB9800BE8481 /* HomeViewController.swift */,
 				FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */,
-				FAB6A16C26E1186200852FA7 /* CustomCollectionViewLayout.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -169,8 +170,9 @@
 			isa = PBXGroup;
 			children = (
 				FA0AA4D226E40C0E00892E4C /* NewChallengeViewController.swift */,
-				D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */,
+				FA683A4126F15EAF0094BBAB /* NewChallengeVCExtension.swift */,
 				D749BC6F26EA9A66004E7B99 /* ImpactsView.swift */,
+				FA683A3F26F15AAB0094BBAB /* FilterCollectionViewDelegate.swift */,
 			);
 			path = NewChallenge;
 			sourceTree = "<group>";
@@ -179,7 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				FA0AA4D526E40FD300892E4C /* CategoryTagCollectionViewCell.swift */,
-				FAD4CC2026E53D6700818DE9 /* BenefitCell.swift */,
+				D749BC6D26EA811A004E7B99 /* CardCollectionViewCell.swift */,
 			);
 			path = NewChallenge;
 			sourceTree = "<group>";
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				FA683A3926F119C00094BBAB /* Ubuntu-Regular.ttf */,
+				FA683A3D26F13B4E0094BBAB /* Ubuntu-Medium.ttf */,
 				FA683A3B26F119CF0094BBAB /* Ubuntu-Bold.ttf */,
 			);
 			path = Fonts;
@@ -416,6 +419,7 @@
 			files = (
 				FA683A3C26F119CF0094BBAB /* Ubuntu-Bold.ttf in Resources */,
 				FA683A3A26F119C00094BBAB /* Ubuntu-Regular.ttf in Resources */,
+				FA683A3E26F13B4E0094BBAB /* Ubuntu-Medium.ttf in Resources */,
 				FADB9AAD26DFF08500BE8481 /* LaunchScreen.storyboard in Resources */,
 				FADB9AAA26DFF08500BE8481 /* Assets.xcassets in Resources */,
 				FADB9AA826DFF08400BE8481 /* Main.storyboard in Resources */,
@@ -429,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA683A4226F15EAF0094BBAB /* NewChallengeVCExtension.swift in Sources */,
 				FA6E440326E3BBD0004DCA5A /* HeaderCollectionReusableView.swift in Sources */,
 				FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */,
 				FA72E0F726E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift in Sources */,
@@ -446,7 +451,6 @@
 				FA74EDAF26EECBEE00AE9639 /* ProfileTableViewExtension.swift in Sources */,
 				FA74EDB726EECE5100AE9639 /* CategoryInfo.swift in Sources */,
 				FA72E0EC26E686CE00976C8B /* Achievement.swift in Sources */,
-				FAB6A16D26E1186200852FA7 /* CustomCollectionViewLayout.swift in Sources */,
 				D749BC7226EEB15B004E7B99 /* OpenCardViewController.swift in Sources */,
 				D749BC7426EEB5E3004E7B99 /* ProgressBar.swift in Sources */,
 				FA0AA4D026E3FA9100892E4C /* NewTaskButton.swift in Sources */,
@@ -459,12 +463,12 @@
 				FADB9ABE26DFFF1700BE8481 /* ChallengeProtocol.swift in Sources */,
 				FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */,
 				FA74ED9B26ECFACC00AE9639 /* ProfileHeaderView.swift in Sources */,
-				FAD4CC2126E53D6700818DE9 /* BenefitCell.swift in Sources */,
 				FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */,
 				FA0AA4CA26E3DB0600892E4C /* TabBarViewController.swift in Sources */,
 				FA0AA4D626E40FD300892E4C /* CategoryTagCollectionViewCell.swift in Sources */,
 				B1C0177826EFD27200389714 /* OpenCardHeaderView.swift in Sources */,
 				D749BC6E26EA811B004E7B99 /* CardCollectionViewCell.swift in Sources */,
+				FA683A4026F15AAB0094BBAB /* FilterCollectionViewDelegate.swift in Sources */,
 				FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */,
 				FA72E0F026E6920A00976C8B /* AllAchievements.swift in Sources */,
 				FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */,

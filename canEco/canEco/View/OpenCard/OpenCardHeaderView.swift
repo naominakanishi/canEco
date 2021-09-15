@@ -24,7 +24,7 @@ class OpenCardHeaderView: UIView {
         challengeImage.translatesAutoresizingMaskIntoConstraints = false
         addSubview(challengeImage)
         
-        challengeImage.image = UIImage(named: "placeholder")
+        challengeImage.image = UIImage(named: challenge.imageName)
         
         NSLayoutConstraint.activate([
             challengeImage.topAnchor.constraint(equalTo: topAnchor, constant: margin),
@@ -36,12 +36,4 @@ class OpenCardHeaderView: UIView {
         challengeImage.backgroundColor = challenge.category.getColor()
         
     }
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

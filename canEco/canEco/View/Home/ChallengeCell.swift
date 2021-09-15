@@ -119,9 +119,10 @@ class ChallengeCell: UICollectionViewCell {
     
     func configureCell(){
         guard let taskName = challenge?.name,
-              let color = challenge?.category.getColor()
+              let color = challenge?.category.getColor(),
+              let taskImage = challenge?.imageName
         else { return }
-        taskImageView.image = UIImage(named: taskName)
+        taskImageView.image = UIImage(named: taskImage)
         self.taskTitle.text = taskName
         contentView.backgroundColor = .white
         progressBar.highlightColor = color

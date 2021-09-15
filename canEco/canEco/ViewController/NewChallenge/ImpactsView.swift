@@ -11,8 +11,6 @@ class ImpactsView: UIView {
     init(benefit: Benefits){
         self.benefit = benefit
         super.init(frame: .zero)
-//        setupImpact()
-//        setupSize()
         impactTitle.text = benefit.rawValue
         impactImage.image = UIImage(systemName: benefit.getSymbolName())
         impactImage.tintColor = .black
@@ -30,11 +28,8 @@ class ImpactsView: UIView {
         displayImpactTitle()
         displayImpactImage()
     }
-//
     func setupSize() {
         self.translatesAutoresizingMaskIntoConstraints = false
-//        self.widthAnchor.constraint(equalToConstant: 90).isActive = true
-//        self.heightAnchor.constraint(equalToConstant: 90).isActive = true
     }
     
     func displayImpactImage() {
@@ -57,18 +52,9 @@ class ImpactsView: UIView {
         impactTitle.bottomAnchor.constraint(equalTo: associetedStackView.bottomAnchor).isActive = true
         
         impactTitle.font = UIFont(name: "Ubuntu-Regular", size: 12)
+        impactTitle.textColor = UIColor(named: "gray")
         impactTitle.textAlignment = .center
         impactTitle.numberOfLines = 0
         
     }
-    
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

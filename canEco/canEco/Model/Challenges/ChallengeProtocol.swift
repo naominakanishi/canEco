@@ -13,6 +13,7 @@ protocol Challenge {
     var benefits: [Benefits] { get }
     var shortDescription: String { get }
     var isComplete: Bool { get }
+    var imageName: String { get }
     
     func completeNextStep()
     func copy() -> Self

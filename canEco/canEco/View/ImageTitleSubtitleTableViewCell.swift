@@ -47,7 +47,7 @@ class ImageTitleSubtitleTableViewCell: UITableViewCell {
     
     func configureCellInfo(withImage image: UIImage, title: String, andSubtitle subtitle: String?) {
         self.image.image = image
-        self.image.layer.backgroundColor = UIColor(named: "blue")?.cgColor
+//        self.image.layer.backgroundColor = UIColor(named: "blue")?.cgColor
         
         let attributedText = NSMutableAttributedString(string: "\(title)\n\(subtitle ?? "")")
         attributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSRange(location: 0, length: title.count))

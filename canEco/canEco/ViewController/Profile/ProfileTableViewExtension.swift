@@ -16,7 +16,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = completedChallenges.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ImageTitleSubtitleTableViewCell
         let challenge = data[indexPath.row]
-        cell.configureCellInfo(withImage: UIImage(named: "placeholder")!, title: challenge.challenge.name, andSubtitle: challenge.completionDate.description(with: nil))
+        cell.configureCellInfo(withImage: UIImage(named: challenge.challenge.imageName)!, title: challenge.challenge.name, andSubtitle: challenge.completionDate.description(with: nil))
         
         return cell
     }

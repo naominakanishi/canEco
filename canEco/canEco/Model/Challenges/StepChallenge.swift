@@ -18,17 +18,19 @@ final class StepChallenge: Challenge {
     let category: Category
     let benefits: [Benefits]
     let shortDescription: String = ""
+    let imageName: String
     
     var steps: [(description: String, isComplete: Bool)]
     var isComplete: Bool {
         steps.allSatisfy{ $0.isComplete }
     }
     
-    init(name: String, category: Category, benefits: [Benefits], steps: [(String, Bool)]) {
+    init(name: String, category: Category, benefits: [Benefits], steps: [(String, Bool)], imageName: String = "waste-composter") {
         self.name = name
         self.category = category
         self.benefits = benefits
         self.steps = steps
+        self.imageName = imageName
     }
 
     func completeNextStep() {
