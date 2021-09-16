@@ -34,8 +34,8 @@ final class StepChallenge: Challenge {
     }
 
     func completeNextStep() {
-        var step = steps.first { !$0.isComplete }
-        step?.isComplete = true
+        let index = steps.firstIndex { !$0.isComplete }
+        steps[index!].isComplete = true
     }
     
     func copy() -> StepChallenge {

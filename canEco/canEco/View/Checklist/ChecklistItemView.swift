@@ -21,7 +21,8 @@ class ChecklistItemView: UIView {
         super.init(frame: .zero)
         
         layer.cornerRadius = 16
-        layer.backgroundColor = UIColor(named: "bege")?.cgColor
+    
+        layer.backgroundColor = self.info.isDone ? UIColor(named: "darkBeige")?.cgColor : UIColor(named: "beige")?.cgColor
         
         displayCheckImage()
         displayItemTitle()
@@ -36,7 +37,7 @@ class ChecklistItemView: UIView {
     }
     
     func setupView() {
-        let image = isChecked ? "checkmark.square" : "square"
+        let image = info.isDone ? "checkmark.square" : "square"
         checkImage.image = UIImage(systemName: image)
     }
     
@@ -52,7 +53,6 @@ class ChecklistItemView: UIView {
         ])
         
         checkImage.tintColor = UIColor(named: "black")
-        checkImage.backgroundColor = .white
         
     }
     
@@ -67,7 +67,11 @@ class ChecklistItemView: UIView {
         ])
         
         itemTitle.font = UIFont(name: "Ubuntu-Medium", size: 16)
-        itemTitle.textColor = UIColor(named: "black")
+        
+        itemTitle.textColor = info.isDone ? UIColor(named: "gray") : UIColor(named: "black")
+        
+       
+       // itemTitle.textColor = UIColor(named: "black")
     }
     
     func displayItemDescription() {
@@ -82,11 +86,21 @@ class ChecklistItemView: UIView {
         ])
         
         itemDescription.font = UIFont(name: "Ubuntu-Regular", size: 12)
-        itemDescription.textColor = UIColor(named: "black")
+        itemDescription.textColor = info.isDone ? UIColor.lightGray : UIColor(named: "black")
     }
     
     func setupLayout() {
         itemTitle.text = info.Title
         itemDescription.text = info.Description
+        
+        if info.isDone {
+            let strikeThroughTitle: NSMutableAttributedString =  NSMutableAttributedString(string: itemTitle.text!)
+            strikeThroughTitle.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, strikeThroughTitle.length))
+            itemTitle.attributedText = strikeThroughTitle
+            let strikeThroughDescription: NSMutableAttributedString =  NSMutableAttributedString(string: itemDescription.text!)
+            strikeThroughDescription.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, strikeThroughDescription.length))
+            itemDescription.attributedText = strikeThroughDescription
+        }
+        
     }
 }

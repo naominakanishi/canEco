@@ -37,7 +37,7 @@ class ChallengeCell: UICollectionViewCell {
         progressBar.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         progressBar.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8).isActive = true
         progressBar.heightAnchor.constraint(equalToConstant: 6).isActive = true
-        progressBar.tintColor = UIColor.black
+        progressBar.tintColor = UIColor(named: "black")
     }
     
     func setupCategoryTitle(){

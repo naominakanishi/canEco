@@ -223,7 +223,7 @@ final class OpenCardViewController: UIViewController {
         NSLayoutConstraint.activate([
             checklistStackView!.topAnchor.constraint(equalTo: challengeDescription.bottomAnchor, constant: verticalSpacing),
             checklistStackView!.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
-            checklistStackView!.bottomAnchor.constraint(equalTo: impactTitle.topAnchor),
+            checklistStackView!.bottomAnchor.constraint(equalTo: impactTitle.topAnchor, constant: -verticalSpacing),
             checklistStackView!.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
             
         ])
@@ -234,10 +234,11 @@ final class OpenCardViewController: UIViewController {
         impactTitle.translatesAutoresizingMaskIntoConstraints = false
         contentsScrollView.addSubview(impactTitle)
         
-
-        impactTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7).isActive = true
-        impactTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor).isActive = true
-        
+        NSLayoutConstraint.activate([
+            impactTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7),
+            impactTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
+        ])
+    
         impactTitle.numberOfLines = 0
         impactTitle.font = UIFont(name: "Ubuntu-Bold", size: 20)
         impactTitle.textAlignment = .center
@@ -275,20 +276,18 @@ final class OpenCardViewController: UIViewController {
         tipsTitle.translatesAutoresizingMaskIntoConstraints = false
         contentsScrollView.addSubview(tipsTitle)
 
+        NSLayoutConstraint.activate([
+            tipsTitle.topAnchor.constraint(equalTo: impactsStackView.bottomAnchor, constant: verticalSpacing),
+            tipsTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7),
+            tipsTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
+        ])
         
-        tipsTitle.topAnchor.constraint(equalTo: impactsStackView.bottomAnchor, constant: verticalSpacing).isActive = true
-        tipsTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7).isActive = true
-        tipsTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor).isActive = true
-        
-
         tipsTitle.numberOfLines = 0
         tipsTitle.font = UIFont(name: "Ubuntu-bold", size: 20)
         tipsTitle.textAlignment = .center
         tipsTitle.text = "Dicas"
         tipsTitle.textColor = challenge.category.getColor()
     }
-    
-    
     
     private func displayTipsText() {
         tipsText.translatesAutoresizingMaskIntoConstraints = false
@@ -307,10 +306,10 @@ final class OpenCardViewController: UIViewController {
         
     }
     
-    
-    
+  
     @objc
     func handleAcceptButton() {
-        progressBar.completedStepCount += 1
+        User.shared.begin(challenge: challenge)
+        dismiss(animated: true, completion: nil)
     }
 }
