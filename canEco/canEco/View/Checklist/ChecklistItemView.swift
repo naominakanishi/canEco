@@ -106,9 +106,6 @@ class ChecklistItemView: UIView {
         
         itemDescription.textColor = challenge.steps[stepIndex].isComplete ? UIColor.lightGray : UIColor(named: "black")
         
-        let itemTitleRaw = NSMutableAttributedString(string: challenge.steps[stepIndex].description)
-        let itemDescriptionRaw = NSMutableAttributedString(string: challenge.steps[stepIndex].subtitle)
-        
         itemTitle.text = (challenge.steps[stepIndex].description)
         itemDescription.text = (challenge.steps[stepIndex].subtitle)
         
@@ -129,6 +126,11 @@ class ChecklistItemView: UIView {
     }
     
     @objc func handleTap() {
-        challenge.steps[stepIndex].isComplete.toggle()
+        if stepIndex == challenge.completedSteps - 1 {
+            challenge.undoStep()
+        } else if stepIndex == challenge.completedSteps {
+            challenge.completeNextStep()
+        }
+        setupLayout()
     }
 }

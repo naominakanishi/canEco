@@ -41,6 +41,11 @@ final class StepChallenge: Challenge {
         steps[index!].isComplete = true
     }
     
+    func undoStep() {
+        let index = steps.lastIndex { $0.isComplete }
+        steps[index!].isComplete = false
+    }
+    
     func copy() -> StepChallenge {
         return StepChallenge(name: name, category: category, benefits: benefits, steps: steps, imageName: imageName)
     }

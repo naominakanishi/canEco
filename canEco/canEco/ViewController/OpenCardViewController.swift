@@ -72,7 +72,6 @@ final class OpenCardViewController: UIViewController {
         displayTipsText()
     
         if let stepChallenge = challenge as? StepChallenge {
-            print("Entrou")
             checklistStackView = ChecklistView(stepChallenge: stepChallenge)
             displayChecklist()
             
