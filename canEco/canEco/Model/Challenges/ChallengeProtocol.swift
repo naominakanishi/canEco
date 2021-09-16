@@ -14,6 +14,7 @@ protocol Challenge {
     var shortDescription: String { get }
     var isComplete: Bool { get }
     var imageName: String { get }
+    var tip: String { get }
     
     func completeNextStep()
     func copy() -> Self
