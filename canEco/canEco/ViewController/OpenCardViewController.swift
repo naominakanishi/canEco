@@ -47,6 +47,8 @@ final class OpenCardViewController: UIViewController {
   
     var isChallengeActive: Bool!
     
+    var delegate: NewChallengeViewController?
+    
     override func viewDidLoad() {
         view.backgroundColor = .white
         
@@ -310,6 +312,13 @@ final class OpenCardViewController: UIViewController {
     @objc
     func handleAcceptButton() {
         User.shared.begin(challenge: challenge)
+        
+        
+        if let del = delegate {
+            del.filterData()
+        }
+        
         dismiss(animated: true, completion: nil)
     }
+
 }

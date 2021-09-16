@@ -186,7 +186,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         let ch = challenge!.copy()
         User.shared.begin(challenge: ch)
         if let del = delegate {
-            del.tabBarController?.selectedIndex = 0
+            del.filterData()
         }
     }
     

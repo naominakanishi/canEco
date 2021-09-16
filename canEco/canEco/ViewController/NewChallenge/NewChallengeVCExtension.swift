@@ -33,6 +33,8 @@ extension NewChallengeViewController: UICollectionViewDataSource, UICollectionVi
     
     private func navigateToOpenCard(challenge: Challenge) {
         let controller = OpenCardViewController(challenge: challenge)
+        controller.delegate = self
         navigationController?.present(controller, animated: true)
+        
     }
 }
