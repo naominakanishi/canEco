@@ -58,8 +58,8 @@ class ChecklistView: UIView {
     }
     
     private func setupChecklistStackView() {
-        for step in stepChallenge.steps {
-            let checklistItem = ChecklistItemView(info: step)
+        for (i, _) in stepChallenge.steps.enumerated() {
+            let checklistItem = ChecklistItemView(challenge: stepChallenge, stepIndex: i)
             checklistStackView.addArrangedSubview(checklistItem)
         }
     }

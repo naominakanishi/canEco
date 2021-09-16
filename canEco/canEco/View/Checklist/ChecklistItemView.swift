@@ -6,23 +6,30 @@ class ChecklistItemView: UIView {
     let itemTitle = UILabel()
     let itemDescription = UILabel()
     
-    var info: (Title: String, Description: String, isDone: Bool){
-        didSet{
-            setupLayout()
-        }
-    }
+//    var info: (Title: String, Description: String, isDone: Bool){
+//        didSet{
+//            setupLayout()
+//        }
+//    }
+//
+    var challenge: StepChallenge
+    
+    var stepIndex: Int
 
     let isChecked: Bool = false
 
     let checkboxPadding: CGFloat = 30
     
-    init(info: (String, String, Bool)){
-        self.info = info
-        super.init(frame: .zero)
+    init(challenge: StepChallenge, stepIndex: Int){
+     //   self.info = info
         
+        self.challenge = challenge
+        self.stepIndex = stepIndex
+        
+        super.init(frame: .zero)
+       
         layer.cornerRadius = 16
     
-        layer.backgroundColor = self.info.isDone ? UIColor(named: "darkBeige")?.cgColor : UIColor(named: "beige")?.cgColor
         
         displayCheckImage()
         displayItemTitle()
@@ -37,8 +44,9 @@ class ChecklistItemView: UIView {
     }
     
     func setupView() {
-        let image = info.isDone ? "checkmark.square" : "square"
-        checkImage.image = UIImage(systemName: image)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        self.addGestureRecognizer(tap)
     }
     
     func displayCheckImage() {
@@ -68,7 +76,7 @@ class ChecklistItemView: UIView {
         
         itemTitle.font = UIFont(name: "Ubuntu-Medium", size: 16)
         
-        itemTitle.textColor = info.isDone ? UIColor(named: "gray") : UIColor(named: "black")
+        
         
        
        // itemTitle.textColor = UIColor(named: "black")
@@ -86,21 +94,41 @@ class ChecklistItemView: UIView {
         ])
         
         itemDescription.font = UIFont(name: "Ubuntu-Regular", size: 12)
-        itemDescription.textColor = info.isDone ? UIColor.lightGray : UIColor(named: "black")
+        
     }
     
     func setupLayout() {
-        itemTitle.text = info.Title
-        itemDescription.text = info.Description
+        itemTitle.textColor = challenge.steps[stepIndex].isComplete ? UIColor(named: "gray") : UIColor(named: "black")
+        layer.backgroundColor = self.challenge.steps[stepIndex].isComplete ? UIColor(named: "darkBeige")?.cgColor : UIColor(named: "beige")?.cgColor
         
-        if info.isDone {
-            let strikeThroughTitle: NSMutableAttributedString =  NSMutableAttributedString(string: itemTitle.text!)
+        let image = challenge.steps[stepIndex].isComplete ? "checkmark.square" : "square"
+        checkImage.image = UIImage(systemName: image)
+        
+        itemDescription.textColor = challenge.steps[stepIndex].isComplete ? UIColor.lightGray : UIColor(named: "black")
+        
+        let itemTitleRaw = NSMutableAttributedString(string: challenge.steps[stepIndex].description)
+        let itemDescriptionRaw = NSMutableAttributedString(string: challenge.steps[stepIndex].subtitle)
+        
+        itemTitle.text = (challenge.steps[stepIndex].description)
+        itemDescription.text = (challenge.steps[stepIndex].subtitle)
+        
+        let strikeThroughTitle: NSMutableAttributedString =  NSMutableAttributedString(string: itemTitle.text!)
+        let strikeThroughDescription: NSMutableAttributedString =  NSMutableAttributedString(string: itemDescription.text!)
+        
+        if challenge.steps[stepIndex].isComplete {
             strikeThroughTitle.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, strikeThroughTitle.length))
-            itemTitle.attributedText = strikeThroughTitle
-            let strikeThroughDescription: NSMutableAttributedString =  NSMutableAttributedString(string: itemDescription.text!)
             strikeThroughDescription.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, strikeThroughDescription.length))
-            itemDescription.attributedText = strikeThroughDescription
+        } else {
+            strikeThroughTitle.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, strikeThroughTitle.length))
+            strikeThroughDescription.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, strikeThroughDescription.length))
         }
-        
+        itemTitle.attributedText = strikeThroughTitle
+        itemDescription.attributedText = strikeThroughDescription
+
+
+    }
+    
+    @objc func handleTap() {
+        challenge.steps[stepIndex].isComplete.toggle()
     }
 }

@@ -312,13 +312,11 @@ final class OpenCardViewController: UIViewController {
     @objc
     func handleAcceptButton() {
         User.shared.begin(challenge: challenge)
-        
+        dismiss(animated: true, completion: nil)
         
         if let del = delegate {
             del.filterData()
         }
-        
-        dismiss(animated: true, completion: nil)
     }
 
 }
