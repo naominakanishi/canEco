@@ -1,18 +1,17 @@
 import UIKit
 
+protocol CheckListItemViewDelegate: AnyObject {
+    func handleItemTapped(_ view: ChecklistItemView, _ direction: Direction)
+}
+
 class ChecklistItemView: UIView {
 
     let checkImage = UIImageView()
     let itemTitle = UILabel()
     let itemDescription = UILabel()
-    
-//    var info: (Title: String, Description: String, isDone: Bool){
-//        didSet{
-//            setupLayout()
-//        }
-//    }
-//
+
     var challenge: StepChallenge
+    weak var delegate: CheckListItemViewDelegate?
     
     var stepIndex: Int
 
@@ -126,11 +125,24 @@ class ChecklistItemView: UIView {
     }
     
     @objc func handleTap() {
+        
         if stepIndex == challenge.completedSteps - 1 {
-            challenge.undoStep()
+            delegate?.handleItemTapped(self, .backwards)
         } else if stepIndex == challenge.completedSteps {
-            challenge.completeNextStep()
+            delegate?.handleItemTapped(self, .forward)
         }
         setupLayout()
+//        if stepIndex == challenge.completedSteps - 1 {
+//            challenge.undoStep()
+//        } else if stepIndex == challenge.completedSteps {
+//            challenge.completeNextStep()
+//        }
+//        setupLayout()
+
     }
+}
+
+enum Direction {
+    case forward
+    case backwards
 }

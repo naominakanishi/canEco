@@ -13,7 +13,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     let impactTitle = UILabel()
     
     let acceptChallengeButton = UIButton()
-    var delegate: NewChallengeViewController?
+    var delegate: CardCollectionViewCellDelegate?
     
     var challenge: Challenge? {
         didSet {
@@ -186,7 +186,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         let ch = challenge!.copy()
         User.shared.begin(challenge: ch)
         if let del = delegate {
-            del.filterData()
+            del.didAcceptChallenge(self)
         }
     }
     
@@ -217,6 +217,10 @@ class CardCollectionViewCell: UICollectionViewCell {
         guard let challenge = challenge else { return }
         navigateToOpenCard?(challenge)
     }
+}
+
+protocol CardCollectionViewCellDelegate {
+    func didAcceptChallenge(_ sender: UICollectionViewCell)
 }
 
 //MARK: Constants

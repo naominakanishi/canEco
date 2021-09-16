@@ -1,15 +1,19 @@
 import UIKit
 
 class ChecklistView: UIView {
+    typealias TapCallback = ((Direction) -> Void)
     
     let checklistTitle = UILabel()
     
     let checklistStackView = UIStackView()
 
     var stepChallenge: StepChallenge
+    var associatedProgressBar: ProgressBar?
+    let tapCallback: TapCallback
     
-    init(stepChallenge: StepChallenge){
+    init(stepChallenge: StepChallenge, tapCallback: @escaping TapCallback) {
         self.stepChallenge = stepChallenge
+        self.tapCallback = tapCallback
         super.init(frame: .zero)
         displayChecklistTitle()
         displayChecklistStackView()
@@ -60,10 +64,16 @@ class ChecklistView: UIView {
     private func setupChecklistStackView() {
         for (i, _) in stepChallenge.steps.enumerated() {
             let checklistItem = ChecklistItemView(challenge: stepChallenge, stepIndex: i)
+            checklistItem.delegate = self
             checklistStackView.addArrangedSubview(checklistItem)
         }
     }
 }
 
+extension ChecklistView: CheckListItemViewDelegate {
+    func handleItemTapped(_ view: ChecklistItemView, _ direction: Direction) {
+        tapCallback(direction)
+    }
+}
 
 

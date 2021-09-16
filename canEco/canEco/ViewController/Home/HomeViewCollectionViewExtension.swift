@@ -8,6 +8,14 @@
 import UIKit
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, MyCollectionViewCellDelegate {
+    
+    func didTapButton(_ sender: UICollectionViewCell) {
+        let indexPath = collectionView.indexPath(for: sender)!
+        collectionView.performBatchUpdates( {
+            collectionView.deleteItems(at: [indexPath])
+        }, completion: nil)
+    }
+    
     // Quantos elementos
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count + 1
