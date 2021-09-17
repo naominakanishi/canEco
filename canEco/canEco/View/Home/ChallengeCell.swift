@@ -84,15 +84,20 @@ class ChallengeCell: UICollectionViewCell {
     }
     
     @objc func didClick() {
+        if challenge!.isComplete {
+            if let del = (self.delegate as? HomeViewController) {
+                del.didTapButton(self)
+            }
+            return
+        }
         User.shared.progress(in: self.challenge!)
         checkButton.performClickAnimation { _ in
             self.progressBar.completedStepCount += 1
         }
         
         if challenge!.isComplete {
-            if let del = (self.delegate as? HomeViewController) {
-                del.didTapButton(self)
-            }
+            changeCellColor()
+            
         }
     }
     
@@ -108,6 +113,21 @@ class ChallengeCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func changeCellColor() {
+        guard let color = challenge?.category.getColor(),
+              let taskImage = challenge?.imageName
+        else { return }
+        UIView.animate(withDuration: 1) {
+            self.taskImageView.image = UIImage(named: taskImage+"-white")
+            self.contentView.backgroundColor = color
+            self.taskTitle.textColor = .white
+            self.checkButton.backgroundColor = .white
+            self.checkButton.setTitle("Finalizar", for: .normal)
+            self.progressBar.highlightColor = .white
+        }
+        
     }
     
     func configureCell(){
