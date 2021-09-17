@@ -12,7 +12,7 @@ protocol StepCounter {
     var completedSteps: Int { get }
 }
 
-final class StepChallenge: Challenge {
+final class StepChallenge: Challenge, Codable {
 
     let name: String
     let category: Category
@@ -20,8 +20,9 @@ final class StepChallenge: Challenge {
     let shortDescription: String
     let imageName: String
     let tip: String
+    var completionDate: Date?
     
-    var steps: [(description: String, subtitle: String, isComplete: Bool)]
+    var steps: [ChallengeStep] = []
     var isComplete: Bool {
         steps.allSatisfy{ $0.isComplete }
     }
@@ -30,7 +31,12 @@ final class StepChallenge: Challenge {
         self.name = name
         self.category = category
         self.benefits = benefits
-        self.steps = steps
+        
+        for s in steps {
+            let step = ChallengeStep(description: s.0, subtitle: s.1, isComplete: s.2)
+            self.steps.append(step)
+        }
+        
         self.imageName = imageName
         self.shortDescription = shortDescription
         self.tip = tip
@@ -47,7 +53,12 @@ final class StepChallenge: Challenge {
     }
     
     func copy() -> StepChallenge {
-        return StepChallenge(name: name, category: category, benefits: benefits, steps: steps, imageName: imageName)
+        var list: [(String, String, Bool)] = []
+        for s in steps {
+            let tuple = (s.description, s.subtitle, s.isComplete)
+            list.append(tuple)
+        }
+        return StepChallenge(name: name, category: category, benefits: benefits, steps: list, imageName: imageName)
     }
 }
 
@@ -60,3 +71,4 @@ extension StepChallenge: StepCounter {
         steps.filter { $0.isComplete }.count
     }
 }
+

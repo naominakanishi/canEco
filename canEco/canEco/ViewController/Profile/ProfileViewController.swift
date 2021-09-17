@@ -12,8 +12,8 @@ class ProfileViewController: UIViewController {
     let header = ProfileHeaderView()
     var impactCount: UICollectionView!
     var completedChallenges: UITableView!
-    var data: [CompletedChallenge]! = []
-    var benefitCountData: [(benefit: Benefits, count: Int)]!
+    var data: [Challenge]! = []
+    var benefitCountData: [BenefitRecord]!
     
     init() {
         super.init(nibName: nil, bundle: nil)

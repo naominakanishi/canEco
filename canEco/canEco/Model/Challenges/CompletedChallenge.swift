@@ -6,13 +6,13 @@
 //
 
 import Foundation
-
-class CompletedChallenge {
-    let challenge: Challenge
-    let completionDate: Date
-    
-    init(challenge: Challenge) {
-        self.completionDate = Date()
-        self.challenge = challenge
-    }
-}
+//
+//class CompletedChallenge: Codable {
+//    let challenge: Challenge
+//    let completionDate: Date
+//    
+//    init(challenge: Challenge) {
+//        self.completionDate = Date()
+//        self.challenge = challenge
+//    }
+//}

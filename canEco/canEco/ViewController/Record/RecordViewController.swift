@@ -13,7 +13,7 @@ class RecordViewController: UIViewController {
     let dataTableView = UITableView()
     
     var achievementData: [(Achievement, Bool)]!
-    var challengeData: [CompletedChallenge]!
+    var challengeData: [Challenge]!
 
     override func viewWillAppear(_ animated: Bool) {
         fetchData()

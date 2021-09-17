@@ -7,7 +7,7 @@
 
 import Foundation
     
-protocol Challenge {
+protocol Challenge: Codable {
     var name: String { get }
     var category: Category {get }
     var benefits: [Benefits] { get }
@@ -15,6 +15,7 @@ protocol Challenge {
     var isComplete: Bool { get }
     var imageName: String { get }
     var tip: String { get }
+    var completionDate: Date? { get set }
     
     func completeNextStep()
     func copy() -> Self

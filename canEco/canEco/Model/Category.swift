@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum Category: String, CaseIterable {
+enum Category: String, CaseIterable, Codable {
     case transportation = "MOBILIDADE"
     case food = "ALIMENTAÇÃO"
     case fashion = "MODA"
