@@ -56,7 +56,6 @@
 		FADB9AA126DFF08400BE8481 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA026DFF08400BE8481 /* AppDelegate.swift */; };
 		FADB9AA326DFF08400BE8481 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA226DFF08400BE8481 /* SceneDelegate.swift */; };
 		FADB9AA526DFF08400BE8481 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AA426DFF08400BE8481 /* ViewController.swift */; };
-		FADB9AA826DFF08400BE8481 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADB9AA626DFF08400BE8481 /* Main.storyboard */; };
 		FADB9AAA26DFF08500BE8481 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADB9AA926DFF08500BE8481 /* Assets.xcassets */; };
 		FADB9AAD26DFF08500BE8481 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADB9AAB26DFF08500BE8481 /* LaunchScreen.storyboard */; };
 		FADB9AB826DFF53400BE8481 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB9AB726DFF53400BE8481 /* ChallengeCell.swift */; };
@@ -116,7 +115,6 @@
 		FADB9AA026DFF08400BE8481 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADB9AA226DFF08400BE8481 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FADB9AA426DFF08400BE8481 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FADB9AA726DFF08400BE8481 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FADB9AA926DFF08500BE8481 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FADB9AAC26DFF08500BE8481 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FADB9AAE26DFF08500BE8481 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -321,7 +319,6 @@
 				FADB9AA026DFF08400BE8481 /* AppDelegate.swift */,
 				FADB9AA226DFF08400BE8481 /* SceneDelegate.swift */,
 				FADB9AA426DFF08400BE8481 /* ViewController.swift */,
-				FADB9AA626DFF08400BE8481 /* Main.storyboard */,
 				FADB9AA926DFF08500BE8481 /* Assets.xcassets */,
 				FADB9AAB26DFF08500BE8481 /* LaunchScreen.storyboard */,
 				FADB9AAE26DFF08500BE8481 /* Info.plist */,
@@ -439,7 +436,6 @@
 				FA683A3E26F13B4E0094BBAB /* Ubuntu-Medium.ttf in Resources */,
 				FADB9AAD26DFF08500BE8481 /* LaunchScreen.storyboard in Resources */,
 				FADB9AAA26DFF08500BE8481 /* Assets.xcassets in Resources */,
-				FADB9AA826DFF08400BE8481 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +486,6 @@
 				FA683A4026F15AAB0094BBAB /* FilterCollectionViewDelegate.swift in Sources */,
 				FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */,
 				FA72E0F026E6920A00976C8B /* AllAchievements.swift in Sources */,
-				1167586D26F22B8E0008557E /* ChecklistItemView.swift in Sources */,
 				FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */,
 				FA3FE90E26EA4E790013ABAB /* HomeViewAnim.swift in Sources */,
 				110081EA26F27BA1007E33A1 /* ChecklistView.swift in Sources */,
@@ -507,14 +502,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FADB9AA626DFF08400BE8481 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FADB9AA726DFF08400BE8481 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FADB9AAB26DFF08500BE8481 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
