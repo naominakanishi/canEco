@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Benefits: String, CaseIterable {
+enum Benefits: String, CaseIterable, Codable {
     case water = "Economia de água"
     case co2 = "Redução de CO2"
     case diseases = "Prevenção de doenças"

@@ -7,13 +7,15 @@
 
 import Foundation
 
-final class RepeatableChallenge: Challenge {
+final class RepeatableChallenge: Challenge, Codable {
+    
     let name: String
     let category: Category
     let benefits: [Benefits]
     let shortDescription: String
     let imageName: String
     let tip: String
+    var completionDate: Date?
     
     var totalSteps: Int
     var completedSteps: Int = 0

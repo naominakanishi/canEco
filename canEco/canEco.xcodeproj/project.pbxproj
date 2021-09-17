@@ -18,7 +18,6 @@
 		FA0AA4D026E3FA9100892E4C /* NewTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AA4CF26E3FA9100892E4C /* NewTaskButton.swift */; };
 		FA0AA4D326E40C0E00892E4C /* NewChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AA4D226E40C0E00892E4C /* NewChallengeViewController.swift */; };
 		FA0AA4D626E40FD300892E4C /* CategoryTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AA4D526E40FD300892E4C /* CategoryTagCollectionViewCell.swift */; };
-		FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29894726E15D7B0078BE1A /* CheckListItem.swift */; };
 		FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29894926E161DA0078BE1A /* CheckListViewController.swift */; };
 		FA3FE90E26EA4E790013ABAB /* HomeViewAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE90D26EA4E790013ABAB /* HomeViewAnim.swift */; };
 		FA3FE91026EA4F250013ABAB /* CheckButtonAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE90F26EA4F250013ABAB /* CheckButtonAnim.swift */; };
@@ -50,6 +49,10 @@
 		FA74EDB126EECC0A00AE9639 /* ProfileCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74EDB026EECC0A00AE9639 /* ProfileCollectionViewExtension.swift */; };
 		FA74EDB426EECD2C00AE9639 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74EDB326EECD2C00AE9639 /* InfoViewController.swift */; };
 		FA74EDB726EECE5100AE9639 /* CategoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74EDB626EECE5100AE9639 /* CategoryInfo.swift */; };
+		FA8A307D26F4F15400DC59BD /* ChallengeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A307C26F4F15400DC59BD /* ChallengeStep.swift */; };
+		FA8A307F26F4F4FD00DC59BD /* CategoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A307E26F4F4FD00DC59BD /* CategoryRecord.swift */; };
+		FA8A308126F4F5DC00DC59BD /* BenefitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A308026F4F5DC00DC59BD /* BenefitRecord.swift */; };
+		FA8A308526F4FE1800DC59BD /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A308426F4FE1800DC59BD /* CheckListItem.swift */; };
 		FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */; };
 		FAD4CC1526E51BAE00818DE9 /* RepeatableChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */; };
 		FAD4CC1726E51CFE00818DE9 /* StepChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1626E51CFE00818DE9 /* StepChallenge.swift */; };
@@ -76,7 +79,6 @@
 		FA0AA4CF26E3FA9100892E4C /* NewTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskButton.swift; sourceTree = "<group>"; };
 		FA0AA4D226E40C0E00892E4C /* NewChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChallengeViewController.swift; sourceTree = "<group>"; };
 		FA0AA4D526E40FD300892E4C /* CategoryTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		FA29894726E15D7B0078BE1A /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
 		FA29894926E161DA0078BE1A /* CheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListViewController.swift; sourceTree = "<group>"; };
 		FA3FE90D26EA4E790013ABAB /* HomeViewAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewAnim.swift; sourceTree = "<group>"; };
 		FA3FE90F26EA4F250013ABAB /* CheckButtonAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButtonAnim.swift; sourceTree = "<group>"; };
@@ -108,6 +110,10 @@
 		FA74EDB026EECC0A00AE9639 /* ProfileCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewExtension.swift; sourceTree = "<group>"; };
 		FA74EDB326EECD2C00AE9639 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		FA74EDB626EECE5100AE9639 /* CategoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInfo.swift; sourceTree = "<group>"; };
+		FA8A307C26F4F15400DC59BD /* ChallengeStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeStep.swift; sourceTree = "<group>"; };
+		FA8A307E26F4F4FD00DC59BD /* CategoryRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRecord.swift; sourceTree = "<group>"; };
+		FA8A308026F4F5DC00DC59BD /* BenefitRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitRecord.swift; sourceTree = "<group>"; };
+		FA8A308426F4FE1800DC59BD /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
 		FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCollectionViewExtension.swift; sourceTree = "<group>"; };
 		FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatableChallenge.swift; sourceTree = "<group>"; };
 		FAD4CC1626E51CFE00818DE9 /* StepChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepChallenge.swift; sourceTree = "<group>"; };
@@ -227,6 +233,7 @@
 				FAD4CC1626E51CFE00818DE9 /* StepChallenge.swift */,
 				FA72E0E726E58C7B00976C8B /* CompletedChallenge.swift */,
 				FA72E0F226E6D1A400976C8B /* AllChallenges.swift */,
+				FA8A307C26F4F15400DC59BD /* ChallengeStep.swift */,
 			);
 			path = Challenges;
 			sourceTree = "<group>";
@@ -332,12 +339,14 @@
 				FA72E0E626E58C6100976C8B /* Challenges */,
 				FA72E0F126E6939600976C8B /* Achievements */,
 				FADB9AB926DFF9E200BE8481 /* Category.swift */,
-				FA29894726E15D7B0078BE1A /* CheckListItem.swift */,
 				FA6E440026E3B71B004DCA5A /* Benefits.swift */,
 				FA72E0E226E57E3000976C8B /* User.swift */,
 				FA72E0F426E6D39400976C8B /* Record.swift */,
+				FA8A307E26F4F4FD00DC59BD /* CategoryRecord.swift */,
+				FA8A308026F4F5DC00DC59BD /* BenefitRecord.swift */,
 				FA72E0F626E6D3A800976C8B /* ArrayOfChallengesFilterExtension.swift */,
 				FA72DC7F26E5080A0095CC81 /* StringExtension.swift */,
+				FA8A308426F4FE1800DC59BD /* CheckListItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -458,6 +467,7 @@
 				FADB9AA526DFF08400BE8481 /* ViewController.swift in Sources */,
 				FA74ED9826ECFA9800AE9639 /* ProfileViewController.swift in Sources */,
 				FADB9ABA26DFF9E200BE8481 /* Category.swift in Sources */,
+				FA8A307F26F4F4FD00DC59BD /* CategoryRecord.swift in Sources */,
 				FADB9AA126DFF08400BE8481 /* AppDelegate.swift in Sources */,
 				FA74ED9D26ED0BF900AE9639 /* ImpactCollectionViewCell.swift in Sources */,
 				FAD4CC1726E51CFE00818DE9 /* StepChallenge.swift in Sources */,
@@ -478,12 +488,13 @@
 				FADB9ABE26DFFF1700BE8481 /* ChallengeProtocol.swift in Sources */,
 				FA6E440126E3B71B004DCA5A /* Benefits.swift in Sources */,
 				FA74ED9B26ECFACC00AE9639 /* ProfileHeaderView.swift in Sources */,
-				FA29894826E15D7B0078BE1A /* CheckListItem.swift in Sources */,
 				FA0AA4CA26E3DB0600892E4C /* TabBarViewController.swift in Sources */,
 				FA0AA4D626E40FD300892E4C /* CategoryTagCollectionViewCell.swift in Sources */,
 				B1C0177826EFD27200389714 /* OpenCardHeaderView.swift in Sources */,
 				D749BC6E26EA811B004E7B99 /* CardCollectionViewCell.swift in Sources */,
 				FA683A4026F15AAB0094BBAB /* FilterCollectionViewDelegate.swift in Sources */,
+				FA8A308526F4FE1800DC59BD /* CheckListItem.swift in Sources */,
+				FA8A307D26F4F15400DC59BD /* ChallengeStep.swift in Sources */,
 				FA72DC8026E5080A0095CC81 /* StringExtension.swift in Sources */,
 				FA72E0F026E6920A00976C8B /* AllAchievements.swift in Sources */,
 				FADB9ABC26DFFB9800BE8481 /* HomeViewController.swift in Sources */,
@@ -495,6 +506,7 @@
 				FA74EDAB26EECB7C00AE9639 /* RecordViewControllerTableViewExtension.swift in Sources */,
 				FA72E0F326E6D1A400976C8B /* AllChallenges.swift in Sources */,
 				D749BC7026EA9A66004E7B99 /* ImpactsView.swift in Sources */,
+				FA8A308126F4F5DC00DC59BD /* BenefitRecord.swift in Sources */,
 				FA72E0E326E57E3000976C8B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,8 +1,8 @@
 //
-//  CheckListModal.swift
+//  CheckListItem.swift
 //  canEco
 //
-//  Created by Marco Zulian on 02/09/21.
+//  Created by Marco Zulian on 17/09/21.
 //
 
 import UIKit
@@ -14,5 +14,5 @@ class CheckListItem {
     init(title: String) {
         self.title = title
     }
-
 }
+
