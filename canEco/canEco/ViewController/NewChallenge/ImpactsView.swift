@@ -54,7 +54,7 @@ class ImpactsView: UIView {
         impactTitle.textColor = UIColor(named: "gray")
         impactTitle.textAlignment = .center
         impactTitle.numberOfLines = 0
-        
+        impactTitle.font = UIFont(name: "Ubuntu-Regular", size: 12)
     }
     
     func setFontSize(_ value: CGFloat) {

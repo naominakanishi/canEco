@@ -32,6 +32,7 @@ class ImpactsStackView: UIStackView {
         challenge?.benefits.forEach {
             let impactsView = ImpactsView(benefit: $0)
             impactsView.associetedStackView = self
+            impactsView.setFontSize(8)
             addArrangedSubview(impactsView)
         }
     }

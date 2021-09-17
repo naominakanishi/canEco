@@ -8,7 +8,8 @@ class OpenCardHeaderView: UIView {
 
     let challenge: Challenge
     let isOngoingChallenge: Bool!
-        
+    
+    
     let margin: CGFloat = 40
     
     init(challenge: Challenge) {
@@ -79,4 +80,6 @@ class OpenCardHeaderView: UIView {
             progressTitle.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.83)
         ])
     }
+  
+    
 }

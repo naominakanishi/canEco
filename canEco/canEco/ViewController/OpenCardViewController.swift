@@ -32,6 +32,8 @@ final class OpenCardViewController: UIViewController {
     
     let acceptChallengeButton = UIButton()
     
+    let leaveChallengeButton = UIButton()
+    
     let stepsTitle = UILabel()
     
     let verticalSpacing: CGFloat = 15
@@ -46,7 +48,7 @@ final class OpenCardViewController: UIViewController {
         view.backgroundColor = .white
         
         isChallengeActive = (User.shared.ongoingChallenges.first { $0.name == challenge.name } != nil )
-        
+       
         if !isChallengeActive {
             displayAcceptChallengeButton()
         }
@@ -63,6 +65,10 @@ final class OpenCardViewController: UIViewController {
         setupLabels()
         displayTipsTitle()
         displayTipsText()
+        
+        
+       
+        
     
         if let stepChallenge = challenge as? StepChallenge {
             checklistStackView = ChecklistView(stepChallenge: stepChallenge) { direction in
@@ -80,6 +86,8 @@ final class OpenCardViewController: UIViewController {
         }
         
     }
+
+
     
     private func setupBenefits() {
         impactsStackView.arrangedSubviews.forEach {
@@ -118,6 +126,7 @@ final class OpenCardViewController: UIViewController {
         print(bottomConstraint)
         
     }
+ 
     
     private func displayHeader() {
         header = OpenCardHeaderView (challenge: challenge)
@@ -240,6 +249,7 @@ final class OpenCardViewController: UIViewController {
         contentsScrollView.addSubview(impactsStackView)
         impactsStackView.translatesAutoresizingMaskIntoConstraints = false
         
+        
         NSLayoutConstraint.activate([
             impactsStackView.topAnchor.constraint(
                 equalTo: impactTitle.bottomAnchor,
@@ -295,6 +305,8 @@ final class OpenCardViewController: UIViewController {
         
     }
     
+    
+
   
     @objc
     func handleAcceptButton() {
