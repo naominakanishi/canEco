@@ -38,7 +38,7 @@ class ImpactsView: UIView {
         
         impactImage.centerXAnchor.constraint(equalTo: impactTitle.centerXAnchor).isActive = true
         impactImage.topAnchor.constraint(equalTo: associetedStackView.topAnchor).isActive = true
-        impactImage.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        impactImage.widthAnchor.constraint(equalTo: associetedStackView.heightAnchor, multiplier: 0.5).isActive = true
         impactImage.heightAnchor.constraint(equalTo: impactImage.widthAnchor).isActive = true
         impactImage.bottomAnchor.constraint(equalTo: impactTitle.topAnchor, constant: -10).isActive = true
     }
@@ -51,10 +51,13 @@ class ImpactsView: UIView {
         impactTitle.widthAnchor.constraint(equalTo: associetedStackView.widthAnchor, multiplier: 0.3).isActive = true
         impactTitle.bottomAnchor.constraint(equalTo: associetedStackView.bottomAnchor).isActive = true
         
-        impactTitle.font = UIFont(name: "Ubuntu-Regular", size: 12)
         impactTitle.textColor = UIColor(named: "gray")
         impactTitle.textAlignment = .center
         impactTitle.numberOfLines = 0
         
+    }
+    
+    func setFontSize(_ value: CGFloat) {
+        impactTitle.font = UIFont(name: "Ubuntu-Regular", size: value)
     }
 }

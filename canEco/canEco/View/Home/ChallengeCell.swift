@@ -88,10 +88,10 @@ class ChallengeCell: UICollectionViewCell {
         checkButton.performClickAnimation { _ in
             self.progressBar.completedStepCount += 1
         }
-        print(User.shared.record.challengeRecord)
+        
         if challenge!.isComplete {
             if let del = (self.delegate as? HomeViewController) {
-                del.data = User.shared.ongoingChallenges
+                del.didTapButton(self)
             }
         }
     }
@@ -131,4 +131,5 @@ class ChallengeCell: UICollectionViewCell {
 }
 
 protocol MyCollectionViewCellDelegate: AnyObject {
+    func didTapButton(_ sender: UICollectionViewCell)
 }

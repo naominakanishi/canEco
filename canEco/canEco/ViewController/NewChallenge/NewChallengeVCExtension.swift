@@ -37,3 +37,16 @@ extension NewChallengeViewController: UICollectionViewDataSource, UICollectionVi
         navigationController?.present(controller, animated: true)
     }
 }
+
+extension NewChallengeViewController: CardCollectionViewCellDelegate {
+    func didAcceptChallenge(_ sender: UICollectionViewCell) {
+        guard let card = sender as? CardCollectionViewCell else { return }
+        
+        let indexPath = challengesCollectionView.indexPath(for: sender)!
+        let index = data2.firstIndex { $0.name == card.challenge?.name }
+        data2.remove(at: index!)
+        challengesCollectionView.performBatchUpdates(
+            { challengesCollectionView.deleteItems(at: [indexPath]) },
+            completion: nil)
+    }
+}

@@ -37,13 +37,6 @@ final class OpenCardViewController: UIViewController {
     let verticalSpacing: CGFloat = 15
     
     var checklistStackView: ChecklistView?
-
-    let progressBar: ProgressBar = {
-        let progressBar = ProgressBar()
-        progressBar.emptyColor = UIColor(white: 0x33/0xff, alpha: 0.2)
-        progressBar.highlightColor = UIColor(white: 1, alpha: 0.4)
-        return progressBar
-    }()
   
     var isChallengeActive: Bool!
     
@@ -72,9 +65,16 @@ final class OpenCardViewController: UIViewController {
         displayTipsText()
     
         if let stepChallenge = challenge as? StepChallenge {
-            checklistStackView = ChecklistView(stepChallenge: stepChallenge)
+            checklistStackView = ChecklistView(stepChallenge: stepChallenge) { direction in
+                switch direction {
+                    case .backwards:
+                        stepChallenge.undoStep()
+                    case .forward:
+                        stepChallenge.completeNextStep()
+                }
+                self.header.progressBar?.completedStepCount = stepChallenge.completedSteps
+            }
             displayChecklist()
-            
         } else {
             impactTitle.topAnchor.constraint(equalTo: challengeDescription.bottomAnchor, constant: 25).isActive = true
         }
@@ -166,18 +166,6 @@ final class OpenCardViewController: UIViewController {
         placeholderInformation.textColor = .lightGray
         placeholderInformation.text = " 87 participantes       4 semanas"
         placeholderInformation.textAlignment = .center
-    }
-    
-    private func displayProgressBar() {
-        progressBar.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(progressBar)
-        NSLayoutConstraint.activate([
-            progressBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            progressBar.heightAnchor.constraint(equalToConstant: 10)
-        ])
-        
     }
     
     private func displayAcceptChallengeButton() {
