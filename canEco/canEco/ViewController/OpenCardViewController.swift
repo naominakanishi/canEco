@@ -103,9 +103,9 @@ final class OpenCardViewController: UIViewController {
     private func setupLabels() {
         challengeTitle.text = challenge.name
         
-        challengeDescription.text = "Um texto de no máximo 3 linhas explicando para o usuário o que ele deve fazer para concluir esse desafio incrível."
+        challengeDescription.text = challenge.shortDescription
         
-        tipsText.text = "Este é o momento de pirar, mostrando com até 4 linhas o que ele pode fazer para ser bem sucedido (ou sussedido? Gente eu não sei português) o que ele consegue fazer."
+        tipsText.text = challenge.tip
     }
     
     private func displayContentsScrollView() {

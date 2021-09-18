@@ -58,7 +58,7 @@ final class StepChallenge: Challenge, Codable {
             let tuple = (s.description, s.subtitle, s.isComplete)
             list.append(tuple)
         }
-        return StepChallenge(name: name, category: category, benefits: benefits, steps: list, imageName: imageName)
+        return StepChallenge(name: name, category: category, benefits: benefits, steps: list, imageName: imageName, shortDescription: shortDescription, tip: tip)
     }
 }
 

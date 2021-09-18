@@ -36,7 +36,7 @@ final class RepeatableChallenge: Challenge, Codable {
     }
     
     func copy() -> RepeatableChallenge {
-        return RepeatableChallenge(name: name, category: category, benefits: benefits, totalSteps: totalSteps, imageName: imageName)
+        return RepeatableChallenge(name: name, category: category, benefits: benefits, totalSteps: totalSteps, imageName: imageName, shortDescription: shortDescription, tip: tip)
     }
 }
 
