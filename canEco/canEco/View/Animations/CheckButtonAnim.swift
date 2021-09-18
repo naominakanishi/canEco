@@ -19,16 +19,16 @@ extension UIButton {
         width?.constant -= 10
         bottom?.constant -= 4
         titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
-        UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.05, delay: 0, options: .curveEaseIn, animations: {
             superview.layoutIfNeeded()
-        }, completion: nil)
+        }, completion: completion)
         
         height?.constant += 8
         width?.constant += 10
         bottom?.constant += 4
         titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        UIView.animate(withDuration: 0.3, delay: 0.15, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.05, delay: 0.05, options: .curveEaseOut, animations: {
             superview.layoutIfNeeded()
-        }, completion: completion)
+        }, completion: nil)
     }
 }

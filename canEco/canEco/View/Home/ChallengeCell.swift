@@ -91,14 +91,15 @@ class ChallengeCell: UICollectionViewCell {
             return
         }
         User.shared.progress(in: self.challenge!)
+        
         checkButton.performClickAnimation { _ in
-            self.progressBar.completedStepCount += 1
+            UIView.animate(withDuration: 0.1, animations: {self.progressBar.completedStepCount += 1}) {_ in
+                    if self.challenge!.isComplete {
+                        self.changeCellColor()
+                    }
+            }
         }
         
-        if challenge!.isComplete {
-            changeCellColor()
-            
-        }
     }
     
     override init(frame: CGRect) {
@@ -119,7 +120,7 @@ class ChallengeCell: UICollectionViewCell {
         guard let color = challenge?.category.getColor(),
               let taskImage = challenge?.imageName
         else { return }
-        UIView.animate(withDuration: 1) {
+        UIView.animate(withDuration: 0.1) {
             self.taskImageView.image = UIImage(named: taskImage+"-white")
             self.contentView.backgroundColor = color
             self.taskTitle.textColor = .white
