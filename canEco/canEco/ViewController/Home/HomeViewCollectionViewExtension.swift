@@ -13,6 +13,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let indexPath = collectionView.indexPath(for: sender)!
         collectionView.performBatchUpdates( {
             collectionView.deleteItems(at: [indexPath])
+            if self.data.count == 0 {
+                self.collectionView.reloadItems(at: [IndexPath(item: 1, section: 0)])
+            }
         }, completion: nil)
     }
     
