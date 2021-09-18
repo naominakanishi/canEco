@@ -34,6 +34,8 @@ final class OpenCardViewController: UIViewController {
     
     let leaveChallengeButton = UIButton()
     
+    let separatorView = UIView()
+    
     let stepsTitle = UILabel()
     
     let verticalSpacing: CGFloat = 15
@@ -69,7 +71,9 @@ final class OpenCardViewController: UIViewController {
         setupLabels()
         displayTipsTitle()
         displayTipsText()
+        displaySeparatorView()
         displayLeaveChallengeButton()
+        
         
     
         if let stepChallenge = challenge as? StepChallenge {
@@ -306,12 +310,26 @@ final class OpenCardViewController: UIViewController {
         
     }
     
+    private func displaySeparatorView() {
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(separatorView)
+        
+        NSLayoutConstraint.activate([
+            separatorView.topAnchor.constraint(equalTo: tipsText.bottomAnchor, constant: verticalSpacing*2.2),
+            separatorView.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
+            separatorView.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
+            separatorView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+        
+        separatorView.backgroundColor = UIColor(named: "black")?.withAlphaComponent(0.2)
+    }
+    
     private func displayLeaveChallengeButton() {
         leaveChallengeButton.translatesAutoresizingMaskIntoConstraints = false
         contentsScrollView.addSubview(leaveChallengeButton)
         
         NSLayoutConstraint.activate([
-            leaveChallengeButton.topAnchor.constraint(equalTo: tipsText.bottomAnchor, constant: verticalSpacing),
+            leaveChallengeButton.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: verticalSpacing),
             leaveChallengeButton.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
             leaveChallengeButton.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
             leaveChallengeButton.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor)
