@@ -47,6 +47,11 @@ final class User {
         
         save()
     }
+    
+    func rewind(in challenge: StepChallenge) {
+        challenge.undoStep()
+        save()
+    }
 }
 
 extension User: Codable {

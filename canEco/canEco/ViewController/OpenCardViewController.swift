@@ -74,9 +74,9 @@ final class OpenCardViewController: UIViewController {
             checklistStackView = ChecklistView(stepChallenge: stepChallenge) { direction in
                 switch direction {
                     case .backwards:
-                        stepChallenge.undoStep()
+                        User.shared.rewind(in: stepChallenge)
                     case .forward:
-                        stepChallenge.completeNextStep()
+                        User.shared.progress(in: stepChallenge)
                 }
                 self.header.progressBar?.completedStepCount = stepChallenge.completedSteps
             }

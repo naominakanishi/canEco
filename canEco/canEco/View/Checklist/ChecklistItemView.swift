@@ -74,10 +74,7 @@ class ChecklistItemView: UIView {
         ])
         
         itemTitle.font = UIFont(name: "Ubuntu-Medium", size: 16)
-        
-        
-        
-       
+        itemTitle.numberOfLines = 0
        // itemTitle.textColor = UIColor(named: "black")
     }
     
@@ -86,14 +83,14 @@ class ChecklistItemView: UIView {
         addSubview(itemDescription)
         
         NSLayoutConstraint.activate([
-            itemDescription.topAnchor.constraint(equalTo: itemTitle.bottomAnchor, constant: 10),
+            itemDescription.topAnchor.constraint(equalTo: itemTitle.bottomAnchor, constant: 5),
             itemDescription.leadingAnchor.constraint(equalTo: checkImage.trailingAnchor, constant: checkboxPadding),
             itemDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -checkboxPadding),
             itemDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
         ])
         
         itemDescription.font = UIFont(name: "Ubuntu-Regular", size: 12)
-        
+        itemDescription.numberOfLines = 0
     }
     
     func setupLayout() {
@@ -105,23 +102,18 @@ class ChecklistItemView: UIView {
         
         itemDescription.textColor = challenge.steps[stepIndex].isComplete ? UIColor.lightGray : UIColor(named: "black")
         
-        itemTitle.text = (challenge.steps[stepIndex].description)
-        itemDescription.text = (challenge.steps[stepIndex].subtitle)
-        
-        let strikeThroughTitle: NSMutableAttributedString =  NSMutableAttributedString(string: itemTitle.text!)
-        let strikeThroughDescription: NSMutableAttributedString =  NSMutableAttributedString(string: itemDescription.text!)
+        let strikeThroughTitle: NSMutableAttributedString =  NSMutableAttributedString(string: challenge.steps[stepIndex].description)
+        let strikeThroughDescription: NSMutableAttributedString =  NSMutableAttributedString(string: challenge.steps[stepIndex].subtitle)
         
         if challenge.steps[stepIndex].isComplete {
             strikeThroughTitle.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, strikeThroughTitle.length))
             strikeThroughDescription.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, strikeThroughDescription.length))
         } else {
-            strikeThroughTitle.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, strikeThroughTitle.length))
-            strikeThroughDescription.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, strikeThroughDescription.length))
+            strikeThroughTitle.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 0, range: NSMakeRange(0, strikeThroughTitle.length))
+            strikeThroughDescription.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 0, range: NSMakeRange(0, strikeThroughDescription.length))
         }
         itemTitle.attributedText = strikeThroughTitle
         itemDescription.attributedText = strikeThroughDescription
-
-
     }
     
     @objc func handleTap() {
