@@ -30,12 +30,19 @@ final class User {
     }
     
     func progress(in challenge: Challenge) {
+        if challenge.isComplete && challenge.isWaitingConfirmation {
+            let index = ongoingChallenges.firstIndex { $0.name == challenge.name && $0.isComplete }!
+            ongoingChallenges.remove(at: index)
+            record.add(completedChallenge: challenge)
+            save()
+            return
+        }
+        
         challenge.completeNextStep()
         
         if challenge.isComplete {
             let index = ongoingChallenges.firstIndex { $0.name == challenge.name && $0.isComplete }!
-            ongoingChallenges.remove(at: index)
-            record.add(completedChallenge: challenge)
+            User.shared.ongoingChallenges[index].isWaitingConfirmation = true
         }
         
         save()

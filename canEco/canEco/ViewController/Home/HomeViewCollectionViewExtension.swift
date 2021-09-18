@@ -30,6 +30,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChallengeCell
             cell.challenge = data[indexPath.item]
             cell.delegate = self
+            if cell.challenge!.isComplete {
+                cell.changeCellColor()
+            }
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell_new", for: indexPath) as! NewTaskButton

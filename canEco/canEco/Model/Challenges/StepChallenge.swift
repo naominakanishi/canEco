@@ -21,13 +21,14 @@ final class StepChallenge: Challenge, Codable {
     let imageName: String
     let tip: String
     var completionDate: Date?
+    var isWaitingConfirmation: Bool
     
     var steps: [ChallengeStep] = []
     var isComplete: Bool {
         steps.allSatisfy{ $0.isComplete }
     }
     
-    init(name: String, category: Category, benefits: [Benefits], steps: [(String, String, Bool)], imageName: String = "waste-composter", shortDescription: String = "", tip: String = "") {
+    init(name: String, category: Category, benefits: [Benefits], steps: [(String, String, Bool)], imageName: String = "waste-composter", shortDescription: String = "", tip: String = "", isWaitingConfirmation: Bool = false) {
         self.name = name
         self.category = category
         self.benefits = benefits
@@ -40,6 +41,7 @@ final class StepChallenge: Challenge, Codable {
         self.imageName = imageName
         self.shortDescription = shortDescription
         self.tip = tip
+        self.isWaitingConfirmation = isWaitingConfirmation
     }
 
     func completeNextStep() {
@@ -58,7 +60,7 @@ final class StepChallenge: Challenge, Codable {
             let tuple = (s.description, s.subtitle, s.isComplete)
             list.append(tuple)
         }
-        return StepChallenge(name: name, category: category, benefits: benefits, steps: list, imageName: imageName, shortDescription: shortDescription, tip: tip)
+        return StepChallenge(name: name, category: category, benefits: benefits, steps: list, imageName: imageName, shortDescription: shortDescription, tip: tip, isWaitingConfirmation: isWaitingConfirmation)
     }
 }
 

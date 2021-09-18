@@ -16,6 +16,7 @@ protocol Challenge: Codable {
     var imageName: String { get }
     var tip: String { get }
     var completionDate: Date? { get set }
+    var isWaitingConfirmation: Bool { get set }
     
     func completeNextStep()
     func copy() -> Self

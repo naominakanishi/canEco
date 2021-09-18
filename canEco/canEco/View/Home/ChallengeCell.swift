@@ -83,7 +83,8 @@ class ChallengeCell: UICollectionViewCell {
     }
     
     @objc func didClick() {
-        if challenge!.isComplete {
+        if challenge!.isComplete && challenge!.isWaitingConfirmation {
+            User.shared.progress(in: self.challenge!)
             if let del = (self.delegate as? HomeViewController) {
                 del.didTapButton(self)
             }
