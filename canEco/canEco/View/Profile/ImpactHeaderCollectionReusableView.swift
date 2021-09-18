@@ -31,8 +31,8 @@ class ImpactHeaderCollectionReusableView: UICollectionReusableView {
         
         headerLabel.textAlignment = .left
         headerLabel.text = "Seus impactos"
-        //TODO: Ajuste de fonte
-        headerLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        headerLabel.font = UIFont(name: "Ubuntu-Bold", size: 24)
+        headerLabel.textColor = UIColor(named: "black")
     }
     
     func setupHeaderButton() {

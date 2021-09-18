@@ -30,13 +30,13 @@ class CompletedChallengeTableViewHeader: UITableViewHeaderFooterView {
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(headerLabel)
         
-        headerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: superview?.frame.width ?? 0 * 0.035).isActive = true
+        headerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: frame.width * 0.035).isActive = true
         headerLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         
         headerLabel.textAlignment = .left
         headerLabel.text = "Desafios cumpridos"
-        //TODO: Ajuste de fonte
-        headerLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        headerLabel.font = UIFont(name: "Ubuntu-Bold", size: 24)
+        headerLabel.textColor = UIColor(named: "black")
     }
     
     func setupHeaderButton() {
@@ -46,7 +46,7 @@ class CompletedChallengeTableViewHeader: UITableViewHeaderFooterView {
         headerButton.heightAnchor.constraint(equalTo: headerLabel.heightAnchor, multiplier: 1.5).isActive = true
         headerButton.widthAnchor.constraint(equalTo: headerButton.heightAnchor).isActive = true
         headerButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        headerButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -(superview?.frame.width ?? 0) * 0.035).isActive = true
+        headerButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -frame.width * 0.035).isActive = true
         
         headerButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         headerButton.tintColor = UIColor(named: "lightGreen")
