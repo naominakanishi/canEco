@@ -22,7 +22,7 @@ extension NewChallengeViewController: UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: view.frame.width * 0.83, height: view.frame.height * 0.53)
+        return CGSize(width: view.frame.width * 0.83, height: view.frame.height * 0.565)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

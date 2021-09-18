@@ -3,6 +3,7 @@ import UIKit
 
 class CardCollectionViewCell: UICollectionViewCell {
     
+    let background = UIView()
     let challengeImage = UIImageView()
     let categoryLabel = UILabel()
     let challengeTitle = UILabel()
@@ -32,6 +33,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        displayBackground()
         displayChallengeImage()
         displayAcceptChallengeButton()
         displayCategoryLabel()
@@ -41,15 +43,30 @@ class CardCollectionViewCell: UICollectionViewCell {
         displayImpactTitle()
         displayImpactsStackView()
         
-        
-        contentView.backgroundColor = .white
-        contentView.layer.masksToBounds = false
-        challengeImage.layer.masksToBounds = false
-        contentView.layer.cornerRadius = cardCornerRadius
+//        contentView.backgroundColor = .white
+//        contentView.layer.masksToBounds = false
+//        challengeImage.layer.masksToBounds = false
+//        contentView.layer.cornerRadius = cardCornerRadius
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func displayBackground() {
+        background.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(background)
+        
+        NSLayoutConstraint.activate(
+            [
+                background.topAnchor.constraint(equalTo: contentView.topAnchor),
+                background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                background.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                background.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -contentView.frame.width * acceptButtonProportionToCardWidth * acceptButtonAspectRatio / 2)
+            ])
+        
+        background.backgroundColor = .white
+        background.layer.cornerRadius = 27
     }
     
     func displayChallengeImage() {
@@ -69,7 +86,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         categoryLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         categoryLabel.topAnchor.constraint(equalTo: challengeImage.bottomAnchor, constant: categoryLabelDistanceToImage * contentView.frame.height).isActive = true
         
-        categoryLabel.font = UIFont(name: "Ubuntu-Medium", size: categoryLabelFontSize)
+        categoryLabel.font = UIFont(name: "Ubuntu-Medium", size: categoryLabelFontSize * contentView.frame.height)
     }
     
     func displayChallengeTitle() {
@@ -171,7 +188,7 @@ class CardCollectionViewCell: UICollectionViewCell {
             multiplier: acceptButtonAspectRatio
         ).isActive = true
         
-        acceptChallengeButton.centerYAnchor.constraint(
+        acceptChallengeButton.bottomAnchor.constraint(
             equalTo: contentView.bottomAnchor
         ).isActive = true
         
@@ -208,7 +225,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         challenge?.benefits.forEach {
             let impactsView = ImpactsView(benefit: $0)
             impactsView.associetedStackView = impactsStackView
-            impactsView.setFontSize(12/475 * contentView.frame.height)
+            impactsView.setFontSize(12/505 * contentView.frame.height)
             impactsStackView.addArrangedSubview(impactsView)
         }
     }
@@ -232,14 +249,14 @@ class CardCollectionViewCell: UICollectionViewCell {
     let challengeImageAspectRatio: CGFloat = 130/235
 
     //Category Label Constants
-    let categoryLabelDistanceToImage: CGFloat = 25 / 475
-    let categoryLabelFontSize: CGFloat = 16
+    let categoryLabelDistanceToImage: CGFloat = 25 / 505
+    let categoryLabelFontSize: CGFloat = 16 / 505
 
     //Challenge Title Constants
     let challengeTitleProportionToCardWidth: CGFloat = 0.7
-    let challengeTitleDistanceToCategoryLabel: CGFloat = 25 / 475
-    let challengeTitleHeight: CGFloat = 68 / 475
-    let challengeTitleFontSize: CGFloat = 30 / 475
+    let challengeTitleDistanceToCategoryLabel: CGFloat = 25 / 505
+    let challengeTitleHeight: CGFloat = 68 / 505
+    let challengeTitleFontSize: CGFloat = 30 / 505
 
     //Info Button Constants
     let infoButtonSize: CGFloat = 25
@@ -247,18 +264,18 @@ class CardCollectionViewCell: UICollectionViewCell {
     let infoButtonDistanceToCardTrailing: CGFloat = -15
 
     //Placeholder Label Constants
-    let phDistanceToChallengeTitle: CGFloat = 5 / 475
-    let phFontSize: CGFloat = 14 / 475
+    let phDistanceToChallengeTitle: CGFloat = 5 / 505
+    let phFontSize: CGFloat = 14 / 505
 
     //Impact Title Constants
-    let impactTitleDistanceToBenefitStack: CGFloat = -10 / 475
+    let impactTitleDistanceToBenefitStack: CGFloat = -10 / 505
     let impactTitleProportionToCardWidth: CGFloat = 0.7
-    let impactTitleFontSize: CGFloat = 20 / 475
+    let impactTitleFontSize: CGFloat = 20 / 505
 
     //Benefit Stack Constants
-    let impactStackBotomDistanceToAcceptButton: CGFloat = -30 / 475
+    let impactStackBotomDistanceToAcceptButton: CGFloat = -30 / 505
     let impactStackProportionToCardWidth: CGFloat = 0.8
-    let impactStackHeight: CGFloat = 80 / 475
+    let impactStackHeight: CGFloat = 80 / 505
 
     //Accept Button Constants
     let acceptButtonProportionToCardWidth: CGFloat = 0.76
