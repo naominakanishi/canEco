@@ -122,9 +122,6 @@ final class OpenCardViewController: UIViewController {
             contentsScrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
             bottomConstraint
         ])
-        
-        print(bottomConstraint)
-        
     }
  
     

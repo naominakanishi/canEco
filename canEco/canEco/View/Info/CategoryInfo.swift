@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryInfo: UITableViewCell {
+class CategoryInfo: UIView {
 
     let categoryNameLabel = UILabel()
     let categoryDescriptionLabel = UILabel()
@@ -15,17 +15,16 @@ class CategoryInfo: UITableViewCell {
     let categoryTipsDescriptionLabel = UILabel()
     var category: Category! {
         didSet {
-            setupNameLabel()
-            setupDescriptionLabel()
-            setupTipsLabel()
-            setupTipsDescriptionLabel()
             setupTexts()
         }
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.layer.borderWidth = 1
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupNameLabel()
+        setupDescriptionLabel()
+        setupTipsLabel()
+        setupTipsDescriptionLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -36,10 +35,10 @@ class CategoryInfo: UITableViewCell {
         categoryNameLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(categoryNameLabel)
         
-        categoryNameLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        categoryNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: contentView.frame.width * 0.09).isActive = true
-        categoryNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: contentView.frame.height * 0.15).isActive = true
-        categoryNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        categoryNameLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        categoryNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width * 0.09).isActive = true
+        categoryNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: frame.height * 0.15).isActive = true
+        categoryNameLabel.font = UIFont(name: "Ubuntu-Bold", size: 20)
     }
     
     func setupDescriptionLabel() {
@@ -47,23 +46,24 @@ class CategoryInfo: UITableViewCell {
         addSubview(categoryDescriptionLabel)
         
         categoryDescriptionLabel.leadingAnchor.constraint(equalTo: categoryNameLabel.leadingAnchor).isActive = true
-        categoryDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        categoryDescriptionLabel.topAnchor.constraint(equalTo: categoryNameLabel.bottomAnchor, constant: 20).isActive = true
+        categoryDescriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        categoryDescriptionLabel.topAnchor.constraint(equalTo: categoryNameLabel.bottomAnchor, constant: 10).isActive = true
         
         categoryDescriptionLabel.numberOfLines = 0
-        categoryDescriptionLabel.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        categoryDescriptionLabel.font = UIFont(name: "Ubuntu-Light", size: 16)
+        categoryDescriptionLabel.textAlignment = .justified
     }
     
     func setupTipsLabel() {
         categoryTipsLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(categoryTipsLabel)
         
-        categoryTipsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: contentView.frame.width * 0.12).isActive = true
+        categoryTipsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         categoryTipsLabel.trailingAnchor.constraint(equalTo: categoryDescriptionLabel.trailingAnchor).isActive = true
-        categoryTipsLabel.topAnchor.constraint(equalTo: categoryDescriptionLabel.bottomAnchor, constant: 40).isActive = true
+        categoryTipsLabel.topAnchor.constraint(equalTo: categoryDescriptionLabel.bottomAnchor, constant: 20).isActive = true
         
         categoryTipsLabel.text = "Dicas"
-        categoryTipsLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        categoryTipsLabel.font = UIFont(name: "Ubuntu-Bold", size: 16)
     }
     
     func setupTipsDescriptionLabel() {
@@ -71,12 +71,13 @@ class CategoryInfo: UITableViewCell {
         addSubview(categoryTipsDescriptionLabel)
         
         categoryTipsDescriptionLabel.leadingAnchor.constraint(equalTo: categoryTipsLabel.leadingAnchor).isActive = true
-        categoryTipsDescriptionLabel.trailingAnchor.constraint(equalTo: categoryTipsLabel.trailingAnchor).isActive = true
+        categoryTipsDescriptionLabel.trailingAnchor.constraint(equalTo: categoryTipsLabel.trailingAnchor, constant: 10).isActive = true
         categoryTipsDescriptionLabel.topAnchor.constraint(equalTo: categoryTipsLabel.bottomAnchor, constant: 20).isActive = true
-        categoryDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -contentView.frame.height * 0.12).isActive = true
+        categoryTipsDescriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         categoryTipsDescriptionLabel.numberOfLines = 0
-        categoryTipsDescriptionLabel.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        categoryTipsDescriptionLabel.font = UIFont(name: "Ubuntu-Light", size: 16)
+        categoryTipsDescriptionLabel.textAlignment = .justified
     }
     
     func setupTexts() {
