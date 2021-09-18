@@ -10,6 +10,7 @@ class ChecklistView: UIView {
     var stepChallenge: StepChallenge
     var associatedProgressBar: ProgressBar?
     let tapCallback: TapCallback
+    var checklistItems: [ChecklistItemView] = []
     
     init(stepChallenge: StepChallenge, tapCallback: @escaping TapCallback) {
         self.stepChallenge = stepChallenge
@@ -65,6 +66,7 @@ class ChecklistView: UIView {
         for (i, _) in stepChallenge.steps.enumerated() {
             let checklistItem = ChecklistItemView(challenge: stepChallenge, stepIndex: i)
             checklistItem.delegate = self
+            checklistItems.append(checklistItem)
             checklistStackView.addArrangedSubview(checklistItem)
         }
     }
@@ -73,6 +75,10 @@ class ChecklistView: UIView {
 extension ChecklistView: CheckListItemViewDelegate {
     func handleItemTapped(_ view: ChecklistItemView, _ direction: Direction) {
         tapCallback(direction)
+        view.setupLayout()
+        if view.stepIndex < checklistItems.count - 1 {
+            checklistItems[view.stepIndex+1].setupLayout()
+        }
     }
 }
 

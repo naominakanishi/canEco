@@ -97,8 +97,16 @@ class ChecklistItemView: UIView {
         itemTitle.textColor = challenge.steps[stepIndex].isComplete ? UIColor(named: "gray") : UIColor(named: "black")
         layer.backgroundColor = self.challenge.steps[stepIndex].isComplete ? UIColor(named: "darkBeige")?.cgColor : UIColor(named: "beige")?.cgColor
         
-        let image = challenge.steps[stepIndex].isComplete ? "checkmark.square" : "square"
-        checkImage.image = UIImage(systemName: image)
+        let imageName: String
+        if challenge.steps[stepIndex].isComplete {
+            imageName = "checkmark.square"
+        } else if stepIndex == challenge.completedSteps {
+            imageName = "square"
+        } else {
+            imageName = "lock"
+        }
+        
+        checkImage.image = UIImage(systemName: imageName)
         
         itemDescription.textColor = challenge.steps[stepIndex].isComplete ? UIColor.lightGray : UIColor(named: "black")
         
@@ -123,13 +131,6 @@ class ChecklistItemView: UIView {
         } else if stepIndex == challenge.completedSteps {
             delegate?.handleItemTapped(self, .forward)
         }
-        setupLayout()
-//        if stepIndex == challenge.completedSteps - 1 {
-//            challenge.undoStep()
-//        } else if stepIndex == challenge.completedSteps {
-//            challenge.completeNextStep()
-//        }
-//        setupLayout()
 
     }
 }
