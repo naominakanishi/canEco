@@ -73,9 +73,8 @@ class ChallengeCell: UICollectionViewCell {
         checkButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         
         // Appearance
-        checkButton.setTitle("C H E C K", for: .normal)
-        checkButton.setTitleColor(UIColor(named: "black"), for: .normal)
-        checkButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        checkButton.setTitle("C H E C K - I N", for: .normal)
+        checkButton.titleLabel?.font = UIFont(name: "Ubuntu-Medium", size: 14)
         checkButton.layer.cornerRadius = 9
         checkButton.setTitleColor(.white, for: .normal)
         
@@ -108,7 +107,6 @@ class ChallengeCell: UICollectionViewCell {
         setupCategoryImageView()
         setupCheckButton()
         setupCategoryTitle()
-        contentView.backgroundColor = .yellow
         contentView.layer.cornerRadius = 20
     }
     
@@ -125,7 +123,7 @@ class ChallengeCell: UICollectionViewCell {
             self.contentView.backgroundColor = color
             self.taskTitle.textColor = .white
             self.checkButton.backgroundColor = .white
-            self.checkButton.setTitle("Finalizar", for: .normal)
+            self.checkButton.setTitle("F I N A L I Z A R", for: .normal)
             self.progressBar.highlightColor = .white
         }
         
