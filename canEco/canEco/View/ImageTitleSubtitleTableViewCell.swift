@@ -43,15 +43,18 @@ class ImageTitleSubtitleTableViewCell: UITableViewCell {
         title.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
         
         title.textAlignment = .left
+        title.numberOfLines = 0
     }
     
-    func configureCellInfo(withImage image: UIImage, title: String, andSubtitle subtitle: String?) {
+    func configureCellInfo(withImage image: UIImage, title: String, andSubtitle subtitle: String) {
         self.image.image = image
 //        self.image.layer.backgroundColor = UIColor(named: "blue")?.cgColor
-        
-        let attributedText = NSMutableAttributedString(string: "\(title)\n\(subtitle ?? "")")
-        attributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSRange(location: 0, length: title.count))
-        attributedText.addAttribute(.font, value: UIFont.systemFont(ofSize: 18), range: NSRange(location: title.count, length: (subtitle ?? "").count))
+        print(subtitle)
+        let attributedText = NSMutableAttributedString(string: "\(title)\n\(subtitle)")
+        print(attributedText)
+        attributedText.addAttribute(.font, value: UIFont(name: "Ubuntu-Light", size: 18) ?? UIFont.systemFont(ofSize: 18, weight: .regular), range: NSRange(location: title.count, length: (subtitle).count))
+        attributedText.addAttribute(.font, value: UIFont(name: "Ubuntu-Bold", size: 18) ?? UIFont.systemFont(ofSize: 18, weight: .bold), range: _NSRange(location: 0, length: title.count))
         self.title.attributedText = attributedText
+        self.title.textColor = UIColor(named: "black")
     }
 }

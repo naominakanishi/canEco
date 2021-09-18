@@ -52,8 +52,8 @@ class RecordViewController: UIViewController {
         segmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         segmentedControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         
-        segmentedControl.insertSegment(withTitle: "Títulos", at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: "Desafios", at: 1, animated: false)
+        segmentedControl.insertSegment(withTitle: "Desafios", at: 0, animated: false)
+        segmentedControl.insertSegment(withTitle: "Títulos", at: 1, animated: false)
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(selectedIndexChanged), for: .valueChanged)
     }

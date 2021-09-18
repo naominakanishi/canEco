@@ -21,7 +21,9 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
 
         if segmentedControl.selectedSegmentIndex == 0 {
             let challenge = challengeData[indexPath.row]
-            cell.configureCellInfo(withImage: UIImage(named: challenge.imageName)!, title: challenge.name, andSubtitle: challenge.completionDate!.description(with: nil))
+            let formatter1 = DateFormatter()
+            formatter1.dateFormat = "d/M/Y"
+            cell.configureCellInfo(withImage: UIImage(named: challenge.imageName)!, title: challenge.name, andSubtitle: formatter1.string(from: challenge.completionDate!))
             return cell
         } else {
             let achievement = achievementData[indexPath.row]

@@ -53,6 +53,7 @@
 		FA8A307F26F4F4FD00DC59BD /* CategoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A307E26F4F4FD00DC59BD /* CategoryRecord.swift */; };
 		FA8A308126F4F5DC00DC59BD /* BenefitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A308026F4F5DC00DC59BD /* BenefitRecord.swift */; };
 		FA8A308526F4FE1800DC59BD /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A308426F4FE1800DC59BD /* CheckListItem.swift */; };
+		FAA126B426F6690100E1A085 /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA126B326F6690100E1A085 /* Ubuntu-Light.ttf */; };
 		FAB6A16B26E1166800852FA7 /* HomeViewCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */; };
 		FAD4CC1526E51BAE00818DE9 /* RepeatableChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */; };
 		FAD4CC1726E51CFE00818DE9 /* StepChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CC1626E51CFE00818DE9 /* StepChallenge.swift */; };
@@ -114,6 +115,7 @@
 		FA8A307E26F4F4FD00DC59BD /* CategoryRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRecord.swift; sourceTree = "<group>"; };
 		FA8A308026F4F5DC00DC59BD /* BenefitRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitRecord.swift; sourceTree = "<group>"; };
 		FA8A308426F4FE1800DC59BD /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
+		FAA126B326F6690100E1A085 /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
 		FAB6A16A26E1166800852FA7 /* HomeViewCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCollectionViewExtension.swift; sourceTree = "<group>"; };
 		FAD4CC1426E51BAE00818DE9 /* RepeatableChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatableChallenge.swift; sourceTree = "<group>"; };
 		FAD4CC1626E51CFE00818DE9 /* StepChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepChallenge.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				FA683A3926F119C00094BBAB /* Ubuntu-Regular.ttf */,
 				FA683A3D26F13B4E0094BBAB /* Ubuntu-Medium.ttf */,
 				FA683A3B26F119CF0094BBAB /* Ubuntu-Bold.ttf */,
+				FAA126B326F6690100E1A085 /* Ubuntu-Light.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				FA683A3A26F119C00094BBAB /* Ubuntu-Regular.ttf in Resources */,
 				FA683A3E26F13B4E0094BBAB /* Ubuntu-Medium.ttf in Resources */,
 				FADB9AAD26DFF08500BE8481 /* LaunchScreen.storyboard in Resources */,
+				FAA126B426F6690100E1A085 /* Ubuntu-Light.ttf in Resources */,
 				FADB9AAA26DFF08500BE8481 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
