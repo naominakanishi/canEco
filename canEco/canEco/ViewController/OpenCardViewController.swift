@@ -51,7 +51,11 @@ final class OpenCardViewController: UIViewController {
        
         if !isChallengeActive {
             displayAcceptChallengeButton()
+            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor)
         }
+//        } else {
+//            displayLeaveChallengeButton()
+//        }
         
         displayContentsScrollView()
         
@@ -65,9 +69,7 @@ final class OpenCardViewController: UIViewController {
         setupLabels()
         displayTipsTitle()
         displayTipsText()
-        
-        
-       
+        displayLeaveChallengeButton()
         
     
         if let stepChallenge = challenge as? StepChallenge {
@@ -296,7 +298,6 @@ final class OpenCardViewController: UIViewController {
             tipsText.topAnchor.constraint(equalTo: tipsTitle.bottomAnchor, constant: verticalSpacing),
             tipsText.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
             tipsText.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
-            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor)
          
         ])
         
@@ -305,8 +306,39 @@ final class OpenCardViewController: UIViewController {
         
     }
     
+    private func displayLeaveChallengeButton() {
+        leaveChallengeButton.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(leaveChallengeButton)
+        
+        NSLayoutConstraint.activate([
+            leaveChallengeButton.topAnchor.constraint(equalTo: tipsText.bottomAnchor, constant: verticalSpacing),
+            leaveChallengeButton.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
+            leaveChallengeButton.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
+            leaveChallengeButton.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor)
+        ])
+        
+        leaveChallengeButton.setTitle("Desistir do Challenge", for: .normal)
+        leaveChallengeButton.titleLabel?.font = UIFont(name: "Ubuntu", size: 16)
+        leaveChallengeButton.setTitleColor(UIColor(named: "accentWarning"), for: .normal)
+        
+        leaveChallengeButton.addTarget(self, action: #selector(handleLeaveChallengeButton), for: .touchUpInside)
+        
+    }
     
-
+    
+    @objc
+    func handleLeaveChallengeButton() {
+        let alert = UIAlertController(title: "Você tem certeza que deseja desistir?", message: "Você perderá o progresso que teve até o momento.", preferredStyle: .alert)
+        alert.addAction(.init(title: "Cancelar", style: .cancel, handler: { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(.init(title: "Sim, desistir", style: .destructive, handler: { _ in
+            User.shared.leave(challenge: self.challenge)
+            self.dismiss(animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
+        
+    }
   
     @objc
     func handleAcceptButton() {

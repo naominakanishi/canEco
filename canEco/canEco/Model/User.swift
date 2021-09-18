@@ -40,6 +40,10 @@ final class User {
         
         save()
     }
+    
+    func leave(challenge: Challenge) {
+        ongoingChallenges.removeAll(where: {$0.name == challenge.name})
+    }
 }
 
 extension User: Codable {
