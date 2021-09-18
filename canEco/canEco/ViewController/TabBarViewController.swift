@@ -19,7 +19,7 @@ class TabBarViewController: UITabBarController {
         tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         tabBar.isTranslucent = true
-        tabBar.tintColor = UIColor(named: "yellow")
+        tabBar.tintColor = UIColor(named: "accentGreen")
         viewControllers = [
             HomeViewController(),
             UINavigationController(rootViewController: NewChallengeViewController()),

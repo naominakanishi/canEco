@@ -36,12 +36,13 @@ class ProfileHeaderView: UIView {
         let attributedString = NSMutableAttributedString(string: "SALVADOR DE TARTARUGA")
         attributedString.addAttribute(.kern, value: 2, range: NSRange(location: 0, length: attributedString.length))
         achievementLabel.attributedText = attributedString
-        achievementLabel.font = UIFont.systemFont(ofSize: 20, weight: .light)
+        achievementLabel.font = UIFont(name: "Ubuntu-Bold", size: 24)
+        achievementLabel.textColor = UIColor(named: "accentGreen")
         achievementLabel.numberOfLines = 0
         
         achievementLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: superview!.frame.width * 0.035).isActive = true
         achievementLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: bounds.height * 0.1).isActive = true
-        achievementLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.47).isActive = true
+        achievementLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5).isActive = true
     }
     
     func setupIslandImage() {
