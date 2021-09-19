@@ -58,6 +58,6 @@ class ProfileHeaderView: UIView {
     
     
     //MARK: Constants
-    let aspectRatio: CGFloat = 291.63 / 252.24
+    let aspectRatio: CGFloat = 760/600
 
 }

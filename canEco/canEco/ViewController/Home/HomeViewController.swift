@@ -140,7 +140,7 @@ class HomeViewController: UIViewController {
     //MARK: Island Constants
     let maxHeightProportion: CGFloat = 0.33
     let minHeightProportion: CGFloat = 0.10
-    let aspectRatio: CGFloat = 1.05
+    let aspectRatio: CGFloat = 760/600
     let yDistanceToCenter: CGFloat = -150
     
     //MARK: CollectionView Constants

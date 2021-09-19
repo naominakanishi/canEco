@@ -16,13 +16,14 @@ final class RepeatableChallenge: Challenge, Codable {
     let imageName: String
     let tip: String
     var completionDate: Date?
+    var imageType: ImageTipes
     
     var totalSteps: Int
     var completedSteps: Int = 0
     var isComplete: Bool { completedSteps == totalSteps }
     var isWaitingConfirmation: Bool
 
-    init(name: String, category: Category, benefits: [Benefits], totalSteps: Int, imageName: String = "waste-composter", shortDescription: String = "", tip: String = "", isWaitingConfirmation: Bool = false) {
+    init(name: String, category: Category, benefits: [Benefits], totalSteps: Int, imageName: String = "waste-composter", shortDescription: String = "", tip: String = "", isWaitingConfirmation: Bool = false, imageType: ImageTipes = .any) {
         self.name = name
         self.category = category
         self.benefits = benefits
@@ -31,6 +32,7 @@ final class RepeatableChallenge: Challenge, Codable {
         self.shortDescription = shortDescription
         self.tip = tip
         self.isWaitingConfirmation = isWaitingConfirmation
+        self.imageType = imageType
     }
     
     func completeNextStep() {
@@ -38,7 +40,7 @@ final class RepeatableChallenge: Challenge, Codable {
     }
     
     func copy() -> RepeatableChallenge {
-        return RepeatableChallenge(name: name, category: category, benefits: benefits, totalSteps: totalSteps, imageName: imageName, shortDescription: shortDescription, tip: tip, isWaitingConfirmation: isWaitingConfirmation)
+        return RepeatableChallenge(name: name, category: category, benefits: benefits, totalSteps: totalSteps, imageName: imageName, shortDescription: shortDescription, tip: tip, isWaitingConfirmation: isWaitingConfirmation, imageType: imageType)
     }
 }
 

@@ -17,6 +17,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 self.collectionView.reloadItems(at: [IndexPath(item: 1, section: 0)])
             }
         }, completion: nil)
+        if let island = island as? IslandView {
+            island.setupIsland()
+        }
     }
     
     // Quantos elementos
@@ -98,29 +101,30 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let speed = scrollView.panGestureRecognizer.velocity(in: scrollView.superview).y
-        let displacement = speed * 0.016666
-        
-        if speed != 0.0 {
-            print("Pan \(scrollView.panGestureRecognizer.translation(in: scrollView.superview).y) Off \(scrollView.contentOffset.y) Speed \(speed) Displacement \(displacement)")
-        }
-
-//        if scrollView.panGestureRecognizer.translation(in: scrollView.superview).y >= 0 &&
-//            scrollView.contentOffset.y < 0 &&
-//            isCollectionViewMaximized {
-//            isCollectionViewMaximized.toggle()
-//            performCollectionViewRedutionAnimation(withSpeed: speed, andDeceleration: displacement)
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let speed = scrollView.panGestureRecognizer.velocity(in: scrollView.superview).y
+//        let displacement = speed * 0.016666
+//
+//        if speed != 0.0 {
+//            print("Pan \(scrollView.panGestureRecognizer.translation(in: scrollView.superview).y) Off \(scrollView.contentOffset.y) Speed \(speed) Displacement \(displacement)")
 //        }
-//        else
-//        if scrollView.contentOffset.y > 0 &&
-//                scrollView.panGestureRecognizer.translation(in: scrollView.superview).y < 0
-////            &&
-////                !isCollectionViewMaximized
-//        {
-//            isCollectionViewMaximized.toggle()
-            performCollectionViewAnimation(withSpeed: speed, andDeceleration: displacement)
-//        }
-    }
+//
+////        if scrollView.panGestureRecognizer.translation(in: scrollView.superview).y >= 0 &&
+////            scrollView.contentOffset.y < 0 &&
+////            isCollectionViewMaximized {
+////            isCollectionViewMaximized.toggle()
+////            performCollectionViewRedutionAnimation(withSpeed: speed, andDeceleration: displacement)
+////        }
+////        else
+////        if scrollView.contentOffset.y > 0 &&
+////                scrollView.panGestureRecognizer.translation(in: scrollView.superview).y < 0
+//////            &&
+//////                !isCollectionViewMaximized
+////        {
+////            isCollectionViewMaximized.toggle()
+//            performCollectionViewAnimation(withSpeed: speed, andDeceleration: displacement)
+////        }
+//    }
+//}
 }
 
