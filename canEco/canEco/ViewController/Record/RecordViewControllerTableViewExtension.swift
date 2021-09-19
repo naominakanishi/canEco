@@ -33,7 +33,7 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return max(85, UITableView.automaticDimension)
+        return max(85 / 896 * view.frame.height, UITableView.automaticDimension)
     }
     
 }

@@ -10,7 +10,7 @@ import UIKit
 class ProfileHeaderView: UIView {
     
     var achievementLabel = UILabel()
-    var islandImage = UIImageView()
+    var islandImage = UIView()
     
     override var bounds: CGRect {
         didSet {
@@ -46,10 +46,10 @@ class ProfileHeaderView: UIView {
     }
     
     func setupIslandImage() {
+        islandImage = IslandView()
         islandImage.translatesAutoresizingMaskIntoConstraints = false
         addSubview(islandImage)
         
-        islandImage.image = UIImage(named: "ilhaPlaceholder")
         islandImage.centerYAnchor.constraint(equalTo: centerYAnchor, constant: bounds.height * 0.1).isActive = true
         islandImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -superview!.frame.width * 0.035).isActive = true
         islandImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6).isActive = true

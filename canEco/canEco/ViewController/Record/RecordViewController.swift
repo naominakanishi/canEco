@@ -50,7 +50,7 @@ class RecordViewController: UIViewController {
         
         segmentedControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6).isActive = true
         segmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        segmentedControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        segmentedControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         
         segmentedControl.insertSegment(withTitle: "Desafios", at: 0, animated: false)
         segmentedControl.insertSegment(withTitle: "Títulos", at: 1, animated: false)
@@ -68,7 +68,7 @@ class RecordViewController: UIViewController {
         
         dataTableView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         dataTableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        dataTableView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 30).isActive = true
+        dataTableView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20).isActive = true
         dataTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         dataTableView.register(ImageTitleSubtitleTableViewCell.self, forCellReuseIdentifier: "Cell")

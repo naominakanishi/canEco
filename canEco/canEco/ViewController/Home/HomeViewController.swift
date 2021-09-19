@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
 
     let homeTitle = UILabel()
     let userName = UILabel()
-    let island = UIImageView()
+    var island = UIView()
     var collectionView: UICollectionView!
     var titleLabelSize: CGFloat!
     var data: [Challenge] {
@@ -83,7 +83,7 @@ class HomeViewController: UIViewController {
     
     
     func displayIsland() {
-        island.image = UIImage(named: "ilhaPlaceholder")
+        island = IslandView()
         
         // Constraints
         island.translatesAutoresizingMaskIntoConstraints = false

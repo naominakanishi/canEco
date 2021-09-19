@@ -49,7 +49,7 @@ class ImpactCollectionViewCell: UICollectionViewCell {
         countLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(countLabel)
         
-        countLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        countLabel.font = UIFont(name: "Ubuntu-Bold", size: 25)
         countLabel.textColor = .white
         countLabel.numberOfLines = 1
         countLabel.textAlignment = .center
@@ -62,9 +62,9 @@ class ImpactCollectionViewCell: UICollectionViewCell {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(nameLabel)
 
-        nameLabel.font = UIFont.systemFont(ofSize: 16)
+        nameLabel.font = UIFont(name: "Ubuntu-Regular", size: 16 / 115 * contentView.frame.height)
         nameLabel.textColor = .white
-        nameLabel.numberOfLines = 2
+        nameLabel.numberOfLines = 0
         nameLabel.textAlignment = .left
         
         nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

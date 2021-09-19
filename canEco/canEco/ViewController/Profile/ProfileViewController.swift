@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController {
         layout.sectionHeadersPinToVisibleBounds = true
         layout.minimumInteritemSpacing = view.frame.width * 0.05
         layout.minimumLineSpacing = layout.minimumInteritemSpacing * 0.7
-        layout.sectionInset = UIEdgeInsets(top: layout.minimumInteritemSpacing, left: view.frame.width * 0.035, bottom: 0, right: view.frame.width * 0.035)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: view.frame.width * 0.035, bottom: 0, right: view.frame.width * 0.035)
         layout.scrollDirection = .vertical
         
         impactCount = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: layout)
@@ -76,7 +76,7 @@ class ProfileViewController: UIViewController {
         
         impactCount.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         impactCount.topAnchor.constraint(equalTo: header.bottomAnchor, constant: view.bounds.height * 0.03).isActive = true
-        impactCount.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35).isActive = true
+        impactCount.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.42).isActive = true
         impactCount.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1).isActive = true
         
         impactCount.register(ImpactCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -93,9 +93,9 @@ class ProfileViewController: UIViewController {
         view.addSubview(completedChallenges)
         
         completedChallenges.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        completedChallenges.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35).isActive = true
+        completedChallenges.topAnchor.constraint(equalTo: impactCount.bottomAnchor).isActive = true
         completedChallenges.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        completedChallenges.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        completedChallenges.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 30).isActive = true
         completedChallenges.isScrollEnabled = false
         completedChallenges.allowsSelection = false
         
