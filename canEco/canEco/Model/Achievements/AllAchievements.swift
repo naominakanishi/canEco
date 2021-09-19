@@ -8,11 +8,34 @@
 import Foundation
 
 final class Achievements {
+    
+    // Usar de base, é na quantidade de ações, nao de desafio
     static var achievements: [(Achievement, Bool)] =
-        [(Achievement(name: "Coxas Malhadas", descricao: "Foi de bike pro trabalho 3 vezes") { record in
-            record.challengeRecord.filter { $0.name == "Ir de bike pro trabalho" }.count >= 3
+        [(Achievement(name: "Coxas Malhadas", descricao: "Foi de bike pro trabalho 3 vezes", imageEmoji: "🦵") { record in
+            record.challengeRecord.filter { $0.challenge.name == "Vá de bike ao trabalho" }.count >= 3
         }, false),
-         
+        
+        (Achievement(name: "Amigo do ambiente", descricao: "Iniciou a reciclagem de lixo", imageEmoji: "🤲") { record in
+            record.challengeRecord.filter { $0.challenge.name == "Comece a separar o lixo" }.count >= 4
+        }, false),
+        
+        (Achievement(name: "Artista no tempo livre", descricao: "Reutilizou o seu lixo", imageEmoji: "🧑‍🎨") { record in
+            record.challengeRecord.filter { $0.challenge.name == "Reutilize seu lixo" }.count >= 3
+        }, false),
+
+        (Achievement(name: "Minhoqueiro de plantão", descricao: "Iniciou uma composteira", imageEmoji: "🪱") { record in
+            record.challengeRecord.filter { $0.challenge.name == "Faça uma composteira" }.count >= 3
+        }, false),
+        
+        
+        (Achievement(name: "Sacoleiro profissional", descricao: "Usou ecobags", imageEmoji: "🛍️") { record in
+            record.challengeRecord.filter { $0.challenge.name == "Use ecobags" }.count >= 1
+        }, false),
+        
+        (Achievement(name: "Pesquisador do bairro", descricao: "Usou ecobags", imageEmoji: "🔎") { record in
+            record.challengeRecord.filter { $0.challenge.name == "Use ecobags" }.count >= 1
+        }, false),
+        
         (Achievement(name: "Salvador de Tartarugas", descricao: "Deixou de poluir 10 vezes") { record in
             record.benefitRecord.first { $0.benefit == .polution }!.count >= 10
         }, false),
