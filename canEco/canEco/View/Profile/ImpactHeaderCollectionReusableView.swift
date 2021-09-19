@@ -15,7 +15,7 @@ class ImpactHeaderCollectionReusableView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupHeaderLabel()
-        setupHeaderButton()
+//        setupHeaderButton()
     }
     
     required init?(coder: NSCoder) {
