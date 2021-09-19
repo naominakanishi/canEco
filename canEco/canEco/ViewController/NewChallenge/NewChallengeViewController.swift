@@ -20,7 +20,7 @@ class NewChallengeViewController: UIViewController {
         }
     }
     
-    let filterDelegate = FilterCollectionViewDataSource()
+    let filterDelegate = FilterCollectionViewManager()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -64,6 +64,14 @@ class NewChallengeViewController: UIViewController {
         
     }
     
+    func select(category: Category) {
+        selectedCategories.append(category)
+    }
+
+    func deselect(category: Category) {
+        selectedCategories.removeAll(where: { $0 == category})
+    }
+    
     func setupFilter() {
         
         collectionLayout = UICollectionViewFlowLayout()
@@ -75,7 +83,6 @@ class NewChallengeViewController: UIViewController {
         filter.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(filter)
         filter.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-//        filter.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         filter.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         filter.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
         filter.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.04).isActive = true
