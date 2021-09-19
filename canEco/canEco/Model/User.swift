@@ -13,14 +13,16 @@ final class User {
     var name: String
     var ongoingChallenges: [Challenge] = []
     var record: Record = Record()
+    var title: String?
 
     init(name: String = "") {
         self.name = name
     }
     
-    init(name: String, record: Record, ongoingChallenges: [Challenge] = []) {
+    init(name: String, record: Record, ongoingChallenges: [Challenge] = [], title: String? = nil) {
         self.name = name
         self.record = record
+        self.title = title
         User.shared = self
     }
     
@@ -55,6 +57,12 @@ final class User {
     
     func leave(challenge: Challenge) {
         ongoingChallenges.removeAll(where: {$0.name == challenge.name})
+        save()
+    }
+    
+    func setSelectedAchievement(_ achievement: Achievement) {
+        title = achievement.name
+        save()
     }
 }
 
@@ -63,6 +71,7 @@ extension User: Codable {
         case name
         case ongoingChallenges
         case record
+        case title
     }
     
     func encode(to encoder: Encoder) throws {
@@ -79,6 +88,7 @@ extension User: Codable {
         
         try c.encode(name, forKey: .name)
         try c.encode(record, forKey: .record)
+        try c.encode(title, forKey: .title)
     }
     
     
@@ -87,8 +97,10 @@ extension User: Codable {
 
         let name = try c.decode(String.self, forKey: .name)
         let record = try c.decode(Record.self, forKey: .record)
+        let title = try c.decode(String?.self, forKey: .title)
         
-        self.init(name: name, record: record)
+        self.init(name: name, record: record, title: title)
+        self.record.checkAchievements()
         
         var challengeContainer = try c.nestedUnkeyedContainer(forKey: .ongoingChallenges)
         while !challengeContainer.isAtEnd {

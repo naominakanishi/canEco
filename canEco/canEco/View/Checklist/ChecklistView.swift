@@ -8,13 +8,14 @@ class ChecklistView: UIView {
     let checklistStackView = UIStackView()
 
     var stepChallenge: StepChallenge
-    var associatedProgressBar: ProgressBar?
     let tapCallback: TapCallback
     var checklistItems: [ChecklistItemView] = []
+    var isChallengeActive: Bool
     
     init(stepChallenge: StepChallenge, tapCallback: @escaping TapCallback) {
         self.stepChallenge = stepChallenge
         self.tapCallback = tapCallback
+        isChallengeActive = (User.shared.ongoingChallenges.first { $0.name == stepChallenge.name } != nil )
         super.init(frame: .zero)
         displayChecklistTitle()
         displayChecklistStackView()
@@ -34,7 +35,7 @@ class ChecklistView: UIView {
             checklistTitle.widthAnchor.constraint(equalTo: widthAnchor)
         ])
         
-        checklistTitle.text = "Seu progresso"
+        checklistTitle.text = isChallengeActive ? "Seu progresso" : "Etapas"
         checklistTitle.font = UIFont(name: "Ubuntu-Bold", size: 20)
         checklistTitle.textColor = stepChallenge.category.getColor()
         checklistTitle.textAlignment = .center

@@ -33,7 +33,7 @@ class ProfileHeaderView: UIView {
         achievementLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(achievementLabel)
         
-        let attributedString = NSMutableAttributedString(string: "SALVADOR DE TARTARUGA")
+        let attributedString = NSMutableAttributedString(string: User.shared.title?.uppercased() ?? "INICIANTE")
         attributedString.addAttribute(.kern, value: 2, range: NSRange(location: 0, length: attributedString.length))
         achievementLabel.attributedText = attributedString
         achievementLabel.font = UIFont(name: "Ubuntu-Bold", size: 24)

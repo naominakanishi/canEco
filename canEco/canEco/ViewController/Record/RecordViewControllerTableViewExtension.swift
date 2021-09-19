@@ -27,13 +27,20 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else {
             let achievement = achievementData[indexPath.row]
-            cell.configureCellInfo(withImage: UIImage(named: "placeholder")!, title: achievement.0.name, andSubtitle: achievement.0.descricao)
+            cell.configureCellInfo(withImage: UIImage(named: "ilhaPlaceholder")!, title: achievement.0.name, andSubtitle: achievement.0.descricao)
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return max(85 / 896 * view.frame.height, UITableView.automaticDimension)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if segmentedControl.selectedSegmentIndex == 1 {
+            let achievement = achievementData[indexPath.row]
+            User.shared.setSelectedAchievement(achievement.0)
+        }
     }
     
 }

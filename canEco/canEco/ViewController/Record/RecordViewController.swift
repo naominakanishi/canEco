@@ -60,6 +60,11 @@ class RecordViewController: UIViewController {
     
     @objc func selectedIndexChanged(_ sender: UISegmentedControl) {
         dataTableView.reloadData()
+        if sender.selectedSegmentIndex == 1 {
+            dataTableView.allowsSelection = true
+        } else {
+            dataTableView.allowsSelection = false
+        }
     }
 
     func setupDataTableView() {

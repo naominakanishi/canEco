@@ -29,6 +29,7 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         fetchData()
+        header.setupAchievementLabel()
         setupImpactCount()
         setupCompletedChallenges()
     }
