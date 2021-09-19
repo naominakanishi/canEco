@@ -36,7 +36,7 @@ class ProfileHeaderView: UIView {
         let attributedString = NSMutableAttributedString(string: User.shared.title?.uppercased() ?? "INICIANTE")
         attributedString.addAttribute(.kern, value: 2, range: NSRange(location: 0, length: attributedString.length))
         achievementLabel.attributedText = attributedString
-        achievementLabel.font = UIFont(name: "Ubuntu-Bold", size: 24)
+        achievementLabel.font = UIFont(name: "Ubuntu-Bold", size: 20)
         achievementLabel.textColor = UIColor(named: "accentGreen")
         achievementLabel.numberOfLines = 0
         

@@ -85,7 +85,10 @@ final class OpenCardViewController: UIViewController {
         setupLabels()
         displayTipsTitle()
         displayTipsText()
-        displayChecklist()
+        
+        if challenge is StepChallenge {
+            displayChecklist()
+        }
        
         
         if isChallengeActive {
