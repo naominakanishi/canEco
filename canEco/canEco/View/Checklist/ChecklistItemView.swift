@@ -11,12 +11,12 @@ class ChecklistItemView: UIView {
     let itemDescription = UILabel()
 
     var challenge: StepChallenge
+    var isChallengeOngoing: Bool
     weak var delegate: CheckListItemViewDelegate?
     
     var stepIndex: Int
-
     let isChecked: Bool = false
-
+    
     let checkboxPadding: CGFloat = 30
     
     init(challenge: StepChallenge, stepIndex: Int){
@@ -24,6 +24,7 @@ class ChecklistItemView: UIView {
         
         self.challenge = challenge
         self.stepIndex = stepIndex
+        self.isChallengeOngoing = User.shared.ongoingChallenges.first(where: { $0.name == challenge.name }) != nil
         
         super.init(frame: .zero)
        
@@ -69,7 +70,7 @@ class ChecklistItemView: UIView {
         
         NSLayoutConstraint.activate([
             itemTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            itemTitle.leadingAnchor.constraint(equalTo: checkImage.trailingAnchor, constant: checkboxPadding),
+            itemTitle.leadingAnchor.constraint(equalTo: isChallengeOngoing ? checkImage.trailingAnchor : leadingAnchor, constant: checkboxPadding),
             itemTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -checkboxPadding),
         ])
         
@@ -84,7 +85,7 @@ class ChecklistItemView: UIView {
         
         NSLayoutConstraint.activate([
             itemDescription.topAnchor.constraint(equalTo: itemTitle.bottomAnchor, constant: 5),
-            itemDescription.leadingAnchor.constraint(equalTo: checkImage.trailingAnchor, constant: checkboxPadding),
+            itemDescription.leadingAnchor.constraint(equalTo: isChallengeOngoing ? checkImage.trailingAnchor : leadingAnchor, constant: checkboxPadding),
             itemDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -checkboxPadding),
             itemDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
         ])
@@ -106,7 +107,9 @@ class ChecklistItemView: UIView {
             imageName = "lock"
         }
         
-        checkImage.image = UIImage(systemName: imageName)
+        if isChallengeOngoing {
+            checkImage.image = UIImage(systemName: imageName)
+        }
         
         itemDescription.textColor = challenge.steps[stepIndex].isComplete ? UIColor.lightGray : UIColor(named: "black")
         
@@ -125,6 +128,10 @@ class ChecklistItemView: UIView {
     }
     
     @objc func handleTap() {
+        
+        if !isChallengeOngoing {
+            return
+        }
         
         if stepIndex == challenge.completedSteps - 1 {
             delegate?.handleItemTapped(self, .backwards)
