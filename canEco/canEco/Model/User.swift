@@ -52,6 +52,10 @@ final class User {
         challenge.undoStep()
         save()
     }
+    
+    func leave(challenge: Challenge) {
+        ongoingChallenges.removeAll(where: {$0.name == challenge.name})
+    }
 }
 
 extension User: Codable {
