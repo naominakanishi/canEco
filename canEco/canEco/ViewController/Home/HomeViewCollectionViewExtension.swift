@@ -89,7 +89,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if indexPath.item == data.count {
             tabBarController?.selectedIndex = 1
         } else {
-            present(OpenCardViewController(challenge: data[indexPath.item]), animated: true, completion: nil)
+            let vc = OpenCardViewController(challenge: data[indexPath.item])
+            vc.challengeDelegate = self
+            present(vc, animated: true, completion: nil)
         }
     }
     
@@ -122,3 +124,4 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 //        }
     }
 }
+

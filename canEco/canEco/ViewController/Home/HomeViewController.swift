@@ -53,7 +53,7 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         data = User.shared.ongoingChallenges
     }
-    
+  
     func displayHomeTitle(){
         homeTitle.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(homeTitle)
@@ -157,3 +157,8 @@ class HomeViewController: UIViewController {
 
 }
 
+extension HomeViewController: OpenCardViewControllerDelegate {
+    func didUpdateChallenges() {
+        data = User.shared.ongoingChallenges
+    }
+}

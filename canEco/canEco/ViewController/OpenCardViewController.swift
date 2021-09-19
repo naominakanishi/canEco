@@ -1,5 +1,9 @@
 import UIKit
 
+protocol OpenCardViewControllerDelegate: AnyObject {
+    func didUpdateChallenges()
+}
+
 final class OpenCardViewController: UIViewController {
     
     private let challenge: Challenge
@@ -13,6 +17,7 @@ final class OpenCardViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    weak var challengeDelegate: OpenCardViewControllerDelegate?
     
     var header: OpenCardHeaderView!
     
@@ -51,13 +56,6 @@ final class OpenCardViewController: UIViewController {
         
         isChallengeActive = (User.shared.ongoingChallenges.first { $0.name == challenge.name } != nil )
        
-        if !isChallengeActive {
-            displayAcceptChallengeButton()
-            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor)
-        }
-//        } else {
-//            displayLeaveChallengeButton()
-//        }
         
         displayContentsScrollView()
         
@@ -72,7 +70,15 @@ final class OpenCardViewController: UIViewController {
         displayTipsTitle()
         displayTipsText()
         displaySeparatorView()
-        displayLeaveChallengeButton()
+       
+        
+        if !isChallengeActive {
+            displayAcceptChallengeButton()
+            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor).isActive = true
+         
+        } else {
+            displayLeaveChallengeButton()
+        }
         
         
     
@@ -85,12 +91,12 @@ final class OpenCardViewController: UIViewController {
                         User.shared.progress(in: stepChallenge)
                 }
                 self.header.progressBar?.completedStepCount = stepChallenge.completedSteps
+                self.challengeDelegate?.didUpdateChallenges()
             }
             displayChecklist()
         } else {
             impactTitle.topAnchor.constraint(equalTo: challengeDescription.bottomAnchor, constant: 25).isActive = true
         }
-        
     }
 
 
@@ -349,6 +355,7 @@ final class OpenCardViewController: UIViewController {
         }))
         alert.addAction(.init(title: "Sim, desistir", style: .destructive, handler: { _ in
             User.shared.leave(challenge: self.challenge)
+            self.challengeDelegate?.didUpdateChallenges()
             self.dismiss(animated: true, completion: nil)
         }))
         present(alert, animated: true, completion: nil)
@@ -358,6 +365,7 @@ final class OpenCardViewController: UIViewController {
     @objc
     func handleAcceptButton() {
         User.shared.begin(challenge: challenge)
+        challengeDelegate?.didUpdateChallenges()
         dismiss(animated: true, completion: nil)
         
         if let del = delegate {
