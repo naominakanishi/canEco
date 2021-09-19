@@ -19,7 +19,7 @@ final class OpenCardViewController: UIViewController {
     
     weak var challengeDelegate: OpenCardViewControllerDelegate?
     
-    var header: OpenCardHeaderView!
+    lazy var header: OpenCardHeaderView = OpenCardHeaderView (challenge: challenge)
     
     let contentsScrollView = UIScrollView()
     
@@ -56,32 +56,8 @@ final class OpenCardViewController: UIViewController {
         
         isChallengeActive = (User.shared.ongoingChallenges.first { $0.name == challenge.name } != nil )
        
+        addSubviews()
         
-        displayContentsScrollView()
-        
-        displayHeader()
-        displayChallengeTitle()
-        displayPlaceholderInformation()
-        displayChallengeDescription()
-        displayImpactTitle()
-        displayImpactsStackView()
-        setupBenefits()
-        setupLabels()
-        displayTipsTitle()
-        displayTipsText()
-        displaySeparatorView()
-       
-        
-        if !isChallengeActive {
-            displayAcceptChallengeButton()
-            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor).isActive = true
-         
-        } else {
-            displayLeaveChallengeButton()
-        }
-        
-        
-    
         if let stepChallenge = challenge as? StepChallenge {
             checklistStackView = ChecklistView(stepChallenge: stepChallenge) { direction in
                 switch direction {
@@ -93,10 +69,33 @@ final class OpenCardViewController: UIViewController {
                 self.header.progressBar?.completedStepCount = stepChallenge.completedSteps
                 self.challengeDelegate?.didUpdateChallenges()
             }
-            displayChecklist()
+            checklistStackView?.translatesAutoresizingMaskIntoConstraints = false
+            contentsScrollView.addSubview(checklistStackView!)
         } else {
             impactTitle.topAnchor.constraint(equalTo: challengeDescription.bottomAnchor, constant: 25).isActive = true
         }
+        
+        displayHeader()
+        displayChallengeTitle()
+        displayPlaceholderInformation()
+        displayChallengeDescription()
+        displayImpactTitle()
+        displayImpactsStackView()
+        setupBenefits()
+        setupLabels()
+        displayTipsTitle()
+        displayTipsText()
+        displayChecklist()
+       
+        
+        if isChallengeActive {
+            displayLeaveChallengeButton()
+            displaySeparatorView()
+        } else {
+            displayAcceptChallengeButton()
+        }
+        
+        displayContentsScrollView()
     }
 
 
@@ -120,12 +119,53 @@ final class OpenCardViewController: UIViewController {
         tipsText.text = challenge.tip
     }
     
-    private func displayContentsScrollView() {
+    private func addSubviews() {
         contentsScrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(contentsScrollView)
+        
+        header.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(header)
+        
+        challengeTitle.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(challengeTitle)
+
+        placeholderInformation.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(placeholderInformation)
+        
+        challengeDescription.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(challengeDescription)
+        
+        impactTitle.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(impactTitle)
+        
+        contentsScrollView.addSubview(impactsStackView)
+        impactsStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        tipsTitle.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(tipsTitle)
+        
+        tipsText.translatesAutoresizingMaskIntoConstraints = false
+        contentsScrollView.addSubview(tipsText)
+        
+        if isChallengeActive {
+            separatorView.translatesAutoresizingMaskIntoConstraints = false
+            contentsScrollView.addSubview(separatorView)
+            
+            leaveChallengeButton.translatesAutoresizingMaskIntoConstraints = false
+            contentsScrollView.addSubview(leaveChallengeButton)
+        } else {
+            acceptChallengeButton.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(acceptChallengeButton)
+        }
+    }
+    
+    private func displayContentsScrollView() {
         contentsScrollView.showsVerticalScrollIndicator = false
         
-        let bottomConstraint = isChallengeActive ? contentsScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor) : contentsScrollView.bottomAnchor.constraint(equalTo: acceptChallengeButton.topAnchor, constant: -15)
+        let bottomConstraint = isChallengeActive ? contentsScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor) : contentsScrollView.bottomAnchor.constraint(
+                equalTo: acceptChallengeButton.bottomAnchor,
+                constant: -63 - 20
+            )
         
         
         NSLayoutConstraint.activate([
@@ -138,9 +178,6 @@ final class OpenCardViewController: UIViewController {
  
     
     private func displayHeader() {
-        header = OpenCardHeaderView (challenge: challenge)
-        header.translatesAutoresizingMaskIntoConstraints = false
-        contentsScrollView.addSubview(header)
         
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: contentsScrollView.topAnchor),
@@ -155,8 +192,6 @@ final class OpenCardViewController: UIViewController {
     }
     
     private func displayChallengeTitle() {
-        challengeTitle.translatesAutoresizingMaskIntoConstraints = false
-        contentsScrollView.addSubview(challengeTitle)
 
         
         NSLayoutConstraint.activate([
@@ -172,8 +207,6 @@ final class OpenCardViewController: UIViewController {
     }
     
     private func displayPlaceholderInformation() {
-        placeholderInformation.translatesAutoresizingMaskIntoConstraints = false
-        contentsScrollView.addSubview(placeholderInformation)
         
         placeholderInformation.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor).isActive = true
         placeholderInformation.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.9).isActive = true
@@ -189,11 +222,9 @@ final class OpenCardViewController: UIViewController {
     private func displayAcceptChallengeButton() {
         acceptChallengeButton.setTitle("Topar Desafio", for: .normal)
         acceptChallengeButton.backgroundColor = challenge.category.getColor()
-        acceptChallengeButton.translatesAutoresizingMaskIntoConstraints = false
         
         acceptChallengeButton.addTarget(self, action: #selector(handleAcceptButton), for: .touchUpInside)
         
-        view.addSubview(acceptChallengeButton)
         
         NSLayoutConstraint.activate([
             acceptChallengeButton.widthAnchor.constraint(equalToConstant: 333),
@@ -208,8 +239,6 @@ final class OpenCardViewController: UIViewController {
     }
     
     private func displayChallengeDescription() {
-        challengeDescription.translatesAutoresizingMaskIntoConstraints = false
-        contentsScrollView.addSubview(challengeDescription)
         
         NSLayoutConstraint.activate([
 
@@ -224,8 +253,6 @@ final class OpenCardViewController: UIViewController {
     }
     
     private func displayChecklist() {
-        checklistStackView?.translatesAutoresizingMaskIntoConstraints = false
-        contentsScrollView.addSubview(checklistStackView!)
         
         NSLayoutConstraint.activate([
             checklistStackView!.topAnchor.constraint(equalTo: challengeDescription.bottomAnchor, constant: verticalSpacing),
@@ -238,8 +265,6 @@ final class OpenCardViewController: UIViewController {
     }
     
     private func displayImpactTitle() {
-        impactTitle.translatesAutoresizingMaskIntoConstraints = false
-        contentsScrollView.addSubview(impactTitle)
         
         NSLayoutConstraint.activate([
             impactTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7),
@@ -253,10 +278,8 @@ final class OpenCardViewController: UIViewController {
         impactTitle.textColor = challenge.category.getColor()
     }
     
-    func displayImpactsStackView(){
+    private func displayImpactsStackView(){
         
-        contentsScrollView.addSubview(impactsStackView)
-        impactsStackView.translatesAutoresizingMaskIntoConstraints = false
         
         
         NSLayoutConstraint.activate([
@@ -281,8 +304,6 @@ final class OpenCardViewController: UIViewController {
     }
    
     private func displayTipsTitle() {
-        tipsTitle.translatesAutoresizingMaskIntoConstraints = false
-        contentsScrollView.addSubview(tipsTitle)
 
         NSLayoutConstraint.activate([
             tipsTitle.topAnchor.constraint(equalTo: impactsStackView.bottomAnchor, constant: verticalSpacing),
@@ -298,8 +319,6 @@ final class OpenCardViewController: UIViewController {
     }
     
     private func displayTipsText() {
-        tipsText.translatesAutoresizingMaskIntoConstraints = false
-        contentsScrollView.addSubview(tipsText)
         
         NSLayoutConstraint.activate([
             tipsText.topAnchor.constraint(equalTo: tipsTitle.bottomAnchor, constant: verticalSpacing),
@@ -308,14 +327,17 @@ final class OpenCardViewController: UIViewController {
          
         ])
         
+        if !isChallengeActive {
+            
+            tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor).isActive = true
+        }
+        
         tipsText.numberOfLines = 0
         tipsText.font = UIFont(name: "Ubuntu", size: 16)
         
     }
     
     private func displaySeparatorView() {
-        separatorView.translatesAutoresizingMaskIntoConstraints = false
-        contentsScrollView.addSubview(separatorView)
         
         NSLayoutConstraint.activate([
             separatorView.topAnchor.constraint(equalTo: tipsText.bottomAnchor, constant: verticalSpacing*2.2),
@@ -328,8 +350,6 @@ final class OpenCardViewController: UIViewController {
     }
     
     private func displayLeaveChallengeButton() {
-        leaveChallengeButton.translatesAutoresizingMaskIntoConstraints = false
-        contentsScrollView.addSubview(leaveChallengeButton)
         
         NSLayoutConstraint.activate([
             leaveChallengeButton.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: verticalSpacing),

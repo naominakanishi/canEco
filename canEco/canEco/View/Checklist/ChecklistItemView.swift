@@ -84,9 +84,20 @@ class ChecklistItemView: UIView {
         addSubview(itemDescription)
         
         NSLayoutConstraint.activate([
-            itemDescription.topAnchor.constraint(equalTo: itemTitle.bottomAnchor, constant: 5),
-            itemDescription.leadingAnchor.constraint(equalTo: isChallengeOngoing ? checkImage.trailingAnchor : leadingAnchor, constant: checkboxPadding),
-            itemDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -checkboxPadding),
+            itemDescription.topAnchor.constraint(
+                equalTo: itemTitle.bottomAnchor,
+                constant: 5
+            ),
+            itemDescription.leadingAnchor.constraint(
+                equalTo: isChallengeOngoing ?
+                    checkImage.trailingAnchor :
+                    leadingAnchor,
+                constant: checkboxPadding
+            ),
+            itemDescription.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -checkboxPadding
+            ),
             itemDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
         ])
         

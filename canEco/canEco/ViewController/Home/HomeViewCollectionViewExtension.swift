@@ -81,7 +81,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     // Tamanho do header
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        print(collectionView.frame.width)
         return CGSize(width: collectionView.frame.width, height: 30)
     }
 

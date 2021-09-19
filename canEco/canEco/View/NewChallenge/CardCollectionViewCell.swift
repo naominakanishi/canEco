@@ -90,7 +90,6 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
     
     func displayChallengeTitle() {
-        print(contentView.frame)
         challengeTitle.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(challengeTitle)
         
