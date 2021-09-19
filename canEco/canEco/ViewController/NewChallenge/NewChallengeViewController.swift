@@ -39,7 +39,7 @@ class NewChallengeViewController: UIViewController {
         view.backgroundColor = UIColor(named: "bege")
         title = "Desafios"
 //        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
         setupFilter()
         displayChallengesCv()
     }
