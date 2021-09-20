@@ -133,13 +133,15 @@ class ChallengeCell: UICollectionViewCell {
     func configureCell(){
         guard let taskName = challenge?.name,
               let color = challenge?.category.getColor(),
-              let taskImage = challenge?.imageName
+              let taskImage = challenge?.imageName,
+              let isComplete = challenge?.isComplete
         else { return }
         taskImageView.image = UIImage(named: taskImage)
         self.taskTitle.text = taskName
         contentView.backgroundColor = .white
         progressBar.highlightColor = color
         checkButton.backgroundColor = color
+        self.taskTitle.textColor = isComplete ? .white : .black
         
         
         if let stepper = challenge as? StepCounter {
