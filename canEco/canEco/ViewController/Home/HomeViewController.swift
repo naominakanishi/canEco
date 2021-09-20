@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
 
     let homeTitle = UILabel()
     let userName = UILabel()
+    let logo = UIImageView()
     var island = UIView()
     var collectionView: UICollectionView!
     var titleLabelSize: CGFloat!
@@ -44,7 +45,8 @@ class HomeViewController: UIViewController {
         titleLabelSize = "Juliano".width(withConstrainedHeight: 1000, font: UIFont.boldSystemFont(ofSize: userNameFontSize))
         
         displayIsland()
-        displayHomeTitle()
+        //displayHomeTitle()
+        displayLogo()
         setupCollectionView()
         data = User.shared.ongoingChallenges
     }
@@ -52,6 +54,25 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         data = User.shared.ongoingChallenges
+    }
+    
+    func displayLogo() {
+        logo.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(logo)
+        
+        let centerXAnchor = logo.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        centerXAnchor.identifier = "labelCenterX"
+        let centerYAnchor = logo.centerYAnchor.constraint(equalTo: view.topAnchor, constant: distanceToTop)
+        centerYAnchor.identifier = "labelCenterY"
+        
+        NSLayoutConstraint.activate([
+            logo.widthAnchor.constraint(equalToConstant: 64),
+            logo.heightAnchor.constraint(equalTo: logo.widthAnchor, multiplier: 64/66),
+            centerXAnchor,
+            centerYAnchor
+        ])
+        
+        logo.image = UIImage(named: "logoCanEco")
     }
   
     func displayHomeTitle(){
