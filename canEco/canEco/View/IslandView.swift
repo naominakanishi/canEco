@@ -44,8 +44,11 @@ class IslandView: UIView {
     func getIslandComponents() -> [String] {
         var dict: [ImageTipes: Int] = .init(uniqueKeysWithValues: ImageTipes.allCases.map { ($0, 0) })
         
-        for challange in User.shared.record.challengeRecord {
-            dict[challange.imageType]! += 1
+        for challenge in User.shared.record.challengeRecord {
+                if challenge.imageType != .any {
+                    dict[.any]! += 1
+                }
+                dict[challenge.imageType]! += 1
         }
         
         var imageNames: [String] = []
@@ -55,7 +58,7 @@ class IslandView: UIView {
         imageNames.append(dict[.any]! <= 9 ? "7_ilhaSuja-1" : "7_ilhaLimpa-1")
         
         let carOrBike = dict[.bike]! >= 3 ? "bicicleta" : "carro"
-        imageNames.append(dict[.any]! <= 8 ? "6_\(carOrBike)Sujo-1" : "6_\(carOrBike)Limpa-1")
+        imageNames.append(dict[.any]! <= 8 ? "6_\(carOrBike)Suja-1" : "6_\(carOrBike)Limpa-1")
         
         var islandSecondTop = dict[.any]! <= 2 ? "5_segundoTopoIlhaSuja" : "5_segundoTopoIlhaLimpa"
         if dict[.cow]! >= 2 { islandSecondTop += "Vaca" }

@@ -16,7 +16,7 @@ final class Achievements {
         }, false),
         
         (Achievement(name: "Amigo do ambiente", descricao: "Iniciou a reciclagem de lixo", imageEmoji: "🤲") { record in
-            record.challengeRecord.filter { $0.name == "Comece a separar o lixo" }.count >= 4
+            record.challengeRecord.filter { $0.name == "Comece a separar o lixo" }.count >= 1
         }, false),
         
         (Achievement(name: "Artista no tempo livre", descricao: "Reutilizou o seu lixo", imageEmoji: "🧑‍🎨") { record in
@@ -24,7 +24,7 @@ final class Achievements {
         }, false),
 
         (Achievement(name: "Minhoqueiro de plantão", descricao: "Iniciou uma composteira", imageEmoji: "🪱") { record in
-            record.challengeRecord.filter { $0.name == "Faça uma composteira" }.count >= 3
+            record.challengeRecord.filter { $0.name == "Faça uma composteira" }.count >= 1
         }, false),
         
         
@@ -33,14 +33,14 @@ final class Achievements {
         }, false),
         
         (Achievement(name: "Pesquisador do bairro", descricao: "Usou ecobags", imageEmoji: "🔎") { record in
-            record.challengeRecord.filter { $0.name == "Use ecobags" }.count >= 1
+            record.challengeRecord.filter { $0.name == "Use ecobags" }.count >= 3
         }, false),
         
         (Achievement(name: "Salvador de Tartarugas", descricao: "Deixou de poluir 10 vezes") { record in
             record.benefitRecord.first { $0.benefit == .polution }!.count >= 10
         }, false),
         
-        (Achievement(name: "O redutor de gases", descricao: "Passou o dia sem carro") { record in record.challengeRecord.filter { $0.name == "Segunda sem carro" }.count >= 1
+        (Achievement(name: "O redutor de gases", descricao: "Passou o dia sem carro") { record in record.challengeRecord.filter { $0.name == "Segunda-feira sem carro" }.count >= 1
         }, false)
         ]
 }
