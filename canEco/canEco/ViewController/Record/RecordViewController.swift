@@ -77,6 +77,7 @@ class RecordViewController: UIViewController {
         dataTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         dataTableView.register(ImageTitleSubtitleTableViewCell.self, forCellReuseIdentifier: "Cell")
+        dataTableView.register(EmojiTitleSubtitleTableViewCell.self, forCellReuseIdentifier: "AchievementCell")
         dataTableView.allowsSelection = false
         dataTableView.delegate = self
         dataTableView.dataSource = self

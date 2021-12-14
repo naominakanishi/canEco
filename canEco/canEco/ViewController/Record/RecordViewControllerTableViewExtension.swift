@@ -17,17 +17,20 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = dataTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ImageTitleSubtitleTableViewCell
 
         if segmentedControl.selectedSegmentIndex == 0 {
+            let cell = dataTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ImageTitleSubtitleTableViewCell
+            
             let challenge = challengeData[indexPath.row]
             let formatter1 = DateFormatter()
             formatter1.dateFormat = "d/M/Y"
             cell.configureCellInfo(withImage: UIImage(named: challenge.imageName)!, title: challenge.name, andSubtitle: formatter1.string(from: challenge.completionDate!))
             return cell
         } else {
+            let cell = dataTableView.dequeueReusableCell(withIdentifier: "AchievementCell", for: indexPath) as! EmojiTitleSubtitleTableViewCell
+            
             let achievement = achievementData[indexPath.row]
-            cell.configureCellInfo(withImage: UIImage(named: "ilhaPlaceholder")!, title: achievement.0.name, andSubtitle: achievement.0.descricao)
+            cell.configureCellInfo(withEmoji: achievement.0.imageEmoji, title: achievement.0.name, andSubtitle: achievement.0.descricao)
             return cell
         }
     }

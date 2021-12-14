@@ -18,6 +18,7 @@
 		FA0AA4D026E3FA9100892E4C /* NewTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AA4CF26E3FA9100892E4C /* NewTaskButton.swift */; };
 		FA0AA4D326E40C0E00892E4C /* NewChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AA4D226E40C0E00892E4C /* NewChallengeViewController.swift */; };
 		FA0AA4D626E40FD300892E4C /* CategoryTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AA4D526E40FD300892E4C /* CategoryTagCollectionViewCell.swift */; };
+		FA0C8C7B2768F2CA00A1FC3C /* EmojiTitleSubtitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C8C7A2768F2CA00A1FC3C /* EmojiTitleSubtitleTableViewCell.swift */; };
 		FA29894A26E161DA0078BE1A /* CheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29894926E161DA0078BE1A /* CheckListViewController.swift */; };
 		FA3FE90E26EA4E790013ABAB /* HomeViewAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE90D26EA4E790013ABAB /* HomeViewAnim.swift */; };
 		FA3FE91026EA4F250013ABAB /* CheckButtonAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE90F26EA4F250013ABAB /* CheckButtonAnim.swift */; };
@@ -81,6 +82,7 @@
 		FA0AA4CF26E3FA9100892E4C /* NewTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskButton.swift; sourceTree = "<group>"; };
 		FA0AA4D226E40C0E00892E4C /* NewChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChallengeViewController.swift; sourceTree = "<group>"; };
 		FA0AA4D526E40FD300892E4C /* CategoryTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA0C8C7A2768F2CA00A1FC3C /* EmojiTitleSubtitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTitleSubtitleTableViewCell.swift; sourceTree = "<group>"; };
 		FA29894926E161DA0078BE1A /* CheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListViewController.swift; sourceTree = "<group>"; };
 		FA3FE90D26EA4E790013ABAB /* HomeViewAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewAnim.swift; sourceTree = "<group>"; };
 		FA3FE90F26EA4F250013ABAB /* CheckButtonAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButtonAnim.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				FA74EDB526EECE2F00AE9639 /* Info */,
 				FA3FE90A26EA4DA00013ABAB /* Animations */,
 				FA74EDA026EE298B00AE9639 /* ImageTitleSubtitleTableViewCell.swift */,
+				FA0C8C7A2768F2CA00A1FC3C /* EmojiTitleSubtitleTableViewCell.swift */,
 				FA750A8A26F6C47900BD6E29 /* IslandView.swift */,
 			);
 			path = View;
@@ -483,6 +486,7 @@
 				FADB9AB826DFF53400BE8481 /* ChallengeCell.swift in Sources */,
 				FA74EDAF26EECBEE00AE9639 /* ProfileTableViewExtension.swift in Sources */,
 				FA74EDB726EECE5100AE9639 /* CategoryInfo.swift in Sources */,
+				FA0C8C7B2768F2CA00A1FC3C /* EmojiTitleSubtitleTableViewCell.swift in Sources */,
 				FA72E0EC26E686CE00976C8B /* Achievement.swift in Sources */,
 				D749BC7226EEB15B004E7B99 /* OpenCardViewController.swift in Sources */,
 				D749BC7426EEB5E3004E7B99 /* ProgressBar.swift in Sources */,
@@ -654,6 +658,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8KLVK79M3G;
 				INFOPLIST_FILE = canEco/Info.plist;
@@ -661,10 +666,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.canEco;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mini2.canEco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -673,6 +679,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8KLVK79M3G;
 				INFOPLIST_FILE = canEco/Info.plist;
@@ -680,10 +687,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.canEco;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mini2.canEco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

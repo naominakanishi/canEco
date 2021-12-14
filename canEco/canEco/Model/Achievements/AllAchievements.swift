@@ -36,11 +36,11 @@ final class Achievements {
             record.challengeRecord.filter { $0.name == "Use ecobags" }.count >= 3
         }, false),
         
-        (Achievement(name: "Salvador de Tartarugas", descricao: "Deixou de poluir 10 vezes") { record in
+        (Achievement(name: "Salvador de Tartarugas", descricao: "Deixou de poluir 10 vezes", imageEmoji: "🐢") { record in
             record.benefitRecord.first { $0.benefit == .polution }!.count >= 10
         }, false),
         
-        (Achievement(name: "O redutor de gases", descricao: "Passou o dia sem carro") { record in record.challengeRecord.filter { $0.name == "Segunda-feira sem carro" }.count >= 1
+        (Achievement(name: "O redutor de gases", descricao: "Passou o dia sem carro", imageEmoji: "🚲") { record in record.challengeRecord.filter { $0.name == "Segunda-feira sem carro" }.count >= 1
         }, false)
         ]
 }

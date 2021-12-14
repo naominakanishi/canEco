@@ -123,7 +123,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 ////                !isCollectionViewMaximized
 //        {
 //            isCollectionViewMaximized.toggle()
-            performCollectionViewAnimation(withSpeed: speed, andDeceleration: displacement)
+//        if data.count > 4 {
+//            performCollectionViewAnimation(withSpeed: speed, andDeceleration: displacement)
+//        }
 //        }
     }
 }
