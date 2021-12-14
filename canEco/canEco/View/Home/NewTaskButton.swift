@@ -30,6 +30,11 @@ class NewTaskButton: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure() {
+        dashBorder.removeFromSuperlayer()
+        setupBorder()
+    }
+    
     func setupBorder() {
         dashBorder = CAShapeLayer()
         dashBorder.lineWidth = 1

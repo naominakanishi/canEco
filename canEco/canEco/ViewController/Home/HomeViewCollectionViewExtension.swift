@@ -13,10 +13,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let indexPath = collectionView.indexPath(for: sender)!
         collectionView.performBatchUpdates( {
             collectionView.deleteItems(at: [indexPath])
+        }) { completed in
+            guard completed else { return }
             if self.data.count == 0 {
-                self.collectionView.reloadItems(at: [IndexPath(item: 1, section: 0)])
+                self.collectionView.reloadItems(at: [.init(item: .zero, section: .zero)])
             }
-        }, completion: nil)
+        }
         if let island = island as? IslandView {
             island.setupIsland()
         }
@@ -39,6 +41,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell_new", for: indexPath) as! NewTaskButton
+            cell.configure()
             return cell
         }
     }
