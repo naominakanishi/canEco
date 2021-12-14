@@ -11,15 +11,9 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Comandos para arredondar as bordas da TabBar
-        tabBar.layer.borderWidth = 0.1
-        tabBar.layer.cornerRadius = 35
-        tabBar.layer.masksToBounds = true
-        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        tabBar.isTranslucent = true
-        tabBar.tintColor = UIColor(named: "accentGreen")
+        // Comandos para arredondar as bordas da TabBar
+        
         viewControllers = [
             HomeViewController(),
             UINavigationController(rootViewController: NewChallengeViewController()),
@@ -28,5 +22,31 @@ class TabBarViewController: UITabBarController {
     
        
         selectedIndex = 0
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let backgroundView = UIView()
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        
+        backgroundView.backgroundColor = .blue
+        
+        backgroundView.layer.borderWidth = 0.1
+        backgroundView.layer.cornerRadius = 35
+        backgroundView.layer.masksToBounds = true
+        backgroundView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        backgroundView.tintColor = UIColor(named: "accentGreen")
+        backgroundView.backgroundColor = UIColor(named: "beige")
+        
+        tabBar.addSubview(backgroundView)
+        
+        NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: tabBar.topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: tabBar.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: tabBar.trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: tabBar.bottomAnchor),
+        ])
+        
+        tabBar.sendSubviewToBack(backgroundView)
     }
 }
