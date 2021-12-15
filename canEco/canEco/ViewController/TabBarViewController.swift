@@ -9,6 +9,10 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
 
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .darkContent
+//    }
+//    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +42,8 @@ class TabBarViewController: UITabBarController {
         backgroundView.tintColor = UIColor(named: "accentGreen")
         backgroundView.backgroundColor = UIColor(named: "beige")
         
+        tabBar.unselectedItemTintColor = UIColor(named: "gray")
+        tabBar.tintColor = UIColor(named: "accentGreen")
         tabBar.addSubview(backgroundView)
         
         NSLayoutConstraint.activate([
@@ -47,6 +53,13 @@ class TabBarViewController: UITabBarController {
             backgroundView.bottomAnchor.constraint(equalTo: tabBar.bottomAnchor),
         ])
         
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "black") ?? .black]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "black") ?? .black]
+        
         tabBar.sendSubviewToBack(backgroundView)
     }
+//    
+//    override func viewDidAppear(_ animated: Bool) {
+//        navigationController?.navigationBar.barStyle = .black
+//    }
 }

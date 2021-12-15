@@ -195,8 +195,6 @@ final class OpenCardViewController: UIViewController {
     }
     
     private func displayChallengeTitle() {
-
-        
         NSLayoutConstraint.activate([
             challengeTitle.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.7),
             challengeTitle.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor),
@@ -237,21 +235,20 @@ final class OpenCardViewController: UIViewController {
         ])
         
         acceptChallengeButton.setTitle("ACEITAR DESAFIO", for: .normal)
-        acceptChallengeButton.titleLabel?.font = UIFont(name: "Ubuntu", size: 20)
+        acceptChallengeButton.titleLabel?.font = UIFont(name: "Ubuntu-Regular", size: 20)
         acceptChallengeButton.layer.cornerRadius = 16
     }
     
     private func displayChallengeDescription() {
-        
         NSLayoutConstraint.activate([
-
             challengeDescription.topAnchor.constraint(equalTo: placeholderInformation.bottomAnchor, constant: verticalSpacing),
             challengeDescription.widthAnchor.constraint(equalTo: contentsScrollView.widthAnchor, multiplier: 0.8),
             challengeDescription.centerXAnchor.constraint(equalTo: contentsScrollView.centerXAnchor)
          
         ])
         challengeDescription.numberOfLines = 0
-        challengeDescription.font = UIFont(name: "Ubuntu", size: 16)
+        challengeDescription.font = UIFont(name: "Ubuntu-Regular", size: 16)
+        challengeDescription.textColor = UIColor(named: "black")
         
     }
     
@@ -331,12 +328,12 @@ final class OpenCardViewController: UIViewController {
         ])
         
         if !isChallengeActive {
-            
             tipsText.bottomAnchor.constraint(equalTo: contentsScrollView.bottomAnchor).isActive = true
         }
         
         tipsText.numberOfLines = 0
-        tipsText.font = UIFont(name: "Ubuntu", size: 16)
+        tipsText.font = UIFont(name: "Ubuntu-Regular", size: 16)
+        tipsText.textColor = UIColor(named: "black")
         
     }
     
@@ -362,7 +359,7 @@ final class OpenCardViewController: UIViewController {
         ])
         
         leaveChallengeButton.setTitle("Desistir do Challenge", for: .normal)
-        leaveChallengeButton.titleLabel?.font = UIFont(name: "Ubuntu", size: 16)
+        leaveChallengeButton.titleLabel?.font = UIFont(name: "Ubuntu-Regular", size: 16)
         leaveChallengeButton.setTitleColor(UIColor(named: "accentWarning"), for: .normal)
         
         leaveChallengeButton.addTarget(self, action: #selector(handleLeaveChallengeButton), for: .touchUpInside)
