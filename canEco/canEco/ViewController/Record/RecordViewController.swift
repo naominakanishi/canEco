@@ -18,7 +18,9 @@ class RecordViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         fetchData()
         hidesBottomBarWhenPushed = true
+        AnalyticsService().setView(name: RecordViewController.self)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

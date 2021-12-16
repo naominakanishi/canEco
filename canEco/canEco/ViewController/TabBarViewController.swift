@@ -9,10 +9,10 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
 
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .darkContent
-//    }
-//    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,8 +58,5 @@ class TabBarViewController: UITabBarController {
         
         tabBar.sendSubviewToBack(backgroundView)
     }
-//    
-//    override func viewDidAppear(_ animated: Bool) {
-//        navigationController?.navigationBar.barStyle = .black
-//    }
 }
+

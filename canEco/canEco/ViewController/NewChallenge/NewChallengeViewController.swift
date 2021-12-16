@@ -8,7 +8,7 @@
 import UIKit
 
 class NewChallengeViewController: UIViewController {
-
+    
     var filter: UICollectionView!
     var data2: [Challenge]!
     var selectedCategories: [Category] = []
@@ -47,6 +47,7 @@ class NewChallengeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         filterData()
         challengesCollectionView.reloadData()
+        AnalyticsService().setView(name: NewChallengeViewController.self)
     }
     
     func filterData() {
@@ -66,6 +67,7 @@ class NewChallengeViewController: UIViewController {
     
     func select(category: Category) {
         selectedCategories.append(category)
+//        if selectedCategories.
     }
 
     func deselect(category: Category) {

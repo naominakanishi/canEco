@@ -11,6 +11,10 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+    
     let homeTitle = UILabel()
     let userName = UILabel()
     let logo = UIImageView()
@@ -54,6 +58,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         data = User.shared.ongoingChallenges
+        AnalyticsService().setView(name: HomeViewController.self)
     }
     
     func displayLogo() {

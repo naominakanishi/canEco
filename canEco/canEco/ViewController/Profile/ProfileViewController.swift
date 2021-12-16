@@ -9,6 +9,10 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+    
     let header = ProfileHeaderView()
     var impactCount: UICollectionView!
     var completedChallenges: UITableView!
@@ -32,6 +36,7 @@ class ProfileViewController: UIViewController {
         header.setupAchievementLabel()
         setupImpactCount()
         setupCompletedChallenges()
+        AnalyticsService().setView(name: ProfileViewController.self)
     }
     
     override func viewDidLoad() {
